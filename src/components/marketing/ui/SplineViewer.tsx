@@ -75,13 +75,20 @@ export const SplineViewer: React.FC<SplineViewerProps> = ({ scene, className = '
   };
 
   const errorFallback = (
-    <div className={`relative flex items-center justify-center bg-gray-50 dark:bg-white/[0.02] border border-dashed border-gray-300 dark:border-white/10 rounded-3xl min-h-[400px] ${className}`}>
-      <div className="text-center p-6">
-        <div className="text-4xl mb-2">🧊</div>
-        <h4 className="text-lg font-bold text-gray-900 dark:text-white">3D Asset Unavailable</h4>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-[250px]">
-          Failed to load 3D scene. Please ensure the Spline link is public.
+    <div className={`relative flex flex-col items-center justify-center bg-gray-50/50 dark:bg-white/[0.02] border border-dashed border-gray-300 dark:border-white/10 rounded-3xl min-h-[400px] h-full ${className}`}>
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-3xl" />
+      <div className="text-center p-8 relative z-10">
+        <div className="w-16 h-16 bg-white dark:bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl border border-black/5 dark:border-white/10">
+          <span className="text-4xl animate-pulse">🧊</span>
+        </div>
+        <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">3D Experience Initializing</h4>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 max-w-[280px] mx-auto leading-relaxed">
+          Please ensure your Spline scene is set to <strong>Public</strong> in the export settings to view this interactive diagram.
         </p>
+        <div className="mt-8 flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-500/50">
+          <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-ping" />
+          Waiting for Source
+        </div>
       </div>
     </div>
   );
