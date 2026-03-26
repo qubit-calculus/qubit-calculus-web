@@ -10,6 +10,7 @@ export interface SectionHeaderProps {
   titleAccent: string;
   titleAccentClass?: string;
   description: string;
+  align?: 'left' | 'center' | 'right';
 }
 
 export const SectionHeader = memo(function SectionHeader({
@@ -19,9 +20,12 @@ export const SectionHeader = memo(function SectionHeader({
   titleAccent,
   titleAccentClass = '',
   description,
+  align = 'center',
 }: SectionHeaderProps) {
+  const alignmentClass = align === 'left' ? 'text-left items-start' : align === 'right' ? 'text-right items-end' : 'text-center items-center';
+
   return (
-    <div className="section-header">
+    <div className={`section-header flex flex-col ${alignmentClass}`}>
       {badge && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
@@ -48,7 +52,7 @@ export const SectionHeader = memo(function SectionHeader({
         </GradientText>
       </motion.h2>
       <motion.p
-        className="section-header__desc font-space"
+        className={`section-header__desc font-space ${align === 'center' ? 'mx-auto' : ''}`}
         {...REVEAL_UP}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 0.5, delay: 0.2 }}

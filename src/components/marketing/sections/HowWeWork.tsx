@@ -1,84 +1,121 @@
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionHeader';
+import { SplineViewer } from '../ui/SplineViewer';
+import { REVEAL_UP } from '../../../lib/motion-presets';
 
-const steps = [
+const excellencePillars = [
   {
-    num: '01',
-    title: 'Discovery & Strategy',
-    desc: 'We start by deeply understanding your business goals, target audience, and technical constraints to architect the optimal solution.',
+    icon: '🛡️',
+    title: 'Fortified Security',
+    desc: 'Enterprise-grade protection with zero-trust architecture and continuous auditing.',
     color: 'indigo'
   },
   {
-    num: '02',
-    title: 'UI/UX Design',
-    desc: 'Our design team crafts intuitive, pixel-perfect interfaces that prioritize user experience and brand identity.',
+    icon: '🚀',
+    title: 'Velocity at Scale',
+    desc: 'Rapid iteration cycles that prioritize speed without compromising structural integrity.',
+    color: 'cyan'
+  },
+  {
+    icon: '🤝',
+    title: 'Strategic Partnership',
+    desc: 'We embed with your team to align technical execution with core business objectives.',
     color: 'blue'
   },
   {
-    num: '03',
-    title: 'Agile Development',
-    desc: 'We build robust systems using modern stacks, providing bi-weekly sprints so you have constant visibility into our progress.',
+    icon: '⚛️',
+    title: 'AI-Native Systems',
+    desc: 'Harnessing advanced intelligence to automate complexity and reveal deep insights.',
+    color: 'purple'
+  },
+  {
+    icon: '🏗️',
+    title: 'Scalable Foundation',
+    desc: 'Modular, future-proof architectures designed to evolve with your user base.',
     color: 'blue'
   },
   {
-    num: '04',
-    title: 'Launch & Scale',
-    desc: 'Rigorous QA testing precedes deployment. Once live, we ensure your infrastructure scales seamlessly with user demand.',
+    icon: '🚩',
+    title: 'Mission Driven',
+    desc: 'Focusing on the finish line: delivering measurable impact and long-term success.',
     color: 'orange'
   }
 ];
 
 export const HowWeWork = () => {
   return (
-    <section id="process" className="zoom-section relative py-24 md:py-32 px-6 bg-white dark:bg-[#0a0a0f] transition-colors duration-500">
+    <section id="process" className="relative py-20 md:py-32 px-6 bg-white dark:bg-[#0a0a0f] transition-colors duration-500 overflow-hidden">
+      {/* Background Decorative Element */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+      
       <div className="max-w-7xl mx-auto relative z-10">
-        <SectionHeader
-          title="How We Deliver"
-          titleAccent="Excellence"
-          titleAccentClass="title-fx--air"
-          description="A transparent, iterative process designed to mitigate risk and deliver high-quality software on time."
-        />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:items-center">
+          
+          {/* Content Column */}
+          <div className="lg:col-span-5">
+            <motion.div {...REVEAL_UP}>
+              <SectionHeader
+                title="How We Deliver"
+                titleAccent="Excellence"
+                titleAccentClass="title-fx--air"
+                description="Our approach combines 3D architectural precision with agile execution to build systems that lead the market."
+                align="left"
+              />
+            </motion.div>
 
-        <div className="mt-20 relative">
-          {/* Vertical connector line (desktop) */}
-          <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/0 via-blue-500/50 to-cyan-500/0 -translate-x-1/2" />
-
-          <div className="space-y-16">
-            {steps.map((step, index) => {
-              const isEven = index % 2 === 0;
-              return (
+            <div className="mt-12 space-y-8">
+              {excellencePillars.map((pillar, index) => (
                 <motion.div 
-                  key={step.num}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-16 ${isEven ? '' : 'md:flex-row-reverse'}`}
+                  key={pillar.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors duration-300"
                 >
-                  {/* Content Box */}
-                  <div className={`flex-1 w-full md:w-1/2 p-8 rounded-2xl border border-black/5 dark:border-white/10 bg-gray-50 dark:bg-white/[0.02] backdrop-blur-sm group hover:border-${step.color}-500/30 transition-colors duration-500 shadow-sm dark:shadow-none`}>
-                    <div className="flex items-center mb-4">
-                      <span className={`text-4xl font-extrabold text-${step.color}-500/40 dark:text-${step.color}-500/30 group-hover:text-${step.color}-500/80 dark:group-hover:text-${step.color}-500/60 transition-colors mr-4`}>
-                        {step.num}
-                      </span>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors duration-500">{step.title}</h3>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed transition-colors duration-500">
-                      {step.desc}
+                  <div className={`w-12 h-12 rounded-lg bg-${pillar.color}-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
+                    <span className="text-2xl">{pillar.icon}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-indigo-500 transition-colors">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                      {pillar.desc}
                     </p>
                   </div>
-
-                  {/* Center Node */}
-                  <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-4 border-white dark:border-[#0a0a0f] bg-gray-100 dark:bg-gray-900 items-center justify-center z-10 transition-colors duration-500 shadow-sm dark:shadow-none">
-                    <div className={`w-3 h-3 rounded-full bg-${step.color}-500 shadow-[0_0_15px_rgba(var(--${step.color}-500),0.8)]`} />
-                  </div>
-
-                  {/* Empty space for the other side */}
-                  <div className="hidden md:block flex-1" />
                 </motion.div>
-              );
-            })}
+              ))}
+            </div>
           </div>
+
+          {/* Spline Column */}
+          <div className="lg:col-span-7 relative h-[500px] lg:h-[700px]">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full h-full"
+            >
+              <SplineViewer 
+                scene="https://prod.spline.design/D78vTF5tBtPHeaMo/scene.splinecode"
+                className="shadow-2xl shadow-indigo-500/10 border border-black/5 dark:border-white/5"
+              />
+              
+              {/* Overlay Callout */}
+              <div className="absolute bottom-6 right-6 p-4 rounded-2xl backdrop-blur-md bg-white/70 dark:bg-black/40 border border-white/20 dark:border-white/10 shadow-xl hidden md:block">
+                <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-1">
+                  Precision Engineering
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-sm font-bold text-gray-900 dark:text-white">Live 3D Interface</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>
