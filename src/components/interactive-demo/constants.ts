@@ -1,0 +1,309 @@
+import type { DemoTab, DemoUserProfile, DemoTitle } from './types';
+
+export const DEMO_TABS: DemoTab[] = [
+  { id: 'chat', label: 'Chat', icon: '' },
+  { id: 'titles', label: 'Cosmetics', icon: '' },
+  { id: 'achievements', label: 'Achievements', icon: '' },
+  { id: 'forums', label: 'Forums', icon: '' },
+];
+
+export const DEMO_MESSAGES: Array<{
+  author: string;
+  avatar: string;
+  content: string;
+  reactions?: { type: 'approved' | 'disapproved'; count: number }[];
+  showTutorial?: boolean;
+}> = [
+  {
+    author: 'Alex',
+    avatar: '🦊',
+    content: 'Hey there! Welcome to CGraph — glad to have you with us!',
+    reactions: [
+      { type: 'approved', count: 12 },
+      { type: 'disapproved', count: 3 },
+    ],
+  },
+  {
+    author: 'Jordan',
+    avatar: '🐺',
+    content: 'This is a live preview of how conversations look and feel inside CGraph.',
+    reactions: [{ type: 'approved', count: 5 }],
+  },
+  {
+    author: 'Sam',
+    avatar: '🦁',
+    content: 'Swipe ↑ to approve or ↓ to disapprove — give it a try!',
+    showTutorial: true,
+    reactions: [
+      { type: 'approved', count: 15 },
+      { type: 'disapproved', count: 1 },
+    ],
+  },
+];
+
+export const AVATAR_BORDERS = [
+  { id: 'none', name: 'None', style: 'none' },
+  { id: 'gold', name: 'Gold', style: 'linear-gradient(135deg, #ffd700, #ff8c00)' },
+  { id: 'emerald', name: 'Emerald', style: 'linear-gradient(135deg, #10b981, #059669)' },
+  { id: 'purple', name: 'Royal', style: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
+  {
+    id: 'rainbow',
+    name: 'Rainbow',
+    style: 'linear-gradient(135deg, #ff0080, #7928ca, #0070f3, #00dfd8)',
+  },
+];
+
+export const ACHIEVEMENTS = [
+  {
+    id: 'first-message',
+    name: 'First Steps',
+    icon: '🌟',
+    desc: 'Send your first message',
+    rarity: 'common' as const,
+    category: 'social',
+  },
+  {
+    id: 'social',
+    name: 'Social Butterfly',
+    icon: '🦋',
+    desc: 'Make 25 friends',
+    rarity: 'uncommon' as const,
+    category: 'social',
+  },
+  {
+    id: 'streaker',
+    name: 'Dedicated',
+    icon: '✕',
+    desc: '7-day login streak',
+    rarity: 'rare' as const,
+    category: 'mastery',
+    coins: 100,
+  },
+  {
+    id: 'forum-founder',
+    name: 'Forum Founder',
+    icon: '🏛️',
+    desc: 'Create a community forum',
+    rarity: 'rare' as const,
+    category: 'content',
+  },
+  {
+    id: 'privacy-guardian',
+    name: 'Guardian of Privacy',
+    icon: '🛡️',
+    desc: 'Enable all security features',
+    rarity: 'rare' as const,
+    category: 'exploration',
+    itemReward: 'Shield Border',
+  },
+  {
+    id: 'master-discourse',
+    name: 'Master of Discourse',
+    icon: '💬',
+    desc: 'Receive 1,000 upvotes',
+    rarity: 'epic' as const,
+    category: 'content',
+    coins: 200,
+    titleReward: 'Master of Discourse',
+  },
+  {
+    id: 'code-contributor',
+    name: 'Code Contributor',
+    icon: '💻',
+    desc: 'Contribute to the project',
+    rarity: 'legendary' as const,
+    category: 'special',
+    coins: 500,
+    itemReward: 'Golden Border',
+  },
+  {
+    id: 'legend',
+    name: 'Living Legend',
+    icon: '👑',
+    desc: 'Reach 10,000 upvotes',
+    rarity: 'mythic' as const,
+    category: 'legendary',
+    coins: 1000,
+    titleReward: 'Living Legend',
+    itemReward: 'Flame Border',
+  },
+];
+
+/** Title data from web app — showcases rarity tiers and animations */
+export const DEMO_TITLES: DemoTitle[] = [
+  {
+    id: 'newcomer',
+    name: 'Newcomer',
+    rarity: 'common' as const,
+    color: '#9ca3af',
+    animation: 'none',
+    unlock: 'Create an account',
+  },
+  {
+    id: 'chatterbox',
+    name: 'Chatterbox',
+    rarity: 'common' as const,
+    color: '#9ca3af',
+    animation: 'pulse',
+    unlock: 'Send 100 messages',
+  },
+  {
+    id: 'social-butterfly',
+    name: 'Social Butterfly',
+    rarity: 'uncommon' as const,
+    color: '#22c55e',
+    animation: 'shimmer',
+    unlock: 'Make 25 friends',
+  },
+  {
+    id: 'forum-founder',
+    name: 'Forum Founder',
+    rarity: 'rare' as const,
+    color: '#3b82f6',
+    animation: 'wave',
+    unlock: 'Create a community',
+  },
+  {
+    id: 'cyber-punk',
+    name: 'Cyber Punk',
+    rarity: 'rare' as const,
+    color: '#00ffff',
+    animation: 'electric',
+    unlock: '1,500 Nodes',
+  },
+  {
+    id: 'master-discourse',
+    name: 'Master of Discourse',
+    rarity: 'epic' as const,
+    color: '#a855f7',
+    animation: 'shimmer',
+    unlock: '1,000 upvotes',
+  },
+  {
+    id: 'shadow-walker',
+    name: 'Shadow Walker',
+    rarity: 'epic' as const,
+    color: '#4a148c',
+    animation: 'pulse',
+    unlock: '2,000 Nodes',
+  },
+  {
+    id: 'cosmic-traveler',
+    name: 'Cosmic Traveler',
+    rarity: 'epic' as const,
+    color: '#8b5cf6',
+    animation: 'sparkle',
+    unlock: '2,500 Nodes',
+  },
+  {
+    id: 'flame-bearer',
+    name: 'Flame Bearer',
+    rarity: 'legendary' as const,
+    color: '#ff4400',
+    animation: 'fire',
+    unlock: '3,500 Nodes',
+  },
+  {
+    id: 'founding-member',
+    name: 'Founder',
+    rarity: 'legendary' as const,
+    color: '#f59e0b',
+    animation: 'glow',
+    unlock: 'First 1,000 users',
+  },
+  {
+    id: 'ancient-one',
+    name: 'Ancient One',
+    rarity: 'mythic' as const,
+    color: '#ef4444',
+    animation: 'fire',
+    unlock: '10 year member',
+  },
+  {
+    id: 'developer',
+    name: 'Developer',
+    rarity: 'unique' as const,
+    color: '#ec4899',
+    animation: 'rainbow',
+    unlock: 'Staff only',
+  },
+];
+
+export type DemoTitleId = (typeof DEMO_TITLES)[number]['id'];
+
+const DEMO_TITLES_BY_ID = DEMO_TITLES.reduce(
+  (accumulator, title) => {
+    accumulator[title.id] = title;
+    return accumulator;
+  },
+  {} as Record<DemoTitleId, (typeof DEMO_TITLES)[number]>
+);
+
+export const getDemoTitleById = (titleId: DemoTitleId) => DEMO_TITLES_BY_ID[titleId];
+
+type DemoUserProfileSeed = Omit<DemoUserProfile, 'title' | 'titleAnimation'>;
+
+const createDemoUserProfile = (seed: DemoUserProfileSeed): DemoUserProfile => {
+  const title = getDemoTitleById(seed.titleId as DemoTitleId);
+  return {
+    ...seed,
+    title: title?.name ?? '',
+    titleAnimation: (title?.animation ?? 'none') as DemoUserProfile['titleAnimation'],
+  };
+};
+
+/** Rich user profiles for the chat demo — titles are sourced from DEMO_TITLES */
+export const DEMO_USER_PROFILES: Record<string, DemoUserProfile> = {
+  Alex: createDemoUserProfile({
+    titleId: 'social-butterfly',
+    borderStyle: 'linear-gradient(135deg, #06b6d4, #3b82f6, #06b6d4)',
+    borderType: 'ice',
+    borderColor: 'cyan',
+    bubbleAccent: 'linear-gradient(135deg, rgba(6,182,212,0.12), rgba(59,130,246,0.06))',
+    bubbleBorder: 'rgba(6, 182, 212, 0.2)',
+    nameColor: '#22d3ee',
+    badges: [
+      { icon: '❄️', label: 'Frost' },
+      { icon: '🦋', label: 'Social' },
+    ],
+    pulse: 1847,
+  }),
+  Jordan: createDemoUserProfile({
+    titleId: 'cosmic-traveler',
+    borderStyle: 'linear-gradient(135deg, #8b5cf6, #06b6d4, #8b5cf6)',
+    borderType: 'electric',
+    borderColor: 'purple',
+    bubbleAccent: 'linear-gradient(135deg, rgba(139,92,246,0.12), rgba(99,102,241,0.06))',
+    bubbleBorder: 'rgba(139, 92, 246, 0.2)',
+    nameColor: '#a78bfa',
+    badges: [
+      { icon: '⚡', label: 'Storm' },
+      { icon: '🌌', label: 'Cosmic' },
+    ],
+    pulse: 923,
+  }),
+  Sam: createDemoUserProfile({
+    titleId: 'flame-bearer',
+    borderStyle: 'linear-gradient(135deg, #f97316, #ef4444, #f97316)',
+    borderType: 'legendary',
+    borderColor: 'gold',
+    bubbleAccent: 'linear-gradient(135deg, rgba(249,115,22,0.12), rgba(239,68,68,0.06))',
+    bubbleBorder: 'rgba(249, 115, 22, 0.2)',
+    nameColor: '#fbbf24',
+    badges: [
+      { icon: '✕', label: 'Legend' },
+      { icon: '⚔️', label: 'Warrior' },
+    ],
+    pulse: 3241,
+  }),
+};
+
+export const RARITY_COLORS: Record<string, { primary: string; glow: string }> = {
+  common: { primary: '#9ca3af', glow: 'rgba(156, 163, 175, 0.3)' },
+  uncommon: { primary: '#22c55e', glow: 'rgba(34, 197, 94, 0.3)' },
+  rare: { primary: '#3b82f6', glow: 'rgba(59, 130, 246, 0.4)' },
+  epic: { primary: '#a855f7', glow: 'rgba(168, 85, 247, 0.4)' },
+  legendary: { primary: '#f59e0b', glow: 'rgba(245, 158, 11, 0.5)' },
+  mythic: { primary: '#ef4444', glow: 'rgba(239, 68, 68, 0.5)' },
+  unique: { primary: '#ec4899', glow: 'rgba(236, 72, 153, 0.5)' },
+};
