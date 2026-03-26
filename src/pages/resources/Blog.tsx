@@ -39,11 +39,11 @@ export default function Blog() {
 
   return (
     <MarketingLayout
-      title="Dev Log"
-      subtitle="What I shipped, what broke, and how I fixed it. Every post traces back to a real commit."
+      title="Agency Insights"
+      subtitle="Thoughts on engineering, design, and digital transformation."
       eyebrow="Blog"
     >
-      {/* Latest Release Banner */}
+      {/* Agency Mission Hero */}
       <section className="marketing-section marketing-section--dark blog-release">
         <div className="mx-auto max-w-4xl px-4">
           <motion.div {...FADE_UP} transition={{ delay: 0.2 }} className="blog-release-card">
@@ -51,23 +51,19 @@ export default function Blog() {
             <div className="blog-release-content flex flex-col items-center gap-6 p-8 md:flex-row">
               <div className="flex-1">
                 <div className="mb-3 flex items-center gap-3">
-                  <span className="blog-release-badge">Latest Release</span>
-                  <span className="font-mono text-sm text-slate-400">v1.0.0</span>
+                  <span className="blog-release-badge">Featured Strategy</span>
                 </div>
                 <h3 className="blog-release-title mb-2 text-xl font-bold text-slate-100 md:text-2xl">
-                  v1.0.0 — All 19 Phases Complete
+                  Building the Future of Digital Business
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text-muted)' }}>
-                  Every planned phase shipped. 142 requirements across E2EE messaging, forums,
-                  achievements & cosmetics, voice & video, creator economy, and mobile parity. All
-                  packages synced to v1.0.0. Production deployed on Fly.io, Vercel, and Supabase.
+                  Our team shares deep-dives into the technologies and strategies that drive growth for modern companies. From MVP engineering to legacy system modernization, find our latest insights here.
                 </p>
               </div>
               <div className="flex shrink-0 flex-col items-center gap-2">
                 <div className="blog-release-icon flex items-center justify-center">
-                  <NeonIcon symbol="🚀" size={40} title="v1.0.0 release" />
+                  <NeonIcon symbol="💡" size={40} title="Insights" />
                 </div>
-                <span className="text-xs text-slate-500">Mar 4, 2026</span>
               </div>
             </div>
           </motion.div>
@@ -465,7 +461,7 @@ export default function Blog() {
             style={{ color: 'var(--color-text-muted)' }}
           >
             <a
-              href="https://github.com/cgraph-dev/CGraph"
+              href="https://github.com/cgraph-dev/Qubit Calculus"
               target="_blank"
               rel="noopener noreferrer"
               className="blog-social-link"
@@ -475,7 +471,7 @@ export default function Blog() {
               </svg>
               GitHub
             </a>
-            <a href="mailto:hello@cgraph.org" className="blog-social-link">
+            <a href="mailto:hello@qubitcalculus.com" className="blog-social-link">
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
@@ -484,9 +480,9 @@ export default function Blog() {
                   d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
                 />
               </svg>
-              hello@cgraph.org
+              hello@qubitcalculus.com
             </a>
-            <a href="mailto:security@cgraph.org" className="blog-social-link">
+            <a href="mailto:hello@qubitcalculus.com" className="blog-social-link">
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"

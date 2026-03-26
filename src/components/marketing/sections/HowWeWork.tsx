@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionHeader';
-import { SplineViewer } from '../ui/SplineViewer';
+import { ExcellenceDiagram } from './ExcellenceDiagram';
 import { REVEAL_UP } from '../../../lib/motion-presets';
 
 const excellencePillars = [
@@ -96,12 +96,9 @@ export const HowWeWork = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-full h-full"
+              className="w-full h-full flex items-center justify-center p-8"
             >
-              <SplineViewer 
-                scene="https://prod.spline.design/D78vTF5tBtPHeaMo/scene.splinecode"
-                className="shadow-2xl shadow-indigo-500/10 border border-black/5 dark:border-white/5"
-              />
+              <ExcellenceDiagram />
               
               {/* Overlay Callout */}
               <div className="absolute bottom-6 right-6 p-4 rounded-2xl backdrop-blur-md bg-white/70 dark:bg-black/40 border border-white/20 dark:border-white/10 shadow-xl hidden md:block">
@@ -109,8 +106,8 @@ export const HowWeWork = () => {
                   Precision Engineering
                 </p>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-sm font-bold text-gray-900 dark:text-white">Live 3D Interface</span>
+                  <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+                  <span className="text-sm font-bold text-gray-900 dark:text-white">Active React Diagram</span>
                 </div>
               </div>
             </motion.div>

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const FORUM_THREADS = [
   {
     id: 'welcome',
-    title: 'Welcome to the CGraph Community!',
+    title: 'Welcome to the Qubit Calculus Community!',
     author: 'Alex',
     avatar: '🌐',
     board: 'Announcements',

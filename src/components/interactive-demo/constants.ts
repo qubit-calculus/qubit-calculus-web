@@ -17,7 +17,7 @@ export const DEMO_MESSAGES: Array<{
   {
     author: 'Alex',
     avatar: '🦊',
-    content: 'Hey there! Welcome to CGraph — glad to have you with us!',
+    content: 'Hey there! Welcome to Qubit Calculus — glad to have you with us!',
     reactions: [
       { type: 'approved', count: 12 },
       { type: 'disapproved', count: 3 },
@@ -26,7 +26,7 @@ export const DEMO_MESSAGES: Array<{
   {
     author: 'Jordan',
     avatar: '🐺',
-    content: 'This is a live preview of how conversations look and feel inside CGraph.',
+    content: 'This is a live preview of how conversations look and feel inside Qubit Calculus.',
     reactions: [{ type: 'approved', count: 5 }],
   },
   {

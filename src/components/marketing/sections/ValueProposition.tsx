@@ -1,7 +1,7 @@
 /**
  * ValueProposition Section
  *
- * Replaces the pricing section with a "Why CGraph?" comparison.
+ * Replaces the pricing section with a "Why Qubit Calculus?" comparison.
  * Shows the value proposition, not premature pricing.
  * Features 4 key differentiators with highlighted stats.
  *
@@ -156,7 +156,7 @@ export default function ValueProposition(): React.JSX.Element {
         title="Built"
         titleAccent="Different"
         titleAccentClass="title-fx--air"
-        description="Not just another chat app. CGraph unifies real-time messaging, community forums, and post-quantum end-to-end encryption into one privacy-first platform."
+        description="Not just another chat app. Qubit Calculus unifies real-time messaging, community forums, and post-quantum end-to-end encryption into one privacy-first platform."
       />
 
       <div className="value-grid">
@@ -201,7 +201,7 @@ export default function ValueProposition(): React.JSX.Element {
         ))}
         <div className="value-comparison__header">
           <span />
-          <span className="value-comparison__label value-comparison__label--us">CGraph</span>
+          <span className="value-comparison__label value-comparison__label--us">Qubit Calculus</span>
           <span className="value-comparison__label">Others</span>
         </div>
       </motion.div>

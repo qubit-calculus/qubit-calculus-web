@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FlowingBorder } from '../../customization-demo/effects';
 
 export interface LandingButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost';
@@ -15,10 +14,9 @@ export interface LandingButtonProps extends React.ButtonHTMLAttributes<HTMLButto
  * LandingButton - Qubit Calculus Primitive
  *
  * A high-fidelity button component with:
- * - Magnetic pull on hover
- * - Gradient border with internal glow
- * - "Shimmer" idle animation
- * - Accessible focus states
+ * - Enhanced magnetic pull on hover
+ * - Glassmorphic / Shimmer effects
+ * - Premium depth and glow
  */
 export function LandingButton({
   variant = 'primary',
@@ -35,8 +33,8 @@ export function LandingButton({
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { clientX, clientY } = e;
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-    const x = (clientX - (left + width / 2)) * 0.2; // Magnetic strength
-    const y = (clientY - (top + height / 2)) * 0.2;
+    const x = (clientX - (left + width / 2)) * 0.35; // Increased magnetic strength
+    const y = (clientY - (top + height / 2)) * 0.35;
     setPosition({ x, y });
   };
 
@@ -45,57 +43,60 @@ export function LandingButton({
   };
 
   const baseStyles =
-    'relative inline-flex items-center justify-center font-bold tracking-wide transition-all duration-300 ease-out active:scale-95 disabled:opacity-50 disabled:pointer-events-none group isolate overflow-hidden';
+    'relative inline-flex items-center justify-center font-bold tracking-tight transition-all duration-300 ease-out active:scale-95 disabled:opacity-50 disabled:pointer-events-none group isolate overflow-hidden';
 
   const sizeStyles = {
-    sm: 'px-4 py-2 text-sm rounded-full',
-    md: 'px-8 py-3 text-base rounded-full',
-    lg: 'px-10 py-4 text-lg rounded-full',
+    sm: 'px-5 py-2 text-sm rounded-full',
+    md: 'px-9 py-3.5 text-base rounded-full',
+    lg: 'px-12 py-5 text-lg rounded-full',
   };
 
   const variantStyles = {
     primary:
-      'text-white bg-gray-900 dark:bg-black/20 backdrop-blur-sm border border-indigo-500/30 hover:border-indigo-500/60 shadow-[0_0_20px_-5px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_-5px_rgba(99,102,241,0.5)]',
+      'text-white bg-indigo-600 hover:bg-indigo-500 shadow-[0_10px_30px_-10px_rgba(79,70,229,0.5)] border border-indigo-400/30',
     secondary:
-      'text-gray-900 dark:text-white bg-black/5 dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/20 dark:hover:border-white/20',
-    ghost: 'text-gray-500 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5',
+      'text-white bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 shadow-2xl',
+    ghost: 
+      'text-gray-400 hover:text-white hover:bg-white/5',
   };
 
   const Content = (
     <>
-      {variant === 'primary' && (
-        <span className="absolute inset-0 -z-10 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      )}
+      {/* Gloss Effect */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-white/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      
+      {/* Shimmer / Scanline effect */}
+      <div className="absolute inset-0 -z-10 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 transition-transform duration-1000 group-hover:translate-x-[100%]" />
 
       {/* Button Text */}
-      <span className="relative z-10 flex items-center gap-2">
+      <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:scale-105">
         {children}
         {icon && (
-          <span className="transition-transform duration-300 group-hover:translate-x-1">
+          <span className="transition-all duration-300 group-hover:translate-x-1 capitalize">
             {icon}
           </span>
         )}
       </span>
 
-      {/* Primary Gradient Glow (Bottom Edge) */}
-      {variant === 'primary' && (
-        <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
-      )}
-
-      {/* Secondary Animated Gradient Border */}
-      {variant === 'secondary' && <FlowingBorder variant="button" borderRadius="9999px" />}
+      {/* Internal Radial Glow */}
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_var(--x)_var(--y),rgba(255,255,255,0.15)_0%,transparent_80%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+           style={{ '--x': '50%', '--y': '50%' } as React.CSSProperties} />
     </>
   );
+
+  const motionProps = {
+    onMouseMove: handleMouseMove,
+    onMouseLeave: handleMouseLeave,
+    animate: { x: position.x, y: position.y },
+    transition: { type: 'spring', stiffness: 200, damping: 20, mass: 0.1 },
+  };
 
   if (href) {
     return (
       <motion.a
         href={href}
         className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`}
-        onMouseMove={handleMouseMove as React.MouseEventHandler}
-        onMouseLeave={handleMouseLeave}
-        animate={{ x: position.x, y: position.y }}
-        transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
+        {...(motionProps as any)}
       >
         {Content}
       </motion.a>
@@ -106,11 +107,8 @@ export function LandingButton({
     <motion.button
       ref={buttonRef}
       className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
-      {...(props as Record<string, unknown>)}
+      {...(motionProps as any)}
+      {...(props as any)}
     >
       {Content}
     </motion.button>

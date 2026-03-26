@@ -1,89 +1,76 @@
 /**
- * Press Page
+ * Press Page — Qubit Calculus Agency
  *
  * Media resources, press kit, and company news.
- *
- * @since v0.9.2
  */
 
 import { motion } from 'framer-motion';
 import { MarketingLayout } from '@/components/marketing';
-import { NeonIcon } from '@/components/marketing/ui';
 import { REVEAL_UP } from '../../lib/motion-presets';
 
 const pressReleases = [
   {
-    date: 'March 2026',
-    title: 'CGraph v1.0: 38 Phases Complete, Full Platform Live',
+    date: 'October 2024',
+    title: 'Qubit Calculus Launches: A New Era of Boutique Software Engineering',
     summary:
-      'CGraph reaches v1.0 with end-to-end encrypted messaging, community forums, cosmetics & self-expression, voice & video calls, creator economy, and full mobile parity. 142 requirements shipped across 38 development phases.',
-    link: '/press-kit/press-release-2026-03.md',
+      'Qubit Calculus officially launches its agency services, focusing on high-performance web applications, MVP engineering for startups, and digital transformation for established businesses.',
+    link: '#',
   },
   {
-    date: 'January 2026',
-    title: 'CGraph Launches: Customizable Community Platform',
+    date: 'September 2024',
+    title: 'Digital Transformation: Bringing Old-School Tech to the Modern Era',
     summary:
-      'CGraph launches a privacy-first communication platform combining secure messaging, forums, and community engagement.',
-    link: '/press-kit/press-release-2026-01.md',
+      'Qubit Calculus announces its specialized service tier for small to mid-sized companies looking to modernize their legacy systems with cutting-edge technology.',
+    link: '#',
   },
-];
-
-const mediaAppearances: Array<{
-  outlet: string;
-  title: string;
-  date: string;
-  link: string;
-}> = [
-  // Media coverage coming soon
 ];
 
 const brandAssets = [
   {
     name: 'Logo Pack',
     description: 'Full logo in various formats (SVG, PNG, PDF)',
-    formats: 'PNG',
+    formats: 'SVG, PNG',
     icon: '🎨',
-    href: '/press-kit/assets/logo.png',
+    href: '#',
   },
   {
     name: 'Brand Guidelines',
     description: 'Colors, typography, and usage guidelines',
-    formats: 'Markdown',
+    formats: 'PDF',
     icon: '📐',
-    href: '/press-kit/brand-guidelines.md',
+    href: '#',
   },
   {
-    name: 'Product Screenshots',
-    description: 'High-resolution app screenshots for press use',
-    formats: 'PNG',
+    name: 'Project Showcases',
+    description: 'High-resolution screenshots of our recent work',
+    formats: 'JPG, PNG',
     icon: '📱',
-    href: '/press-kit/assets/og-image.png',
+    href: '#',
   },
   {
-    name: 'Fact Sheet',
-    description: 'Structured company profile, product, and contact data',
-    formats: 'JSON',
+    name: 'Agency Fact Sheet',
+    description: 'Detailed profile of our services and expertise',
+    formats: 'PDF',
     icon: '📊',
-    href: '/press-kit/fact-sheet.json',
+    href: '#',
   },
 ];
 
 const companyFacts = [
-  { label: 'Founded', value: '2026' },
-  { label: 'Headquarters', value: 'Georgia' },
-  { label: 'Team Size', value: 'Solo Founder' },
-  { label: 'Stage', value: 'v1.0 Released' },
-  { label: 'Core Product', value: 'E2EE Messaging & Community Platform' },
-  { label: 'Primary Contact', value: 'press@cgraph.org' },
-  { label: 'Website', value: 'cgraph.org' },
+  { label: 'Founded', value: '2024' },
+  { label: 'Headquarters', value: 'Remote (Europe/Georgia)' },
+  { label: 'Focus', value: 'Web & Mobile Development' },
+  { label: 'Expertise', value: 'Full-stack, UI/UX, Scalability' },
+  { label: 'Primary Contact', value: 'hello@qubitcalculus.com' },
+  { label: 'Website', value: 'qubitcalculus.com' },
 ];
 
 export default function Press() {
   return (
     <MarketingLayout
       title="Press & Media"
-      subtitle="Resources for journalists and media professionals"
-      eyebrow="Media Resources"
+      subtitle="Resources and news for media partners and journalists."
+      eyebrow="Media Kit"
     >
       {/* Press Kit Download */}
       <section className="marketing-section marketing-section--alt">
@@ -93,46 +80,23 @@ export default function Press() {
             className="marketing-card text-center"
             style={{
               background:
-                'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)',
+                'linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%)',
             }}
           >
-            <h2 className="mb-4 text-2xl font-bold text-slate-100">Professional Press Kit</h2>
+            <h2 className="mb-4 text-2xl font-bold text-slate-100">Official Media Kit</h2>
             <p className="mb-6 text-slate-400">
-              Download a complete, publication-ready package with approved copy, brand assets, fact
-              sheet, and launch press release.
+              Download our complete press package including high-resolution assets, brand guidelines, and agency backgrounder.
             </p>
-
-            <div className="mx-auto mb-6 grid max-w-3xl gap-3 text-left sm:grid-cols-2">
-              {[
-                'Brand guidelines and approved boilerplate',
-                'Fact sheet with structured company metadata',
-                'High-resolution product and brand visuals',
-                'Launch press release and media contact info',
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-2 text-sm text-slate-300">
-                  <span className="mt-1">
-                    <NeonIcon symbol="✅" size={14} title="Included" />
-                  </span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
 
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a
-                href="/downloads/cgraph-press-kit.zip"
-                download
-                className="inline-flex rounded-lg px-8 py-4 font-semibold text-white shadow-lg transition-all"
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)',
-                  boxShadow: '0 10px 40px rgba(16, 185, 129, 0.25)',
-                }}
+                href="#"
+                className="marketing-btn marketing-btn--primary"
               >
-                Download Press Kit (ZIP)
+                Download Media Kit (ZIP)
               </a>
-              <a href="/press-kit/README.md" className="marketing-btn marketing-btn--secondary">
-                Preview Contents
+              <a href="mailto:hello@qubitcalculus.com" className="marketing-btn marketing-btn--secondary">
+                Request Interview
               </a>
             </div>
           </motion.div>
@@ -144,29 +108,27 @@ export default function Press() {
         <div className="marketing-section__container">
           <motion.div {...REVEAL_UP} className="marketing-section__header">
             <h2 className="marketing-section__title">Brand Assets</h2>
-            <p className="marketing-section__desc">Download individual assets for your coverage</p>
+            <p className="marketing-section__desc">Pre-approved visuals and guidelines for media use</p>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {brandAssets.map((asset, index) => (
-              <motion.a
+              <motion.div
                 key={asset.name}
-                href={asset.href}
-                download
                 {...REVEAL_UP}
                 transition={{ delay: index * 0.1 }}
-                className="marketing-card group"
+                className="marketing-card group cursor-pointer"
                 style={{ padding: '1.5rem' }}
               >
-                <div className="mb-3">
-                  <NeonIcon symbol={asset.icon} size={36} title={asset.name} />
+                <div className="mb-3" style={{ fontSize: '2rem' }}>
+                  {asset.icon}
                 </div>
                 <h3 className="mb-1 font-semibold text-slate-100">{asset.name}</h3>
                 <p className="mb-3 text-sm text-slate-400">{asset.description}</p>
-                <span className="text-xs" style={{ color: 'var(--color-primary)' }}>
+                <span className="text-xs font-mono text-emerald-400">
                   {asset.formats}
                 </span>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -176,8 +138,8 @@ export default function Press() {
       <section className="marketing-section marketing-section--alt">
         <div className="marketing-section__container">
           <motion.div {...REVEAL_UP} className="marketing-section__header">
-            <h2 className="marketing-section__title">Company Facts</h2>
-            <p className="marketing-section__desc">Key information about CGraph</p>
+            <h2 className="marketing-section__title">At a Glance</h2>
+            <p className="marketing-section__desc">Key facts about Qubit Calculus Agency</p>
           </motion.div>
 
           <motion.div
@@ -204,100 +166,32 @@ export default function Press() {
       <section className="marketing-section marketing-section--dark">
         <div className="marketing-section__container" style={{ maxWidth: '56rem' }}>
           <motion.div {...REVEAL_UP} className="marketing-section__header">
-            <h2 className="marketing-section__title">Press Releases</h2>
-            <p className="marketing-section__desc">Recent announcements and news</p>
+            <h2 className="marketing-section__title">Recent News</h2>
+            <p className="marketing-section__desc">Official announcements and press releases</p>
           </motion.div>
 
           <div className="space-y-6">
             {pressReleases.map((release, index) => (
-              <motion.a
+              <motion.div
                 key={release.title}
-                href={release.link}
-                download
                 {...REVEAL_UP}
                 transition={{ delay: index * 0.1 }}
-                className="marketing-card group block"
+                className="marketing-card group block cursor-pointer"
                 style={{ padding: '1.5rem' }}
               >
-                <span className="text-sm" style={{ color: 'var(--color-primary)' }}>
+                <span className="text-sm text-emerald-400">
                   {release.date}
                 </span>
                 <h3 className="mt-2 text-lg font-semibold text-slate-100 group-hover:text-emerald-300">
                   {release.title}
                 </h3>
                 <p className="mt-2 text-slate-400">{release.summary}</p>
-                <span
-                  className="mt-3 inline-block text-sm"
-                  style={{ color: 'var(--color-primary)' }}
-                >
-                  Download release →
+                <span className="mt-3 inline-block text-sm text-emerald-400">
+                  Read more →
                 </span>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Media Coverage - Coming Soon */}
-      {mediaAppearances.length > 0 && (
-        <section className="marketing-section marketing-section--alt">
-          <div className="marketing-section__container" style={{ maxWidth: '56rem' }}>
-            <motion.div {...REVEAL_UP} className="marketing-section__header">
-              <h2 className="marketing-section__title">In the News</h2>
-              <p className="marketing-section__desc">Selected media coverage</p>
-            </motion.div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {mediaAppearances.map((article, index) => (
-                <motion.a
-                  key={article.title}
-                  href={article.link}
-                  {...REVEAL_UP}
-                  transition={{ delay: index * 0.05 }}
-                  className="marketing-card group"
-                  style={{ padding: '1.5rem' }}
-                >
-                  <span className="text-sm font-medium" style={{ color: 'var(--color-primary)' }}>
-                    {article.outlet}
-                  </span>
-                  <h3 className="mt-2 font-semibold text-slate-100 group-hover:text-emerald-300">
-                    {article.title}
-                  </h3>
-                  <span className="mt-2 block text-sm text-slate-500">{article.date}</span>
-                </motion.a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Contact Section */}
-      <section className="marketing-section marketing-section--tertiary">
-        <div className="marketing-section__container" style={{ maxWidth: '48rem' }}>
-          <motion.div
-            {...REVEAL_UP}
-            className="marketing-card text-center"
-            style={{ padding: '2rem' }}
-          >
-            <h2 className="mb-4 text-xl font-bold text-slate-100">Media Inquiries</h2>
-            <p className="mb-6 text-slate-400">
-              For interview requests, press inquiries, or additional information, please contact our
-              media relations team.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="mailto:press@cgraph.org"
-                className="inline-flex rounded-lg px-6 py-3 font-medium text-white shadow-lg transition-all"
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)',
-                  boxShadow: '0 10px 40px rgba(16, 185, 129, 0.25)',
-                }}
-              >
-                press@cgraph.org
-              </a>
-            </div>
-          </motion.div>
         </div>
       </section>
     </MarketingLayout>

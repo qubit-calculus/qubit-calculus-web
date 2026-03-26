@@ -17,16 +17,16 @@ export const sections: GDPRSection[] = [
     id: 'controller',
     title: '1. Data Controller',
     content: `
-      <p>CGraph acts as the <strong>data controller</strong> for personal data processed through our Service. This means we determine how and why your personal data is processed.</p>
+      <p>Qubit Calculus acts as the <strong>data controller</strong> for personal data processed through our Service. This means we determine how and why your personal data is processed.</p>
       
       <p><strong>Contact Information:</strong></p>
       <ul>
-        <li><strong>Company:</strong> CGraph, registered in Georgia</li>
+        <li><strong>Company:</strong> Qubit Calculus, registered in Georgia</li>
         <li><strong>Founded:</strong> 2026</li>
-        <li><strong>Privacy inquiries:</strong> <a href="mailto:privacy@cgraph.org">privacy@cgraph.org</a></li>
-        <li><strong>Data Protection Officer:</strong> <a href="mailto:dpo@cgraph.org">dpo@cgraph.org</a></li>
-        <li><strong>Security reports:</strong> <a href="mailto:security@cgraph.org">security@cgraph.org</a></li>
-        <li><strong>Website:</strong> <a href="https://cgraph.org">cgraph.org</a></li>
+        <li><strong>Privacy inquiries:</strong> <a href="mailto:hello@qubitcalculus.com">hello@qubitcalculus.com</a></li>
+        <li><strong>Data Protection Officer:</strong> <a href="mailto:hello@qubitcalculus.com">hello@qubitcalculus.com</a></li>
+        <li><strong>Security reports:</strong> <a href="mailto:hello@qubitcalculus.com">hello@qubitcalculus.com</a></li>
+        <li><strong>Website:</strong> <a href="https://qubitcalculus.com">qubitcalculus.com</a></li>
       </ul>
       
       <p><strong>Scope of Processing:</strong> This applies to all personal data processed through our web platform, mobile applications, APIs, and related services.</p>
@@ -89,7 +89,7 @@ export const sections: GDPRSection[] = [
       <h4>3.4 Right to Restriction (Article 18)</h4>
       <p>You can request we limit how we use your data.</p>
       <ul>
-        <li><strong>How to exercise:</strong> Contact <a href="mailto:privacy@cgraph.org">privacy@cgraph.org</a></li>
+        <li><strong>How to exercise:</strong> Contact <a href="mailto:hello@qubitcalculus.com">hello@qubitcalculus.com</a></li>
       </ul>
       
       <h4>3.5 Right to Data Portability (Article 20)</h4>
@@ -102,7 +102,7 @@ export const sections: GDPRSection[] = [
       <h4>3.6 Right to Object (Article 21)</h4>
       <p>You can object to processing based on legitimate interests.</p>
       <ul>
-        <li><strong>How to exercise:</strong> Contact <a href="mailto:privacy@cgraph.org">privacy@cgraph.org</a></li>
+        <li><strong>How to exercise:</strong> Contact <a href="mailto:hello@qubitcalculus.com">hello@qubitcalculus.com</a></li>
       </ul>
       
       <h4>3.7 Rights Related to Automated Decision-Making (Article 22)</h4>
@@ -208,7 +208,7 @@ export const sections: GDPRSection[] = [
       <h4>8.2 Contact Us</h4>
       <p>For other requests:</p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:privacy@cgraph.org">privacy@cgraph.org</a></li>
+        <li><strong>Email:</strong> <a href="mailto:hello@qubitcalculus.com">hello@qubitcalculus.com</a></li>
         <li><strong>Subject line:</strong> "GDPR Request - [Your Right]"</li>
       </ul>
       
@@ -256,7 +256,7 @@ export const sections: GDPRSection[] = [
         <li>Right to correct inaccurate personal information</li>
         <li>Right to limit use/disclosure of sensitive personal information</li>
       </ul>
-      <p>To exercise CCPA/CPRA rights, email <a href="mailto:privacy@cgraph.org">privacy@cgraph.org</a> with the subject "CCPA Request".</p>
+      <p>To exercise CCPA/CPRA rights, email <a href="mailto:hello@qubitcalculus.com">hello@qubitcalculus.com</a> with the subject "CCPA Request".</p>
       
       <h4>10.2 Brazil (LGPD)</h4>
       <p>Brazilian users have rights under the Lei Geral de Proteção de Dados (LGPD):</p>
@@ -306,7 +306,7 @@ export const sections: GDPRSection[] = [
       <p>File complaints with the OAIC at <a href="https://www.oaic.gov.au" target="_blank" rel="noopener noreferrer">oaic.gov.au</a>.</p>
       
       <h4>10.6 Other Jurisdictions</h4>
-      <p>CGraph is committed to respecting privacy rights worldwide. If your country has specific data protection legislation not listed above, please contact <a href="mailto:privacy@cgraph.org">privacy@cgraph.org</a> and we will work to honor your rights under applicable local law.</p>
+      <p>Qubit Calculus is committed to respecting privacy rights worldwide. If your country has specific data protection legislation not listed above, please contact <a href="mailto:hello@qubitcalculus.com">hello@qubitcalculus.com</a> and we will work to honor your rights under applicable local law.</p>
     `,
   },
 ];

@@ -52,36 +52,51 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
       </a>
 
       <motion.nav
-        className={`fixed left-1/2 z-[100] flex items-center justify-between transition-all duration-300 transform ${
+        className={`fixed left-1/2 z-[100] flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform ${
           scrolled 
-            ? 'top-4 w-[95%] max-w-5xl rounded-full border border-gray-200/50 dark:border-white/10 bg-white/70 dark:bg-[#050505]/70 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-2xl px-6 py-3' 
-            : 'top-6 w-[90%] max-w-6xl rounded-2xl border border-transparent bg-transparent px-2 py-4'
+            ? 'top-4 w-[95%] max-w-5xl rounded-full border border-white/10 bg-[#050505]/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] px-6 py-3' 
+            : 'top-6 w-[92%] max-w-6xl rounded-2xl border border-transparent bg-transparent px-4 py-4'
         }`}
         initial={{ x: '-50%', y: -100, opacity: 0 }}
         animate={{ x: '-50%', y: hidden ? -150 : 0, opacity: hidden ? 0 : 1 }}
-        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.5 }}
       >
+        {/* Subtle Inner Glow - only when scrolled */}
+        {scrolled && (
+          <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+        )}
+
         {/* Logo Section */}
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-2 group outline-none" aria-label="Qubit Calculus Home">
-            <div className="transition-transform duration-300 group-hover:scale-105 group-active:scale-95 text-indigo-500">
-              <LogoIcon size={32} showGlow={false} color="gradient" />
+            <div className="transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-active:scale-95 text-indigo-500">
+              <LogoIcon size={34} showGlow={true} color="gradient" />
             </div>
-            <span className="text-gray-900 dark:text-white font-semibold tracking-tight text-lg hidden sm:block transition-colors">
+            <span className="text-white font-bold tracking-tight text-xl hidden sm:block transition-all duration-300 group-hover:text-indigo-400">
               Qubit Calculus
             </span>
           </Link>
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1 p-1 bg-white/5 backdrop-blur-md rounded-full border border-white/10">
           {navLinks.map((link) => (
             link.to ? (
-              <Link key={link.name} to={link.to} className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-md px-2 py-1">
+              <Link 
+                key={link.name} 
+                to={link.to} 
+                className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 outline-none hover:bg-white/10 ${
+                  location.pathname === link.to ? 'text-white bg-white/10' : 'text-gray-400 hover:text-white'
+                }`}
+              >
                 {link.name}
               </Link>
             ) : (
-              <a key={link.name} href={link.href} className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-md px-2 py-1">
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="text-sm font-medium px-4 py-2 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300 outline-none"
+              >
                 {link.name}
               </a>
             )
@@ -90,21 +105,23 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
 
         {/* CTA Section */}
         <div className="hidden md:flex items-center gap-4">
-          <Link to="/contact" className="group relative inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-            <span className="absolute inset-0 -z-10 bg-gradient-to-r from-indigo-500/0 via-indigo-500/10 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity" />
-            Consultation
+          <Link to="/contact" className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-2.5 text-sm font-bold text-black transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] outline-none overflow-hidden">
+             Get Started
+             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-black/5 to-transparent skew-x-12 transition-transform duration-700 group-hover:translate-x-full" />
           </Link>
         </div>
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden flex flex-col justify-center items-center w-8 h-8 rounded-md bg-white/5 border border-white/10 p-1.5 focus:outline-none focus:ring-2 focus:ring-white/20 hover:bg-white/10 transition-colors"
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-full bg-white/5 border border-white/10 p-2 focus:outline-none focus:ring-2 focus:ring-white/20 hover:bg-white/10 transition-all active:scale-90"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle Menu"
         >
-          <span className={`bg-gray-300 block transition-all duration-300 ease-out h-[2px] w-full rounded-sm ${mobileMenuOpen ? 'rotate-45 translate-y-[5px]' : '-translate-y-1'}`} />
-          <span className={`bg-gray-300 block transition-all duration-300 ease-out h-[2px] w-full rounded-sm my-0.5 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
-          <span className={`bg-gray-300 block transition-all duration-300 ease-out h-[2px] w-full rounded-sm ${mobileMenuOpen ? '-rotate-45 -translate-y-[5px]' : 'translate-y-1'}`} />
+          <div className="relative w-5 h-4">
+            <span className={`absolute bg-white block transition-all duration-300 h-0.5 w-full rounded-full ${mobileMenuOpen ? 'top-2 rotate-45' : 'top-0'}`} />
+            <span className={`absolute bg-white block transition-all duration-300 h-0.5 w-full rounded-full top-2 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+            <span className={`absolute bg-white block transition-all duration-300 h-0.5 w-full rounded-full ${mobileMenuOpen ? 'top-2 -rotate-45' : 'top-4'}`} />
+          </div>
         </button>
       </motion.nav>
 
@@ -112,27 +129,53 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-x-4 top-24 z-[90] rounded-2xl border border-white/10 bg-[#050505]/95 backdrop-blur-2xl p-6 shadow-2xl md:hidden"
+            className="fixed inset-x-4 top-24 z-[90] rounded-3xl border border-white/10 bg-[#050505]/95 backdrop-blur-3xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] md:hidden overflow-hidden"
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
           >
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                link.to ? (
-                  <Link key={link.name} to={link.to} onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-gray-300 hover:text-white pb-4 border-b border-white/5">
-                    {link.name}
-                  </Link>
-                ) : (
-                  <a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-gray-300 hover:text-white pb-4 border-b border-white/5">
-                    {link.name}
-                  </a>
-                )
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-indigo-500/20 blur-3xl rounded-full" />
+            
+            <div className="flex flex-col gap-2">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                >
+                  {link.to ? (
+                    <Link 
+                      to={link.to} 
+                      onClick={() => setMobileMenuOpen(false)} 
+                      className={`block text-2xl font-bold py-4 transition-colors ${
+                        location.pathname === link.to ? 'text-white' : 'text-gray-500 hover:text-white'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a 
+                      href={link.href} 
+                      onClick={() => setMobileMenuOpen(false)} 
+                      className="block text-2xl font-bold py-4 text-gray-500 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
+                </motion.div>
               ))}
-              <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="mt-4 flex w-full justify-center rounded-xl bg-white text-black px-4 py-3 text-base font-semibold hover:bg-gray-200 transition-colors">
-                Book Consultation
-              </Link>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="pt-6 mt-4 border-t border-white/5"
+              >
+                <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="flex w-full justify-center rounded-2xl bg-indigo-600 text-white px-4 py-4 text-lg font-bold hover:bg-indigo-500 transition-all active:scale-95 shadow-lg shadow-indigo-600/20">
+                  Book a Strategy Call
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}

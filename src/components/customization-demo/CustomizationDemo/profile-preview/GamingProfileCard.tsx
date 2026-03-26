@@ -26,7 +26,7 @@ export const GamingProfileCard = memo(function GamingProfileCard({
             speedMultiplier={speedMultiplier}
           />
           <div className="flex-1">
-            <h3 className="mb-1 text-lg font-bold text-white">CGraph User</h3>
+            <h3 className="mb-1 text-lg font-bold text-white">Qubit Calculus User</h3>
             <div className="flex items-center gap-2">
               <span className="text-sm font-bold" style={{ color: colors.primary }}>
                 Pillar

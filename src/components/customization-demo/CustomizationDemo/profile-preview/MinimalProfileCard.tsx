@@ -22,7 +22,7 @@ export const MinimalProfileCard = memo(function MinimalProfileCard({
       />
       <div className="flex-1">
         <div className="flex items-center gap-2">
-          <h3 className="text-lg font-bold text-white">CGraph User</h3>
+          <h3 className="text-lg font-bold text-white">Qubit Calculus User</h3>
           {/* Electric Title Badge with Animation */}
           <motion.div
             className="relative overflow-hidden rounded-full px-2 py-0.5 text-[10px] font-bold"

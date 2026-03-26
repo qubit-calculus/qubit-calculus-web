@@ -32,30 +32,31 @@
   --color-cta-hot-glow: rgba(249, 115, 22, 0.5);
 
   /* Dark palette (2026: Ultra-dark Slate) */
-  --color-dark: #020617;
-  --color-dark-alt: #0f172a;
-  --color-dark-tertiary: #1e293b;
+  --color-dark: #050505;
+  --color-dark-alt: #0a0a0f;
+  --color-dark-tertiary: #111118;
   --color-void: #000000;
-  --color-dark-blue: #060a12;
-  --color-dark-emerald: #020a07;
   --color-light: #FFFFFF;
-  --color-gray: #9ca3af;
-
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
-  --gradient-button: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
-  --gradient-hero-enhanced: linear-gradient(135deg, #6366f1 0%, #06b6d4 50%, #3b82f6 100%);
-  --gradient-text-animated: linear-gradient(90deg, #6366f1, #06b6d4, #3b82f6, #6366f1);
-
-  /* Glow effects */
-  --glow-emerald: 0 0 20px rgba(99, 102, 241, 0.5);
-  --glow-blue: 0 0 20px rgba(59, 130, 246, 0.5);
-  --glow-cyan: 0 0 30px rgba(6, 182, 212, 0.6);
-  --glow-hot: 0 0 30px rgba(249, 115, 22, 0.4);
+  
+  /* Text Colors with high contrast (2026: Optimized) */
+  --color-text-heading: #FFFFFF;
+  --color-text-body: #9ca3af;
+  --color-text-muted: #6b7280;
+  --color-text-bright: #e2e8f0;
 
   background: var(--color-dark);
   color: var(--color-text-body);
   font-family: var(--font-body);
+}
+
+/* Ensure global text visibility */
+body {
+  background-color: var(--color-dark);
+  color: var(--color-text-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-heading);
 }
 
 /* ===== 2026 Glassmorphism Styles ===== */

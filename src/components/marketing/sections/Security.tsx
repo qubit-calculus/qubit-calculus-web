@@ -1,7 +1,7 @@
 /**
  * Security Section
  *
- * Showcases CGraph's privacy-first approach with E2E encryption,
+ * Showcases Qubit Calculus's privacy-first approach with E2E encryption,
  * secure protocols, and security feature highlights.
  *
  * @since v2.1.0 - Redesigned as "Security Vault"

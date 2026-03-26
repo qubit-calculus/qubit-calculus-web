@@ -32,9 +32,9 @@ export default function GDPR() {
             style={{ marginBottom: '3rem' }}
           >
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.125rem', lineHeight: 1.7 }}>
-              This document outlines CGraph's compliance with the General Data Protection Regulation
+              This document outlines Qubit Calculus's compliance with the General Data Protection Regulation
               (GDPR) and explains the rights available to users in the European Economic Area (EEA),
-              United Kingdom, and other jurisdictions with similar data protection laws. CGraph is a
+              United Kingdom, and other jurisdictions with similar data protection laws. Qubit Calculus is a
               company registered in Georgia, and we are committed to upholding the highest standards
               of data protection for all of our users worldwide.
             </p>

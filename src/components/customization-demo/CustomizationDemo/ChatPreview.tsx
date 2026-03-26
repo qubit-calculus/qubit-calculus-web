@@ -228,7 +228,7 @@ export const ChatPreview = memo(function ChatPreview({ state }: ChatPreviewProps
           />
           <div className="flex-1">
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-white">CGraph User</span>
+              <span className="font-semibold text-white">Qubit Calculus User</span>
               {state.showBadges && (
                 <span
                   className="rounded px-1.5 py-0.5 text-[10px] font-bold"

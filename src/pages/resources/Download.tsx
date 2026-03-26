@@ -41,8 +41,8 @@ const features = [
 export default function Download() {
   return (
     <MarketingLayout
-      title="Get CGraph"
-      subtitle="Access CGraph on the web today, and on mobile soon. Desktop apps are on our roadmap."
+      title="Get Qubit Calculus"
+      subtitle="Access Qubit Calculus on the web today, and on mobile soon. Desktop apps are on our roadmap."
       eyebrow="Get Started"
     >
       {/* Web App — Available Now */}
@@ -52,7 +52,7 @@ export default function Download() {
             <motion.div {...REVEAL_UP}>
               <h2 className="marketing-section__title">Web App</h2>
               <p className="marketing-section__desc">
-                Use CGraph directly in your browser. No download required.
+                Use Qubit Calculus directly in your browser. No download required.
               </p>
             </motion.div>
           </div>
@@ -68,7 +68,7 @@ export default function Download() {
             <div className="mb-4 inline-flex">
               <NeonIcon symbol="🌐" size={56} title="Web app" />
             </div>
-            <h3 className="mb-2 text-2xl font-bold text-slate-100">CGraph for Web</h3>
+            <h3 className="mb-2 text-2xl font-bold text-slate-100">Qubit Calculus for Web</h3>
             <p className="mb-2 text-sm" style={{ color: 'var(--color-text-muted)' }}>
               Works in Chrome, Firefox, Safari, and Edge
             </p>
@@ -110,7 +110,7 @@ export default function Download() {
             </div>
 
             <motion.a
-              href="https://web.cgraph.org"
+              href="https://web.qubitcalculus.com"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-block rounded-lg px-8 py-3 text-lg font-medium text-white"
@@ -131,7 +131,7 @@ export default function Download() {
             <motion.div {...REVEAL_UP}>
               <h2 className="marketing-section__title">Mobile App</h2>
               <p className="marketing-section__desc">
-                CGraph for iOS and Android is currently in beta, built with React Native and Expo.
+                Qubit Calculus for iOS and Android is currently in beta, built with React Native and Expo.
               </p>
             </motion.div>
           </div>
@@ -233,7 +233,7 @@ export default function Download() {
                   Planned · 2027
                 </span>
                 <p className="mt-3 text-sm" style={{ color: 'var(--color-text-muted)' }}>
-                  In the meantime, use the web app for the full CGraph experience.
+                  In the meantime, use the web app for the full Qubit Calculus experience.
                 </p>
               </motion.div>
             ))}
@@ -246,7 +246,7 @@ export default function Download() {
         <div className="marketing-section__container">
           <div className="marketing-section__header">
             <motion.div {...REVEAL_UP}>
-              <h2 className="marketing-section__title">Why Choose CGraph?</h2>
+              <h2 className="marketing-section__title">Why Choose Qubit Calculus?</h2>
               <p className="marketing-section__desc">
                 Privacy and security aren't add-ons. They're how it works.
               </p>

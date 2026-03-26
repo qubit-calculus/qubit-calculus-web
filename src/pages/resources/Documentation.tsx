@@ -154,7 +154,7 @@ export default function Documentation() {
             <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
               These docs reflect our internal engineering documentation. Full public developer docs
               will ship with v1.0 at{' '}
-              <span className="font-semibold text-slate-100">docs.cgraph.org</span>.
+              <span className="font-semibold text-slate-100">docs.qubitcalculus.com</span>.
             </p>
           </motion.div>
         </div>
@@ -292,7 +292,7 @@ export default function Documentation() {
                 }}
               >
                 <span className="font-mono text-sm font-bold text-slate-100">
-                  https://cgraph-backend.fly.dev/api/v1
+                  https://api.qubitcalculus.com.fly.dev/api/v1
                 </span>
                 <span
                   className="rounded-full px-2 py-0.5 text-xs font-medium"
@@ -536,7 +536,7 @@ export default function Documentation() {
           <div className="marketing-section__header">
             <motion.div {...REVEAL_UP}>
               <h2 className="marketing-section__title">Tech Stack</h2>
-              <p className="marketing-section__desc">The technologies powering CGraph.</p>
+              <p className="marketing-section__desc">The technologies powering Qubit Calculus.</p>
             </motion.div>
           </div>
 
@@ -645,7 +645,7 @@ export default function Documentation() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="https://github.com/cgraph-dev/CGraph"
+                  href="https://github.com/cgraph-dev/Qubit Calculus"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="marketing-btn marketing-btn--primary"

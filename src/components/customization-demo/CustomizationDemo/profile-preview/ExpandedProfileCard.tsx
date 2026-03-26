@@ -39,7 +39,7 @@ export const ExpandedProfileCard = memo(function ExpandedProfileCard({
 
       {/* Content */}
       <div className="text-center">
-        <h3 className="mb-1 text-xl font-bold text-white">CGraph User</h3>
+        <h3 className="mb-1 text-xl font-bold text-white">Qubit Calculus User</h3>
         <p className="mb-3 text-sm text-gray-400">Full-stack developer & community enthusiast</p>
         {state.showStatus && (
           <div className="mb-3 flex items-center justify-center gap-1.5 text-sm text-emerald-400">

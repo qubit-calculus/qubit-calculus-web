@@ -21,7 +21,7 @@ export const CompactProfileCard = memo(function CompactProfileCard({
           speedMultiplier={speedMultiplier}
         />
         <div>
-          <h3 className="text-sm font-bold text-white">CGraph User</h3>
+          <h3 className="text-sm font-bold text-white">Qubit Calculus User</h3>
           <p className="text-xs text-gray-400">Level 42</p>
         </div>
       </div>

@@ -28,7 +28,7 @@ export const DetailedProfileCard = memo(function DetailedProfileCard({
         </motion.div>
         <div className="flex-1">
           <div className="mb-1 flex items-center gap-2">
-            <h3 className="text-xl font-bold text-white">CGraph User</h3>
+            <h3 className="text-xl font-bold text-white">Qubit Calculus User</h3>
             {/* Fire-animated Legendary Title Badge */}
             <motion.div
               className="relative overflow-hidden rounded-full px-2.5 py-0.5 text-[11px] font-bold"

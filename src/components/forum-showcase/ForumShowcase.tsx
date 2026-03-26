@@ -1,6 +1,6 @@
 /**
  * ForumShowcase Component
- * Interactive demonstration of CGraph's drag-and-drop community forums
+ * Interactive demonstration of Qubit Calculus's drag-and-drop community forums
  */
 
 import { useState, useCallback } from 'react';

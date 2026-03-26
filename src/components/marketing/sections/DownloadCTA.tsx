@@ -67,7 +67,7 @@ const platforms: Platform[] = [
     name: 'Web App',
     icon: <GlobeIcon />,
     description: 'Any modern browser',
-    href: 'https://web.cgraph.org',
+    href: 'https://web.qubitcalculus.com',
     badge: 'Open',
   },
 ];
@@ -81,7 +81,7 @@ export const DownloadCTA = memo(function DownloadCTA() {
         title="Available"
         titleAccent="Everywhere"
         titleAccentClass="title-fx--air"
-        description="Download CGraph for your platform or use it right in your browser."
+        description="Download Qubit Calculus for your platform or use it right in your browser."
       />
 
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 px-6 sm:grid-cols-3">
@@ -112,7 +112,7 @@ export const DownloadCTA = memo(function DownloadCTA() {
 
       {/* Direct CTA below */}
       <div className="mt-12 text-center">
-        <LandingButton href="https://web.cgraph.org/register" variant="primary" size="lg">
+        <LandingButton href="https://web.qubitcalculus.com/register" variant="primary" size="lg">
           Get Started Free — No Download Required
         </LandingButton>
       </div>

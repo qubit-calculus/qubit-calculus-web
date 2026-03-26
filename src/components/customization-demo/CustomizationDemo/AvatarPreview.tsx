@@ -107,7 +107,7 @@ export const AvatarPreview = memo(function AvatarPreview({ state }: AvatarPrevie
 
         {/* User info */}
         <div className="text-center">
-          <h3 className="text-lg font-bold text-white">CGraph User</h3>
+          <h3 className="text-lg font-bold text-white">Qubit Calculus User</h3>
           <p className="text-sm text-gray-400">Level 42 • Legendary</p>
         </div>
 

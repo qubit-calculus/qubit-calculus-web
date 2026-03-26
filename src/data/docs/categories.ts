@@ -1,235 +1,123 @@
 /**
  * Documentation page data — categories, API overview, security table
  *
- * To add a new doc category or modify the documentation index,
- * edit the arrays below. Each article slug must match an entry
- * in docs/articles.ts.
- *
- * @since v0.9.26
+ * Sourced for the Qubit Calculus Agency process and services.
  */
 
 import type { DocCategory } from './types';
 
 export const docCategories: DocCategory[] = [
   {
-    id: 'getting-started',
-    icon: '🚀',
-    title: 'Getting Started',
+    id: 'our-process',
+    icon: '⚙️',
+    title: 'How We Work',
     color: '#34d399',
     description:
-      'Create your account, set up your first server, and understand the platform basics.',
+      'From initial discovery to final handoff, our process is built for speed and quality.',
     articles: [
-      { title: 'What is CGraph?', time: '3 min read' },
-      { title: 'Creating Your Account', time: '2 min read' },
-      { title: 'Setting Up Your First Server', time: '5 min read' },
-      { title: 'Channels: Text, Voice, Forum & Announcements', time: '6 min read' },
-      { title: 'Inviting Members & Permissions', time: '4 min read' },
+      { title: 'The Qubit Methodology', time: '4 min read' },
+      { title: 'Discovery & Strategy', time: '3 min read' },
+      { title: 'Design & Prototyping', time: '5 min read' },
+      { title: 'Agile Engineering Sprints', time: '6 min read' },
+      { title: 'Launch & Handoff', time: '4 min read' },
     ],
   },
   {
-    id: 'messaging',
-    icon: '💬',
-    title: 'Messaging & Communication',
+    id: 'service-tiers',
+    icon: '📊',
+    title: 'Service Tiers',
     color: '#60a5fa',
-    description: 'Real-time messaging, voice/video calls, DMs, and group conversations.',
+    description: 'Detailed breakdown of our MVP, Scaling, and Enterprise services.',
     articles: [
-      { title: 'Real-Time Messaging & Typing Indicators', time: '5 min read' },
-      { title: 'Message Editing, Deletion & Forwarding', time: '4 min read' },
-      { title: 'Voice Messages & Waveform Visualization', time: '3 min read' },
-      { title: 'Voice & Video Calls (WebRTC)', time: '8 min read' },
-      { title: 'Screen Sharing & Group Calls', time: '5 min read' },
-      { title: 'Message Scheduling & Reactions', time: '3 min read' },
+      { title: 'Starter: MVP Engineering', time: '5 min read' },
+      { title: 'Growth: Scaling & Optimization', time: '4 min read' },
+      { title: 'Enterprise: Digital Transformation', time: '6 min read' },
+      { title: 'Custom Solutions', time: '3 min read' },
     ],
   },
   {
-    id: 'forums',
-    icon: '📋',
-    title: 'Community Forums',
+    id: 'tech-stack',
+    icon: '⚡',
+    title: 'Our Tech Stack',
     color: '#a78bfa',
-    description: 'Threaded discussions with voting, Pulse reputation, moderation, and rich text.',
+    description: 'The modern tools and frameworks we use to build high-performance applications.',
     articles: [
-      { title: 'Creating Posts & Nested Threads', time: '6 min read' },
-      { title: 'Voting, Pulse & Leaderboards', time: '5 min read' },
-      { title: 'Rich Text Editor', time: '7 min read' },
-      { title: 'Thread Tags & Organization', time: '4 min read' },
-      { title: 'Moderator Tools: Pin, Lock, Split, Merge', time: '8 min read' },
-      { title: 'Thread Subscriptions & Notifications', time: '3 min read' },
+      { title: 'Frontend: React & Next.js', time: '5 min read' },
+      { title: 'Styling: Tailwind CSS', time: '3 min read' },
+      { title: 'Backend: Node.js & Elixir', time: '6 min read' },
+      { title: 'Infrastructure: Fly.io & Vercel', time: '4 min read' },
     ],
   },
   {
-    id: 'security',
-    icon: '🔐',
-    title: 'Security & Encryption',
-    color: '#f87171',
-    description:
-      'Triple Ratchet E2EE with PQXDH, key management, device verification, and security architecture.',
-    articles: [
-      { title: 'E2EE Overview: PQXDH + Triple Ratchet', time: '15 min read' },
-      { title: 'Key Exchange: ML-KEM-768 + P-256 ECDH', time: '12 min read' },
-      { title: 'Forward Secrecy & Key Derivation (HKDF)', time: '10 min read' },
-      { title: 'Device Verification & Safety Numbers', time: '6 min read' },
-      { title: 'Security Headers: CSP, HSTS, CORS', time: '8 min read' },
-      { title: 'Reporting Vulnerabilities', time: '3 min read' },
-    ],
-  },
-  {
-    id: 'achievements-cosmetics',
-    icon: '🏆',
-    title: 'Achievements & Cosmetics',
+    id: 'engagement',
+    icon: '🤝',
+    title: 'Working with Us',
     color: '#fbbf24',
-    description:
-      '325 cosmetic items, 30+ achievements, Pulse reputation, Nodes currency, and the creator economy.',
+    description: 'Communication, project management, and what to expect as a client.',
     articles: [
-      { title: 'Cosmetics System: 325 Items Across 7 Categories', time: '6 min read' },
-      { title: '30+ Achievements Across 6 Categories', time: '8 min read' },
-      { title: 'Nodes Currency & Creator Economy', time: '5 min read' },
-      { title: 'Pulse Reputation System', time: '4 min read' },
-      { title: 'Creator Economy: Tipping & Premium Threads', time: '5 min read' },
-      { title: 'Cosmetics Unlock Engine & Rarity Tiers', time: '6 min read' },
-    ],
-  },
-  {
-    id: 'api-reference',
-    icon: '📡',
-    title: 'REST API Reference',
-    color: '#2dd4bf',
-    description:
-      'Complete API documentation with endpoints, authentication, rate limits, and WebSocket events.',
-    articles: [
-      { title: 'Authentication: JWT Bearer Tokens', time: '10 min read' },
-      { title: 'Users, Servers & Channels API', time: '12 min read' },
-      { title: 'Messages API (Paginated, Cursor-Based)', time: '8 min read' },
-      { title: 'E2EE Key Exchange Endpoints', time: '10 min read' },
-      { title: 'WebSocket API & Real-Time Events', time: '15 min read' },
-      { title: 'Rate Limits & Error Codes', time: '5 min read' },
-    ],
-  },
-  {
-    id: 'architecture',
-    icon: '🏗️',
-    title: 'Architecture & Design',
-    color: '#818cf8',
-    description: 'Monorepo structure, module system, caching layers, and supervision trees.',
-    articles: [
-      { title: 'Monorepo: pnpm Workspaces + Turborepo', time: '8 min read' },
-      { title: 'Dual-App Architecture (Landing vs Web App)', time: '10 min read' },
-      { title: '12 Feature Modules & 7 Facade Hooks', time: '12 min read' },
-      { title: 'Backend Sub-module Architecture & Defdelegate Pattern', time: '10 min read' },
-      { title: '3-Tier Caching: ETS → Cachex → Redis', time: '10 min read' },
-      { title: 'Phoenix Supervision Tree', time: '8 min read' },
-      { title: 'Socket Architecture & Channel Modules', time: '10 min read' },
-    ],
-  },
-  {
-    id: 'mobile',
-    icon: '📱',
-    title: 'Mobile Development',
-    color: '#f472b6',
-    description:
-      'React Native with Expo SDK 54, offline support, push notifications, and biometrics.',
-    articles: [
-      { title: 'React Native 0.81 & Expo SDK 54', time: '6 min read' },
-      { title: 'Offline Support & Message Queuing', time: '8 min read' },
-      { title: 'Reanimated v4 & Gesture Handler', time: '7 min read' },
-      { title: 'Push Notifications & Biometric Auth', time: '5 min read' },
-      { title: 'Customization Screens (6 Screens)', time: '4 min read' },
+      { title: 'Communication Channels', time: '3 min read' },
+      { title: 'Project Management & Transparency', time: '4 min read' },
+      { title: 'Ongoing Support & Maintenance', time: '5 min read' },
+      { title: 'Referral Program', time: '2 min read' },
     ],
   },
 ];
 
 export const apiOverview = [
-  { label: 'Base URL', value: 'cgraph-backend.fly.dev/api/v1' },
-  { label: 'Auth', value: 'JWT Bearer (15min access + refresh rotation)' },
-  { label: 'Pagination', value: 'Cursor-based (never offset)' },
-  { label: 'WebSocket', value: 'wss://cgraph-backend.fly.dev/socket' },
-  { label: 'Rate Limit', value: '300 req/min general, 60 msg/min, 5 auth/15min' },
-  { label: 'Upload Limit', value: '25MB free, 100MB premium' },
+  { label: 'Primary Contact', value: 'hello@qubitcalculus.com' },
+  { label: 'Turnaround', value: '2-4 weeks for MVPs' },
+  { label: 'Pricing Model', value: 'Fixed-price sprints or Retainers' },
+  { label: 'Focus', value: 'Startups & SME Modernization' },
+  { label: 'Office', value: 'Remote-first (Europe/Georgia)' },
 ];
 
 export const securityTable = [
-  {
-    component: 'Key Exchange',
-    algorithm: 'PQXDH (P-256 + ML-KEM-768)',
-    level: '256-bit (post-quantum)',
-  },
-  { component: 'Encryption', algorithm: 'AES-256-GCM + Triple Ratchet', level: '256-bit' },
-  { component: 'Signatures', algorithm: 'ECDSA P-256', level: '128-bit' },
-  { component: 'Passwords', algorithm: 'Argon2id', level: 'Memory-hard' },
-  { component: 'Transport', algorithm: 'TLS 1.3', level: 'Enforced' },
-  { component: 'Key Derivation', algorithm: 'HKDF-SHA256', level: 'Per-conversation' },
+  { component: 'Codebase Quality', algorithm: 'Rigorous Linting & Types', level: '100% TS' },
+  { component: 'Security', algorithm: 'Best-practice OWASP & E2EE', level: 'Industry Std' },
+  { component: 'Handoff', algorithm: 'Full IP & Source Transfer', level: 'Guaranteed' },
+  { component: 'Hiring', algorithm: 'Top 1% Engineering Talent', level: 'Elite' },
 ];
 
 export const apiEndpointGroups = [
   {
-    group: 'Authentication',
-    icon: '🔑',
+    group: 'Web Development',
+    icon: '🌐',
     endpoints: [
-      { method: 'POST', path: '/auth/register' },
-      { method: 'POST', path: '/auth/login' },
-      { method: 'POST', path: '/auth/refresh' },
-      { method: 'POST', path: '/auth/logout' },
+      { method: 'BUILD', path: '/mvp-development' },
+      { method: 'FIX', path: '/legacy-hotfixes' },
+      { method: 'SCALE', path: '/performance-tuning' },
     ],
   },
   {
-    group: 'Messaging',
-    icon: '💬',
+    group: 'App Development',
+    icon: '📱',
     endpoints: [
-      { method: 'GET', path: '/channels/:id/messages' },
-      { method: 'POST', path: '/channels/:id/messages' },
-      { method: 'GET', path: '/dms' },
-      { method: 'POST', path: '/dms/:id/messages' },
+      { method: 'IOS', path: '/native-apps' },
+      { method: 'ANDR', path: '/cross-platform' },
+      { method: 'UI', path: '/design-systems' },
     ],
   },
   {
-    group: 'Servers',
-    icon: '🏠',
+    group: 'Modernization',
+    icon: '🏗️',
     endpoints: [
-      { method: 'GET', path: '/servers' },
-      { method: 'POST', path: '/servers' },
-      { method: 'GET', path: '/servers/:id/channels' },
-      { method: 'POST', path: '/servers/:id/webhooks' },
-    ],
-  },
-  {
-    group: 'Users & Profiles',
-    icon: '👤',
-    endpoints: [
-      { method: 'GET', path: '/users/me' },
-      { method: 'PATCH', path: '/users/me' },
-      { method: 'GET', path: '/users/:id/profile' },
-      { method: 'GET', path: '/users/me/servers' },
-    ],
-  },
-  {
-    group: 'E2EE Keys',
-    icon: '🔐',
-    endpoints: [
-      { method: 'POST', path: '/e2ee/keys/upload' },
-      { method: 'GET', path: '/e2ee/keys/:user_id' },
-      { method: 'POST', path: '/e2ee/sessions' },
-    ],
-  },
-  {
-    group: 'WebSocket Events',
-    icon: '⚡',
-    endpoints: [
-      { method: 'WS', path: 'message:new' },
-      { method: 'WS', path: 'typing:start' },
-      { method: 'WS', path: 'presence:update' },
-      { method: 'WS', path: 'channel:join' },
+      { method: 'MIG', path: '/cloud-migration' },
+      { method: 'REF', path: '/architecture-revamp' },
+      { method: 'OPT', path: '/database-optimization' },
     ],
   },
 ];
 
 export const methodColors: Record<string, { bg: string; text: string }> = {
-  GET: { bg: 'rgba(52, 211, 153, 0.12)', text: '#34d399' },
-  POST: { bg: 'rgba(96, 165, 250, 0.12)', text: '#60a5fa' },
-  PATCH: { bg: 'rgba(251, 191, 36, 0.12)', text: '#fbbf24' },
-  DELETE: { bg: 'rgba(248, 113, 113, 0.12)', text: '#f87171' },
-  WS: { bg: 'rgba(167, 139, 250, 0.12)', text: '#a78bfa' },
+  BUILD: { bg: 'rgba(52, 211, 153, 0.12)', text: '#34d399' },
+  FIX: { bg: 'rgba(96, 165, 250, 0.12)', text: '#60a5fa' },
+  SCALE: { bg: 'rgba(234, 179, 8, 0.12)', text: '#fbbf24' },
+  IOS: { bg: 'rgba(167, 139, 250, 0.12)', text: '#a78bfa' },
+  ANDR: { bg: 'rgba(244, 114, 182, 0.12)', text: '#f472b6' },
+  MIG: { bg: 'rgba(129, 140, 248, 0.12)', text: '#818cf8' },
 };
 
-export const defaultMethodColor = methodColors.GET ?? {
+export const defaultMethodColor = methodColors.BUILD ?? {
   bg: 'rgba(52, 211, 153, 0.12)',
   text: '#34d399',
 };

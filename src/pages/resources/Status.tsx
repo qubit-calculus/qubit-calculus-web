@@ -18,13 +18,13 @@ import { REVEAL_UP } from '../../lib/motion-presets';
 const plannedServices = [
   {
     name: 'API Server',
-    domain: 'cgraph-backend.fly.dev',
+    domain: 'api.qubitcalculus.com.fly.dev',
     description: 'Elixir/Phoenix REST API on Fly.io (Frankfurt)',
     icon: '🔌',
   },
   {
     name: 'Web Application',
-    domain: 'web.cgraph.org',
+    domain: 'web.qubitcalculus.com',
     description: 'React 19 SPA on Fly.io (IAD)',
     icon: '🌐',
   },
@@ -157,7 +157,7 @@ export default function Status() {
   return (
     <MarketingLayout
       title="System Status"
-      subtitle="Infrastructure overview, SLO targets, and service monitoring for CGraph."
+      subtitle="Infrastructure overview, SLO targets, and service monitoring for Qubit Calculus."
       eyebrow="Status"
     >
       {/* Current Status Banner */}
@@ -190,7 +190,7 @@ export default function Status() {
               </motion.div>
 
               <h2 className="mb-4 font-zentry text-2xl font-bold text-slate-100">
-                CGraph v1.0.0 is Live
+                Qubit Calculus v1.0.0 is Live
               </h2>
               <p
                 className="mx-auto max-w-2xl text-sm leading-relaxed"
@@ -385,7 +385,7 @@ export default function Status() {
               }}
             >
               <span className="font-mono text-sm font-bold text-slate-100">
-                https://cgraph-backend.fly.dev
+                https://api.qubitcalculus.com.fly.dev
               </span>
             </div>
             <div className="divide-y divide-white/5">
@@ -523,7 +523,7 @@ export default function Status() {
             <motion.div {...REVEAL_UP}>
               <h2 className="marketing-section__title">Monitoring at Launch</h2>
               <p className="marketing-section__desc">
-                What the live status page will include when CGraph goes into production.
+                What the live status page will include when Qubit Calculus goes into production.
               </p>
             </motion.div>
           </div>
@@ -609,12 +609,12 @@ export default function Status() {
                 className="mx-auto mb-6 max-w-xl text-sm"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                Status monitoring with email/SMS notifications will be available when CGraph
+                Status monitoring with email/SMS notifications will be available when Qubit Calculus
                 launches. In the meantime, follow our progress on GitHub.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="https://github.com/cgraph-dev/CGraph"
+                  href="https://github.com/cgraph-dev/Qubit Calculus"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="marketing-btn marketing-btn--primary"

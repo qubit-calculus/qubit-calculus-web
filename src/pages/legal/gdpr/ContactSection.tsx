@@ -23,21 +23,21 @@ export default function ContactSection() {
         <div>
           <p style={{ color: 'var(--color-text-muted)' }}>General Privacy Inquiries</p>
           <a
-            href="mailto:legal@qubitcalculus.com"
+            href="mailto:hello@qubitcalculus.com"
             style={{ color: 'var(--color-primary)' }}
             className="hover:opacity-80"
           >
-            legal@qubitcalculus.com
+            hello@qubitcalculus.com
           </a>
         </div>
         <div>
           <p style={{ color: 'var(--color-text-muted)' }}>Data Protection Officer</p>
           <a
-            href="mailto:privacy@qubitcalculus.com"
+            href="mailto:hello@qubitcalculus.com"
             style={{ color: 'var(--color-primary)' }}
             className="hover:opacity-80"
           >
-            privacy@qubitcalculus.com
+            hello@qubitcalculus.com
           </a>
         </div>
       </div>
@@ -59,7 +59,7 @@ export default function ContactSection() {
             Terms of Service
           </h5>
           <p className="mt-1 text-sm" style={{ color: 'var(--color-text-muted)' }}>
-            Rules for using CGraph
+            Rules for using Qubit Calculus
           </p>
         </a>
         <a href="/cookies" className="marketing-card" style={{ padding: '1rem' }}>
