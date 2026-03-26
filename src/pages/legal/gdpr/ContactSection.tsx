@@ -23,21 +23,21 @@ export default function ContactSection() {
         <div>
           <p style={{ color: 'var(--color-text-muted)' }}>General Privacy Inquiries</p>
           <a
-            href="mailto:privacy@cgraph.org"
+            href="mailto:legal@qubitcalculus.com"
             style={{ color: 'var(--color-primary)' }}
             className="hover:opacity-80"
           >
-            privacy@cgraph.org
+            legal@qubitcalculus.com
           </a>
         </div>
         <div>
           <p style={{ color: 'var(--color-text-muted)' }}>Data Protection Officer</p>
           <a
-            href="mailto:dpo@cgraph.org"
+            href="mailto:privacy@qubitcalculus.com"
             style={{ color: 'var(--color-primary)' }}
             className="hover:opacity-80"
           >
-            dpo@cgraph.org
+            privacy@qubitcalculus.com
           </a>
         </div>
       </div>

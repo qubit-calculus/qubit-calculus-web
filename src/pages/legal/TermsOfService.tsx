@@ -388,7 +388,7 @@ const sections = [
       <h4>21.1 Dispute Resolution</h4>
       <p>Any disputes arising from these Terms shall be resolved through:</p>
       <ol>
-        <li><strong>Informal Resolution</strong> — Contact us first at <a href="mailto:legal@cgraph.org">legal@cgraph.org</a>. We will attempt to resolve any dispute within 30 days of receipt</li>
+        <li><strong>Informal Resolution</strong> — Contact us first at <a href="mailto:legal@qubitcalculus.com">legal@qubitcalculus.com</a>. We will attempt to resolve any dispute within 30 days of receipt</li>
         <li><strong>Mediation</strong> — If informal resolution fails, disputes shall be submitted to mediation under the rules of an internationally recognized mediation body</li>
         <li><strong>Binding Arbitration</strong> — If mediation fails, disputes shall be resolved through binding arbitration (individual claims only). The arbitration shall be conducted in English</li>
         <li><strong>Small Claims Court</strong> — Either party may bring claims in small claims court in the jurisdiction where they reside, if the claim qualifies</li>
