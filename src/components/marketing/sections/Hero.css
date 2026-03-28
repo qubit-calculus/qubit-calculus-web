@@ -408,12 +408,12 @@
     width: 100%;
     padding: 0 1.25rem 0;
     gap: 0;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .hero-pro__subtitle-wrap {
-    margin-top: auto;
-    margin-bottom: 6rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
   }
 
   .hero-pro__mesh {

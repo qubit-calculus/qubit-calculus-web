@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LogoIcon } from '@/components/Logo';
+import { useTheme } from '@/hooks/use-theme';
 
 
 interface NavigationProps {
@@ -14,21 +15,27 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Hide on scroll down, show on scroll up
-      if (currentScrollY > lastScrollY.current && currentScrollY > 150) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-      
-      if (mobileMenuOpen && currentScrollY > 20) setMobileMenuOpen(false);
-      setScrolled(currentScrollY > 20);
-      lastScrollY.current = currentScrollY;
+      if (ticking.current) return;
+      ticking.current = true;
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY.current && currentScrollY > 150) {
+          setHidden(true);
+        } else {
+          setHidden(false);
+        }
+
+        if (mobileMenuOpen && currentScrollY > 20) setMobileMenuOpen(false);
+        setScrolled(currentScrollY > 20);
+        lastScrollY.current = currentScrollY;
+        ticking.current = false;
+      });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -37,6 +44,18 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
+
+  const closeMobile = useCallback(() => setMobileMenuOpen(false), []);
 
   const navLinks = showLandingLinks ? [
     { name: 'Services', href: '#services' },
@@ -51,6 +70,39 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
     { name: 'About', to: '/about' },
   ];
 
+  const themeOptions = [
+    {
+      id: 'system' as const,
+      label: 'System',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+      )
+    },
+    {
+      id: 'light' as const,
+      label: 'Light',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+          <circle cx="12" cy="12" r="5" />
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+        </svg>
+      )
+    },
+    {
+      id: 'dark' as const,
+      label: 'Dark',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      )
+    }
+  ];
+
   return (
     <>
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-indigo-500 focus:px-4 focus:py-2 focus:text-white focus:outline-none">
@@ -58,22 +110,30 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
       </a>
 
       <motion.nav
-        className={`fixed left-1/2 z-[100] flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        className={`fixed left-1/2 z-[100] flex items-center justify-between transition-all duration-500 ${
           scrolled
             ? 'top-4 w-[95%] max-w-5xl rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-[#0a0a0f]/60 backdrop-blur-2xl shadow-lg dark:shadow-[0_8px_32px_rgba(0,0,0,0.8)] px-6 py-2.5'
             : 'top-6 w-[92%] max-w-6xl rounded-2xl border border-transparent bg-transparent px-4 py-4'
+        } ${
+          /* Mobile: always pill style */
+          'max-md:top-3 max-md:w-auto max-md:max-w-none max-md:left-auto max-md:right-3 max-md:rounded-full max-md:px-2 max-md:py-1.5 max-md:gap-1'
+        } ${
+          scrolled
+            ? 'max-md:bg-white/80 max-md:dark:bg-[#0a0a0f]/70 max-md:backdrop-blur-2xl max-md:border-black/10 max-md:dark:border-white/10 max-md:shadow-lg'
+            : 'max-md:bg-white/60 max-md:dark:bg-[#0a0a0f]/40 max-md:backdrop-blur-xl max-md:border-black/5 max-md:dark:border-white/5'
         }`}
-        initial={{ x: '-50%', y: -100, opacity: 0 }}
-        animate={{ x: '-50%', y: hidden ? -150 : 0, opacity: hidden ? 0 : 1 }}
-        transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+        style={{ transform: 'translateX(-50%)' }}
+        initial={false}
+        animate={{ y: hidden ? -80 : 0, opacity: hidden ? 0 : 1 }}
+        transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
       >
-        {/* Logo Section */}
-        <div className="flex items-center gap-3">
-          <Link to="/" className="flex items-center gap-2 group outline-none" aria-label="Qubit Calculus Home">
-            <div className="transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-active:scale-95">
-              <LogoIcon size={32} showGlow={scrolled} color="gradient" />
+        {/* Logo Section — hidden on mobile when not scrolled, just show icon */}
+        <div className="flex items-center gap-3 max-md:gap-1.5">
+          <Link to="/" className="flex items-center gap-2 group outline-none max-md:gap-1.5" aria-label="Qubit Calculus Home">
+            <div className="transition-transform duration-300 group-hover:scale-110 group-active:scale-95">
+              <LogoIcon size={28} showGlow={scrolled} color="gradient" />
             </div>
-            <span className="text-gray-900 dark:text-white font-bold tracking-tight text-xl hidden sm:block transition-all duration-300 group-hover:text-indigo-400">
+            <span className="text-gray-900 dark:text-white font-bold tracking-tight text-xl hidden md:block transition-colors duration-300 group-hover:text-indigo-400">
               Qubit Calculus
             </span>
           </Link>
@@ -83,9 +143,9 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
         <div className="hidden md:flex items-center gap-1 p-1 bg-black/5 dark:bg-white/5 backdrop-blur-md rounded-full border border-black/10 dark:border-white/10">
           {navLinks.map((link) => (
             link.to ? (
-              <Link 
-                key={link.name} 
-                to={link.to} 
+              <Link
+                key={link.name}
+                to={link.to}
                 className={`text-sm font-medium px-5 py-2 rounded-full transition-all duration-300 outline-none ${
                   location.pathname === link.to
                     ? 'text-gray-900 dark:text-white bg-black/10 dark:bg-white/10 shadow-inner'
@@ -95,9 +155,9 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
                 {link.name}
               </Link>
             ) : (
-              <a 
-                key={link.name} 
-                href={link.href} 
+              <a
+                key={link.name}
+                href={link.href}
                 className="text-sm font-medium px-5 py-2 rounded-full text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 outline-none"
               >
                 {link.name}
@@ -124,83 +184,103 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
           </motion.a>
         </div>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile menu toggle — compact pill button */}
         <button
-          className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 hover:bg-black/10 dark:hover:bg-white/10 transition-all active:scale-90"
+          className="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none active:scale-90 transition-transform"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle Menu"
         >
-          <div className="relative w-5 h-4">
-            <span className={`absolute bg-gray-900 dark:bg-white block transition-all duration-300 h-0.5 w-full rounded-full ${mobileMenuOpen ? 'top-2 rotate-45' : 'top-0'}`} />
-            <span className={`absolute bg-gray-900 dark:bg-white block transition-all duration-300 h-0.5 w-full rounded-full top-2 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
-            <span className={`absolute bg-gray-900 dark:bg-white block transition-all duration-300 h-0.5 w-full rounded-full ${mobileMenuOpen ? 'top-2 -rotate-45' : 'top-4'}`} />
+          <div className="relative w-4 h-3">
+            <span className={`absolute bg-gray-900 dark:bg-white block transition-all duration-300 h-0.5 w-full rounded-full ${mobileMenuOpen ? 'top-1.5 rotate-45' : 'top-0'}`} />
+            <span className={`absolute bg-gray-900 dark:bg-white block transition-all duration-300 h-0.5 w-full rounded-full top-1.5 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+            <span className={`absolute bg-gray-900 dark:bg-white block transition-all duration-300 h-0.5 w-full rounded-full ${mobileMenuOpen ? 'top-1.5 -rotate-45' : 'top-3'}`} />
           </div>
         </button>
       </motion.nav>
 
-      {/* Mobile Dropdown - Full Screen Overlay Style */}
+      {/* Mobile Dropdown */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-[90] bg-[#050505]/95 backdrop-blur-3xl md:hidden flex flex-col items-center justify-center p-8"
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.1 }}
-            transition={{ type: 'spring', damping: 30, stiffness: 200 }}
+            className="fixed inset-0 z-[90] bg-white/95 dark:bg-[#050505]/95 backdrop-blur-2xl md:hidden flex flex-col items-center justify-center p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
-            {/* Background Gradients */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-              <div className="absolute top-[10%] left-[10%] w-64 h-64 bg-indigo-500/10 blur-[100px] rounded-full" />
-              <div className="absolute bottom-[20%] right-[10%] w-80 h-80 bg-indigo-500/10 blur-[120px] rounded-full" />
-            </div>
-            
-            <div className="flex flex-col gap-6 text-center w-full max-w-sm">
+            <div className="flex flex-col gap-5 text-center w-full max-w-sm">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 + 0.2 }}
+                  transition={{ delay: i * 0.06 + 0.1 }}
                 >
                   {link.to ? (
-                    <Link 
-                      to={link.to} 
-                      onClick={() => setMobileMenuOpen(false)} 
-                      className={`block text-4xl font-black py-2 transition-all hover:scale-105 active:scale-95 ${
-                        location.pathname === link.to ? 'text-indigo-500' : 'text-white/60 hover:text-white'
+                    <Link
+                      to={link.to}
+                      onClick={closeMobile}
+                      className={`block text-3xl font-bold py-1.5 transition-colors ${
+                        location.pathname === link.to ? 'text-indigo-500' : 'text-gray-800 dark:text-white/60 hover:text-indigo-500 dark:hover:text-white'
                       }`}
                     >
                       {link.name}
                     </Link>
                   ) : (
-                    <a 
-                      href={link.href} 
-                      onClick={() => setMobileMenuOpen(false)} 
-                      className="block text-4xl font-black py-2 text-white/60 hover:text-white transition-all hover:scale-105 active:scale-95"
+                    <a
+                      href={link.href}
+                      onClick={closeMobile}
+                      className="block text-3xl font-bold py-1.5 text-gray-800 dark:text-white/60 hover:text-indigo-500 dark:hover:text-white transition-colors"
                     >
                       {link.name}
                     </a>
                   )}
                 </motion.div>
               ))}
-              
+
+              {/* CTA button */}
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="mt-12 pt-12 border-t border-white/5"
+                transition={{ delay: 0.35 }}
+                className="mt-6 pt-6 border-t border-gray-200 dark:border-white/5"
               >
                 <a
                   href="/contact"
-                  className="group relative w-full inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95"
+                  onClick={closeMobile}
+                  className="group relative w-full inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-semibold text-indigo-600 dark:text-white overflow-hidden transition-all duration-300 active:scale-95"
                 >
-                  <span className="absolute inset-0 rounded-full p-[1.5px] bg-gradient-to-r from-indigo-500 via-blue-400 to-indigo-500 bg-[length:200%_100%] animate-[nav-cta-flow_3s_ease_infinite]">
-                    <span className="block h-full w-full rounded-full bg-[#0a0a0f]/80 backdrop-blur-xl" />
+                  <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
+                    <span className="block h-full w-full rounded-full bg-white/90 dark:bg-[#0a0a0f]/80 backdrop-blur-xl" />
                   </span>
-                  <span className="absolute -inset-1 rounded-full bg-indigo-500/20 blur-xl -z-10" />
                   <span className="relative z-10">Book a Strategy Call</span>
                 </a>
-                <p className="mt-6 text-slate-500 text-sm font-medium">Ready to ship in 4-6 weeks</p>
+              </motion.div>
+
+              {/* Theme picker inside mobile menu */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="mt-4 flex items-center justify-center"
+              >
+                <div className="flex items-center gap-1 p-1 rounded-full border border-gray-200 dark:border-white/10 bg-gray-100/80 dark:bg-white/5">
+                  {themeOptions.map((option) => (
+                    <button
+                      key={option.id}
+                      onClick={() => setTheme(option.id)}
+                      className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        theme === option.id
+                          ? 'bg-white dark:bg-white/10 text-gray-900 dark:text-white shadow-sm'
+                          : 'text-gray-500 dark:text-gray-400'
+                      }`}
+                      aria-label={option.label}
+                    >
+                      {option.icon}
+                      <span>{option.label}</span>
+                    </button>
+                  ))}
+                </div>
               </motion.div>
             </div>
           </motion.div>

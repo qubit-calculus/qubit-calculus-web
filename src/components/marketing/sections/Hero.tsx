@@ -141,7 +141,7 @@ const Hero = memo(function Hero(): React.JSX.Element {
         </motion.div>
 
         {/* CTA Buttons */}
-        <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <motion.div variants={itemVariants} className="mt-10 max-md:mt-5 flex flex-col sm:flex-row items-center justify-center gap-4 max-md:gap-3">
           {/* Primary — Gradient border + frosted glass fill */}
           <a
             href="/contact"
@@ -199,18 +199,7 @@ const Hero = memo(function Hero(): React.JSX.Element {
         </div>
       </motion.div>
 
-      <style>{`
-        .hero-cta-border {
-          background: linear-gradient(135deg, #6366f1, #3b82f6, #6366f1, #818cf8);
-          background-size: 300% 300%;
-          animation: hero-border-rotate 4s ease infinite;
-        }
-        @keyframes hero-border-rotate {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
+      {/* hero-cta-border animation is in marketing-pages.css */}
     </section>
   );
 });

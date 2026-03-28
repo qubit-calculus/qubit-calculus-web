@@ -33,6 +33,7 @@ import '../styles/showcase-section.css';
 import '../styles/pricing-section.css';
 
 import '../styles/mobile.css';
+import '../components/marketing/marketing-pages.css';
 
 // Lazy-load below-fold sections to reduce initial bundle size
 const TargetedSolutions = lazy(() => import('../components/marketing/sections/TargetedSolutions').then((m) => ({ default: m.TargetedSolutions })));

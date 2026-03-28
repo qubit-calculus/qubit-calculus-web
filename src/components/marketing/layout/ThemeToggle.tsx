@@ -38,7 +38,7 @@ export function ThemeToggle() {
   ];
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100]">
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] hidden md:block">
       <div className="flex items-center gap-1 p-1 rounded-full border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#050505]/70 backdrop-blur-xl shadow-lg transition-colors">
         {options.map((option) => (
           <button

@@ -15,6 +15,7 @@ import { useLocation } from 'react-router-dom';
 import Navigation from './layout/Navigation';
 import Footer from './layout/Footer';
 import { GlobalBackground } from './layout/GlobalBackground';
+import { ThemeToggle } from './layout/ThemeToggle';
 import SEO from '@/components/SEO';
 import './marketing-pages.css';
 import { FADE_UP } from '../../lib/motion-presets';
@@ -55,6 +56,7 @@ export default function MarketingLayout({
       <GlobalBackground />
 
       <Navigation showLandingLinks={showLandingLinks} />
+      <ThemeToggle />
 
       {/* Enhanced Page Header */}
       {title && (
