@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MarketingLayout } from '@/components/marketing';
 import { REVEAL_UP } from '@/lib/motion-presets';
+import SEO, { breadcrumbJsonLd, faqJsonLd } from '@/components/SEO';
 
 interface FAQItem {
   question: string;
@@ -129,6 +130,19 @@ export default function FAQ() {
       title="Frequently Asked Questions"
       subtitle="Everything you need to know about working with Qubit Calculus."
     >
+      <SEO
+        title="FAQ"
+        description="Answers to common questions about working with Qubit Calculus — pricing, timelines, process, tech stack, code ownership, and post-launch support."
+        path="/faq"
+        keywords="software agency FAQ, development pricing, project timeline, code ownership, post-launch support"
+        jsonLd={[
+          breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'FAQ', path: '/faq' },
+          ]),
+          faqJsonLd(faqs),
+        ]}
+      />
       <section className="relative py-20 px-6">
         <div className="max-w-3xl mx-auto">
           {faqCategories.map((category) => {

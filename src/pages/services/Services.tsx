@@ -11,6 +11,7 @@ import { MarketingLayout } from '@/components/marketing';
 import { SectionHeader } from '@/components/marketing/ui/SectionHeader';
 import { GlassCard } from '@/components/marketing/ui/GlassCard';
 import { REVEAL_UP } from '@/lib/motion-presets';
+import SEO, { breadcrumbJsonLd, serviceJsonLd } from '@/components/SEO';
 
 const services = [
   {
@@ -153,6 +154,23 @@ export default function Services() {
       title="Our Services"
       subtitle="We build, design, and scale digital products for ambitious companies."
     >
+      <SEO
+        title="Software Development Services"
+        description="Custom software development, MVP engineering, legacy modernization, mobile apps, AI integration, and cloud optimization. Fixed pricing, 4-6 week delivery."
+        path="/services"
+        keywords="custom software development services, MVP development, legacy modernization, React Native mobile apps, AI integration, cloud optimization"
+        jsonLd={[
+          breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+          ]),
+          serviceJsonLd({
+            name: 'Custom Software Development',
+            description: 'End-to-end development of bespoke applications tailored to your unique business requirements. From architecture to deployment.',
+            url: '/services',
+          }),
+        ]}
+      />
       {/* Services Grid */}
       <section className="relative py-20 px-6">
         <div className="max-w-6xl mx-auto">

@@ -10,6 +10,7 @@ import { useRef } from 'react';
 import { MarketingLayout } from '@/components/marketing';
 import { SectionHeader } from '@/components/marketing/ui/SectionHeader';
 import { REVEAL_UP } from '@/lib/motion-presets';
+import SEO, { breadcrumbJsonLd } from '@/components/SEO';
 
 interface TechItem {
   name: string;
@@ -154,6 +155,16 @@ export default function Stack() {
       title="Our Tech Stack"
       subtitle="The modern tools and technologies we use to build exceptional digital products."
     >
+      <SEO
+        title="Tech Stack"
+        description="React, Next.js, TypeScript, Node.js, Python, PostgreSQL, AWS, Vercel — the modern tools powering our custom software. See our full technology stack."
+        path="/stack"
+        keywords="React, Next.js, TypeScript, Node.js, Python, PostgreSQL, AWS, Vercel, tech stack"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Tech Stack', path: '/stack' },
+        ])}
+      />
       {/* Stack Grid */}
       <section className="relative py-20 px-6">
         <div className="max-w-6xl mx-auto">

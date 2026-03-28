@@ -13,60 +13,52 @@
     <!-- Content Security Policy -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://qubitcalculus.com; connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com; base-uri 'self'; form-action 'self'"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://qubitcalculus.com https://prod.spline.design; connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com https://prod.spline.design https://unpkg.com; worker-src 'self' blob:; frame-src 'self'; base-uri 'self'; form-action 'self'"
     />
 
     <!-- Primary SEO Meta Tags -->
-    <title>Qubit Calculus — Precision Software for Complex Problems</title>
+    <title>Qubit Calculus — We Build Software That Drives Growth</title>
     <meta
       name="title"
-      content="Qubit Calculus — Precision Software for Complex Problems"
+      content="Qubit Calculus — We Build Software That Drives Growth"
     />
     <meta
       name="description"
-      content="We build high-performance, real-time web applications with modern architecture. Custom web apps, scalable infrastructure, and premium UI/UX — engineered to perfection."
+      content="Custom software development agency specializing in React, Next.js, and AI-powered applications. MVP in 4-6 weeks. Fixed pricing. 98% on-time delivery."
     />
     <meta
       name="keywords"
-      content="web development agency, custom web applications, React development, Next.js agency, real-time apps, WebSocket development, UI/UX design, TypeScript, full-stack development"
+      content="software development agency, custom web applications, React development, Next.js, MVP development, AI applications, mobile app development, TypeScript, full-stack development, UI/UX design, legacy modernization"
     />
     <meta name="author" content="Qubit Calculus" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="rating" content="general" />
+    <meta name="referrer" content="origin-when-cross-origin" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://qubitcalculus.com/" />
-    <meta
-      property="og:title"
-      content="Qubit Calculus — Precision Software for Complex Problems"
-    />
-    <meta
-      property="og:description"
-      content="We build high-performance, real-time web applications with modern architecture. Custom web apps, scalable infrastructure, and premium UI/UX."
-    />
+    <meta property="og:title" content="Qubit Calculus — We Build Software That Drives Growth" />
+    <meta property="og:description" content="Custom software development agency. React, Next.js, AI-powered apps. MVP in 4-6 weeks. Fixed pricing. 98% on-time delivery." />
     <meta property="og:image" content="https://qubitcalculus.com/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Qubit Calculus — Precision Software Agency" />
+    <meta property="og:image:alt" content="Qubit Calculus — Custom Software Development Agency" />
     <meta property="og:site_name" content="Qubit Calculus" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@qubitcalculus" />
+    <meta name="twitter:creator" content="@qubitcalculus" />
     <meta name="twitter:url" content="https://qubitcalculus.com/" />
-    <meta
-      name="twitter:title"
-      content="Qubit Calculus — Precision Software for Complex Problems"
-    />
-    <meta
-      name="twitter:description"
-      content="We build high-performance, real-time web applications with modern architecture. Custom web apps, scalable infrastructure, and premium UI/UX."
-    />
+    <meta name="twitter:title" content="Qubit Calculus — We Build Software That Drives Growth" />
+    <meta name="twitter:description" content="Custom software development agency. React, Next.js, AI-powered apps. MVP in 4-6 weeks. Fixed pricing. 98% on-time delivery." />
     <meta name="twitter:image" content="https://qubitcalculus.com/og-image.png" />
-    <meta
-      name="twitter:image:alt"
-      content="Qubit Calculus — Precision Software Agency"
-    />
+    <meta name="twitter:image:alt" content="Qubit Calculus — Custom Software Development Agency" />
 
     <!-- Additional SEO -->
     <link rel="canonical" href="https://qubitcalculus.com/" />
@@ -79,14 +71,48 @@
         "@type": "ProfessionalService",
         "name": "Qubit Calculus",
         "url": "https://qubitcalculus.com",
-        "description": "We build high-performance, real-time web applications with modern architecture. Custom web apps, scalable infrastructure, and premium UI/UX — engineered to perfection.",
-        "serviceType": "Software Development",
-        "areaServed": "Worldwide",
-        "author": {
-          "@type": "Organization",
-          "name": "Qubit Calculus",
-          "url": "https://qubitcalculus.com"
-        }
+        "logo": "https://qubitcalculus.com/og-image.png",
+        "image": "https://qubitcalculus.com/og-image.png",
+        "description": "Custom software development agency specializing in React, Next.js, and AI-powered applications. MVP in 4-6 weeks. Fixed pricing. 98% on-time delivery.",
+        "priceRange": "$$",
+        "serviceType": ["Custom Software Development", "MVP Engineering", "Legacy Modernization", "Mobile App Development", "AI Integration", "UI/UX Design"],
+        "areaServed": {
+          "@type": "Place",
+          "name": "Worldwide"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Software Development Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "MVP Engineering",
+                "description": "Production-ready MVP shipped in 4-6 weeks with React and Next.js"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Legacy Modernization",
+                "description": "Migrate and modernize existing applications to modern cloud architecture"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Mobile App Development",
+                "description": "Cross-platform iOS and Android apps with React Native"
+              }
+            }
+          ]
+        },
+        "knowsAbout": ["React", "Next.js", "TypeScript", "Node.js", "Python", "PostgreSQL", "AWS", "AI/ML", "React Native"],
+        "email": "hello@qubitcalculus.com",
+        "sameAs": ["https://twitter.com/qubitcalculus", "https://github.com/qubitcalculus"]
       }
     </script>
     <script type="application/ld+json">
@@ -94,13 +120,33 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Qubit Calculus",
+        "alternateName": "Qubit Calculus Agency",
         "url": "https://qubitcalculus.com",
-        "logo": "https://qubitcalculus.com/og-image.png",
-        "sameAs": ["https://twitter.com/qubitcalculus", "https://github.com/qubitcalculus"],
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://qubitcalculus.com/og-image.png",
+          "width": 1200,
+          "height": 630
+        },
+        "image": "https://qubitcalculus.com/og-image.png",
+        "sameAs": [
+          "https://twitter.com/qubitcalculus",
+          "https://github.com/qubitcalculus"
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "hello@qubitcalculus.com",
-          "contactType": "customer service"
+          "contactType": "sales",
+          "availableLanguage": "English"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Qubit Calculus Team"
+        },
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "minValue": 2,
+          "maxValue": 10
         }
       }
     </script>
@@ -109,7 +155,16 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Qubit Calculus",
-        "url": "https://qubitcalculus.com"
+        "alternateName": "Qubit Calculus Agency",
+        "url": "https://qubitcalculus.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://qubitcalculus.com/blog?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       }
     </script>
 

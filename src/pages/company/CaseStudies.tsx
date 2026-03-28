@@ -10,6 +10,7 @@ import { MarketingLayout } from '@/components/marketing';
 import { SectionHeader } from '@/components/marketing/ui/SectionHeader';
 import { GlassCard } from '@/components/marketing/ui/GlassCard';
 import { REVEAL_UP } from '@/lib/motion-presets';
+import SEO, { breadcrumbJsonLd } from '@/components/SEO';
 
 const caseStudies = [
   {
@@ -98,6 +99,16 @@ export default function CaseStudies() {
       title="Our Work"
       subtitle="Selected projects that showcase our engineering capabilities and business impact."
     >
+      <SEO
+        title="Case Studies & Portfolio"
+        description="See how we've helped startups and enterprises build FinTech dashboards, telehealth platforms, e-commerce stores, and AI analytics engines. Real results, real impact."
+        path="/work"
+        keywords="case studies, portfolio, software development projects, client results, FinTech, HealthTech, e-commerce, AI"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Case Studies', path: '/work' },
+        ])}
+      />
       {/* Case Studies Grid */}
       <section className="relative py-20 px-6">
         <div className="max-w-6xl mx-auto">

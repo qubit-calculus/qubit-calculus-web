@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 const springs = { bouncy: { type: 'spring' as const, stiffness: 300, damping: 10 } };
 import { MarketingLayout } from '@/components/marketing';
 import { REVEAL_UP } from '../../lib/motion-presets';
+import SEO, { breadcrumbJsonLd } from '@/components/SEO';
 
 const agencyStats = [
   { label: 'Projects Shipped', value: '40+', detail: 'Startups & SMBs' },
@@ -24,6 +25,16 @@ export default function About() {
       title="About Qubit Calculus"
       subtitle="A pragmatic software agency helping startups ship fast and old companies modernize their tech era."
     >
+      <SEO
+        title="About Us"
+        description="Qubit Calculus is a software development agency helping startups ship MVPs in 4-6 weeks and enterprises modernize legacy systems. Remote-first, global team."
+        path="/about"
+        keywords="about Qubit Calculus, software agency, startup development, enterprise modernization"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' },
+        ])}
+      />
       {/* Mission Section */}
       <section className="marketing-section marketing-section--alt">
         <div className="marketing-section__container">

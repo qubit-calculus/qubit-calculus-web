@@ -1,21 +1,26 @@
 {
-  "name": "Qubit Calculus",
-  "short_name": "QubitCalc",
+  "name": "Qubit Calculus — Custom Software Development",
+  "short_name": "Qubit Calculus",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#030712",
-  "theme_color": "#030712",
-  "description": "Qubit Calculus — Precision Software for Complex Problems",
+  "theme_color": "#6366f1",
+  "description": "Custom software development agency specializing in React, Next.js, and AI-powered applications. MVP in 4-6 weeks.",
+  "categories": ["business", "productivity", "developer tools"],
+  "lang": "en-US",
+  "orientation": "any",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

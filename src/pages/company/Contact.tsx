@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MarketingLayout } from '@/components/marketing';
 import { REVEAL_UP } from '../../lib/motion-presets';
+import SEO, { breadcrumbJsonLd } from '@/components/SEO';
 
 const faqItems = [
   {
@@ -76,6 +77,16 @@ export default function Contact() {
       title="Let's Build Something Great"
       subtitle="Whether you're starting from scratch or modernizing a legacy platform, we're here to help you navigate the technological era."
     >
+      <SEO
+        title="Contact Us"
+        description="Get a free project estimate within 48 hours. Tell us about your project and we'll put together a detailed plan. No commitment, no hidden fees."
+        path="/contact"
+        keywords="contact software agency, free project estimate, hire developers, software consultation"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Contact', path: '/contact' },
+        ])}
+      />
       <section className="marketing-section marketing-section--alt">
         <div className="marketing-section__container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

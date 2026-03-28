@@ -7,6 +7,7 @@
 import { motion } from 'framer-motion';
 import { MarketingLayout } from '@/components/marketing';
 import { REVEAL_UP } from '../../lib/motion-presets';
+import SEO, { breadcrumbJsonLd } from '@/components/SEO';
 
 const benefits = [
   {
@@ -87,6 +88,16 @@ export default function Careers() {
       title="Join Our Team"
       subtitle="Build the next generation of digital products with a team of elite engineers and designers."
     >
+      <SEO
+        title="Careers"
+        description="Join Qubit Calculus — a remote-first software agency. We're hiring senior engineers, designers, and product people. Competitive pay, async culture, real projects."
+        path="/careers"
+        keywords="software developer jobs, remote engineering jobs, React developer careers, design jobs, startup jobs"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Careers', path: '/careers' },
+        ])}
+      />
       {/* Values Section */}
       <section className="marketing-section marketing-section--alt">
         <div className="marketing-section__container">

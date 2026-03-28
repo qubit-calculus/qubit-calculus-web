@@ -13,6 +13,7 @@ import { SectionHeader } from '@/components/marketing/ui/SectionHeader';
 import { GlassCard } from '@/components/marketing/ui/GlassCard';
 import { blogPosts, categories, categoryColors, defaultCategoryColor } from '@/data/blog';
 import { REVEAL_UP } from '@/lib/motion-presets';
+import SEO, { breadcrumbJsonLd } from '@/components/SEO';
 
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -39,6 +40,16 @@ export default function Blog() {
       title="Agency Insights"
       subtitle="Thoughts on engineering, design, and building digital products that matter."
     >
+      <SEO
+        title="Blog — Agency Insights"
+        description="Engineering deep-dives, design thinking, startup advice, and lessons from building digital products. Read insights from the Qubit Calculus team."
+        path="/blog"
+        keywords="software development blog, engineering insights, startup advice, React tutorials, design thinking"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+        ])}
+      />
       {/* Category Filter */}
       <section className="relative py-8 px-6">
         <div className="max-w-5xl mx-auto">
