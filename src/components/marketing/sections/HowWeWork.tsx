@@ -101,21 +101,32 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
       <div className="relative flex gap-6 lg:gap-8 p-6 rounded-2xl transition-all duration-500 bg-white/40 dark:bg-white/[0.02] backdrop-blur-sm hover:bg-white/70 dark:hover:bg-white/[0.05] border border-gray-200/30 dark:border-white/[0.04] hover:border-gray-300/50 dark:hover:border-white/10 shadow-sm hover:shadow-md dark:shadow-none">
         {/* Step number + icon */}
         <div className="relative shrink-0">
-          <motion.div
-            className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} bg-opacity-80 backdrop-blur-xl flex items-center justify-center shadow-lg transition-all duration-500 group-hover:shadow-xl border border-white/20 dark:border-white/10`}
-            whileHover={{ scale: 1.08 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-            style={{ background: `linear-gradient(135deg, ${step.glowColor}, rgba(255,255,255,0.05))`, backdropFilter: 'blur(16px)' }}
-          >
-            {/* Glass inner shine */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/25 via-transparent to-transparent pointer-events-none" />
-            <span className="relative text-white drop-shadow-sm">{step.icon}</span>
-          </motion.div>
-          {/* Glow on hover */}
+          {/* Glow behind icon — always slightly visible, stronger on hover */}
           <div
-            className="absolute -inset-2 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 -z-10"
+            className="absolute -inset-3 rounded-3xl opacity-30 group-hover:opacity-60 blur-2xl transition-all duration-700 -z-10"
             style={{ background: step.glowColor }}
           />
+          <motion.div
+            className="relative w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden border border-white/[0.15] dark:border-white/[0.12] shadow-lg group-hover:shadow-xl transition-all duration-500"
+            whileHover={{ scale: 1.08 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+            style={{
+              background: `linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))`,
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+            }}
+          >
+            {/* Colored gradient overlay — subtle tint */}
+            <div
+              className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500"
+              style={{ background: `linear-gradient(135deg, ${step.glowColor}, transparent 70%)` }}
+            />
+            {/* Top-left glass shine */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/5 to-transparent pointer-events-none" />
+            {/* Bottom highlight line */}
+            <div className="absolute bottom-0 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            <span className="relative z-10 text-white drop-shadow-sm">{step.icon}</span>
+          </motion.div>
         </div>
 
         {/* Content */}
