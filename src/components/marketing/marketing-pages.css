@@ -18,6 +18,18 @@
   100% { background-position: 0% 50%; }
 }
 
+/* Shared animated gradient border for CTA buttons */
+.hero-cta-border {
+  background: linear-gradient(135deg, #6366f1, #3b82f6, #6366f1, #818cf8);
+  background-size: 300% 300%;
+  animation: hero-border-rotate 4s ease infinite;
+}
+@keyframes hero-border-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 /* ===== CSS Variables (matching landing page - 2026 Enhanced) ===== */
 .marketing-enhanced {
   /* Primary colors (2026: Indigo-Blue Palette) */

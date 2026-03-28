@@ -4,7 +4,7 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
-import { FooterBackgroundGradient } from "../../ui/hover-footer";
+import { FooterBackgroundGradient, TextHoverEffect } from "../../ui/hover-footer";
 import { footerLinks } from '@/data/landing-data';
 import { LogoIcon } from '@/components/Logo';
 
@@ -113,6 +113,11 @@ export default function Footer() {
         </div>
 
         <hr className="border-t border-black/5 dark:border-white/5 my-6 transition-colors duration-500" />
+
+        {/* QUBIT hover text animation */}
+        <div className="flex items-center justify-center h-20 md:h-28 -my-2">
+          <TextHoverEffect text="QUBIT" />
+        </div>
 
         {/* Footer bottom — copyright only */}
         <div className="flex justify-center text-xs text-gray-500 dark:text-slate-500 transition-colors duration-500">
