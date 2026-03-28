@@ -43,7 +43,6 @@ export default function Download() {
     <MarketingLayout
       title="Get Qubit Calculus"
       subtitle="Access Qubit Calculus on the web today, and on mobile soon. Desktop apps are on our roadmap."
-      eyebrow="Get Started"
     >
       {/* Web App — Available Now */}
       <section className="marketing-section marketing-section--alt">

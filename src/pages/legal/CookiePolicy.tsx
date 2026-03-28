@@ -50,7 +50,6 @@ export default function CookiePolicy() {
     <MarketingLayout
       title="Cookie Policy"
       subtitle="Last updated: October 2024"
-      eyebrow="Privacy"
     >
       <section className="marketing-section marketing-section--alt">
         <div className="mx-auto max-w-4xl px-4">

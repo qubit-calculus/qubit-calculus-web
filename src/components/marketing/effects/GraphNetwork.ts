@@ -72,10 +72,10 @@ export class GraphNetwork {
     this.connectionDistance = options.connectionDistance ?? 150;
     this.mouseRepulsionRadius = options.mouseRepulsionRadius ?? 180;
     this.mouseRepulsionStrength = options.mouseRepulsionStrength ?? 0.5;
-    this.nodeColor = options.nodeColor ?? '#10b981';
+    this.nodeColor = options.nodeColor ?? '#6366f1';
     this.nodeColors = options.nodeColors ?? [this.nodeColor];
-    this.connectionColorStart = options.connectionColorStart ?? '#10b981';
-    this.connectionColorEnd = options.connectionColorEnd ?? '#8b5cf6';
+    this.connectionColorStart = options.connectionColorStart ?? '#6366f1';
+    this.connectionColorEnd = options.connectionColorEnd ?? '#3b82f6';
     this.nodeSize = options.nodeSize ?? 2.5;
     this.animationSpeed = options.animationSpeed ?? 1;
 

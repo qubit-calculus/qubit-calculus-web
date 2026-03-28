@@ -25,7 +25,6 @@ export default function BlogArticle() {
       <MarketingLayout
         title="Article Not Found"
         subtitle="The blog article you're looking for doesn't exist."
-        eyebrow="Blog"
       >
         <section className="marketing-section marketing-section--dark">
           <div className="marketing-section__container" style={{ textAlign: 'center' }}>
@@ -71,7 +70,7 @@ export default function BlogArticle() {
     .slice(0, 3);
 
   return (
-    <MarketingLayout title={article.title} subtitle={`${article.date}`} eyebrow={article.category}>
+    <MarketingLayout title={article.title} subtitle={`${article.date}`}>
       <SEO
         title={article.title}
         description={`${article.category} — ${article.date}.`}
@@ -87,7 +86,7 @@ export default function BlogArticle() {
           <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-sm transition-colors hover:text-emerald-400"
+              className="inline-flex items-center gap-2 text-sm transition-colors hover:text-indigo-400"
               style={{ color: 'var(--color-text-muted)' }}
             >
               ← Back to Blog
@@ -181,13 +180,13 @@ export default function BlogArticle() {
               >
                 <Link
                   to={`/blog/${prevSlug}`}
-                  className="marketing-card group block overflow-hidden transition-all hover:border-emerald-500/30"
+                  className="marketing-card group block overflow-hidden transition-all hover:border-indigo-500/30"
                   style={{ padding: '1.25rem' }}
                 >
                   <span className="mb-1 block text-xs" style={{ color: 'var(--color-text-muted)' }}>
                     ← Previous
                   </span>
-                  <span className="block text-sm font-medium text-slate-100 transition-colors group-hover:text-emerald-300">
+                  <span className="block text-sm font-medium text-slate-100 transition-colors group-hover:text-indigo-300">
                     {prevArticle.title}
                   </span>
                 </Link>
@@ -205,13 +204,13 @@ export default function BlogArticle() {
               >
                 <Link
                   to={`/blog/${nextSlug}`}
-                  className="marketing-card group block overflow-hidden transition-all hover:border-emerald-500/30"
+                  className="marketing-card group block overflow-hidden transition-all hover:border-indigo-500/30"
                   style={{ padding: '1.25rem' }}
                 >
                   <span className="mb-1 block text-xs" style={{ color: 'var(--color-text-muted)' }}>
                     Next →
                   </span>
-                  <span className="block text-sm font-medium text-slate-100 transition-colors group-hover:text-emerald-300">
+                  <span className="block text-sm font-medium text-slate-100 transition-colors group-hover:text-indigo-300">
                     {nextArticle.title}
                   </span>
                 </Link>
@@ -243,7 +242,7 @@ export default function BlogArticle() {
                     <Link
                       key={relSlug}
                       to={`/blog/${relSlug}`}
-                      className="marketing-card group block overflow-hidden transition-all hover:border-emerald-500/30"
+                      className="marketing-card group block overflow-hidden transition-all hover:border-indigo-500/30"
                       style={{ padding: 0 }}
                     >
                       <div
@@ -262,7 +261,7 @@ export default function BlogArticle() {
                         >
                           {rel.category}
                         </span>
-                        <h4 className="mb-2 text-sm font-semibold text-slate-100 transition-colors group-hover:text-emerald-300">
+                        <h4 className="mb-2 text-sm font-semibold text-slate-100 transition-colors group-hover:text-indigo-300">
                           {rel.title}
                         </h4>
                         <div

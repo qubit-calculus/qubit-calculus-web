@@ -20,7 +20,6 @@ export default function GDPR() {
     <MarketingLayout
       title="GDPR Compliance"
       subtitle="Last updated: February 10, 2026 • Version 1.2"
-      eyebrow="EU Data Protection"
     >
       <section className="marketing-section marketing-section--alt">
         <div className="mx-auto max-w-4xl px-4">
@@ -57,7 +56,7 @@ export default function GDPR() {
                   key={section.id}
                   href={`#${section.id}`}
                   style={{ color: 'var(--color-text-muted)', transition: 'color 0.2s' }}
-                  className="hover:text-emerald-400"
+                  className="hover:text-indigo-400"
                 >
                   {section.title}
                 </a>

@@ -22,7 +22,7 @@ export const DraggableBoard = memo(function DraggableBoard({
       dragControls={dragControls}
       className={`group relative flex items-center gap-4 rounded-xl border bg-gray-800/50 p-4 transition-all ${
         isDragging
-          ? 'border-emerald-500 bg-emerald-500/10 shadow-lg shadow-emerald-500/20'
+          ? 'border-indigo-500 bg-indigo-500/10 shadow-lg shadow-indigo-500/20'
           : 'border-gray-700/50 hover:border-gray-600'
       }`}
       whileDrag={{ scale: 1.02, zIndex: 50 }}

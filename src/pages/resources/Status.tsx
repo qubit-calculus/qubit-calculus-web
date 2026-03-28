@@ -158,7 +158,6 @@ export default function Status() {
     <MarketingLayout
       title="System Status"
       subtitle="Infrastructure overview, SLO targets, and service monitoring for Qubit Calculus."
-      eyebrow="Status"
     >
       {/* Current Status Banner */}
       <section className="marketing-section marketing-section--alt">
@@ -167,24 +166,24 @@ export default function Status() {
             {...REVEAL_UP}
             className="relative overflow-hidden rounded-2xl border"
             style={{
-              borderColor: 'rgba(16, 185, 129, 0.2)',
+              borderColor: 'rgba(99, 102, 241, 0.2)',
               background:
-                'linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.02))',
+                'linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(99, 102, 241, 0.02))',
             }}
           >
             {/* Green top bar */}
             <div
               className="h-1 w-full"
-              style={{ background: 'linear-gradient(90deg, #10b981, #34d399, #10b981)' }}
+              style={{ background: 'linear-gradient(90deg, #6366f1, #34d399, #6366f1)' }}
             />
             <div className="p-8 text-center">
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ repeat: Infinity, duration: 2 }}
-                className="mx-auto mb-5 inline-flex items-center gap-3 rounded-full bg-emerald-500/10 px-6 py-3"
+                className="mx-auto mb-5 inline-flex items-center gap-3 rounded-full bg-indigo-500/10 px-6 py-3"
               >
-                <div className="h-3 w-3 rounded-full bg-emerald-500" />
-                <span className="text-lg font-semibold text-emerald-400">
+                <div className="h-3 w-3 rounded-full bg-indigo-500" />
+                <span className="text-lg font-semibold text-indigo-400">
                   All Systems Operational
                 </span>
               </motion.div>
@@ -330,7 +329,7 @@ export default function Status() {
                     className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
                     style={{
                       background:
-                        'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(139, 92, 246, 0.1))',
+                        'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(59, 130, 246, 0.1))',
                       border: '1px solid rgba(255,255,255,0.06)',
                     }}
                   >
@@ -341,7 +340,7 @@ export default function Status() {
                       <span className="font-semibold text-slate-100">{service.name}</span>
                       <span
                         className="rounded-full px-2 py-0.5 text-[10px] font-semibold"
-                        style={{ background: 'rgba(16, 185, 129, 0.1)', color: '#10b981' }}
+                        style={{ background: 'rgba(99, 102, 241, 0.1)', color: '#6366f1' }}
                       >
                         Operational
                       </span>
@@ -381,7 +380,7 @@ export default function Status() {
               className="flex items-center gap-2 px-5 py-3"
               style={{
                 background:
-                  'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(99, 102, 241, 0.08))',
+                  'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.08))',
               }}
             >
               <span className="font-mono text-sm font-bold text-slate-100">
@@ -479,7 +478,7 @@ export default function Status() {
               >
                 <div
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-                  style={{ background: 'rgba(16, 185, 129, 0.1)' }}
+                  style={{ background: 'rgba(99, 102, 241, 0.1)' }}
                 >
                   <svg
                     className="h-4 w-4"
@@ -501,7 +500,7 @@ export default function Status() {
                     <span className="text-sm font-semibold text-slate-100">{tool.name}</span>
                     <span
                       className="rounded-full px-1.5 py-0.5 text-[9px] font-bold"
-                      style={{ background: 'rgba(16, 185, 129, 0.12)', color: '#34d399' }}
+                      style={{ background: 'rgba(99, 102, 241, 0.12)', color: '#34d399' }}
                     >
                       {tool.status}
                     </span>
@@ -590,7 +589,7 @@ export default function Status() {
             style={{
               padding: '3rem',
               background:
-                'linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(139, 92, 246, 0.08))',
+                'linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(59, 130, 246, 0.08))',
             }}
           >
             <div

@@ -25,12 +25,8 @@ interface MarketingLayoutProps {
   title?: string;
   /** Page subtitle/description */
   subtitle?: string;
-  /** Eyebrow text above title */
-  eyebrow?: string;
   /** Whether to show the CTA section before footer */
   showCTA?: boolean;
-  /** Whether navigation should be transparent initially */
-  transparentNav?: boolean;
   /** Whether to show landing page links in nav */
   showLandingLinks?: boolean;
 }
@@ -39,9 +35,7 @@ export default function MarketingLayout({
   children,
   title,
   subtitle,
-  eyebrow,
   showCTA = false,
-  transparentNav = false,
   showLandingLinks = false,
 }: MarketingLayoutProps) {
   const location = useLocation();
@@ -60,7 +54,7 @@ export default function MarketingLayout({
       {title && <SEO title={title} description={subtitle} path={location.pathname} />}
       <GlobalBackground />
 
-      <Navigation transparent={transparentNav} showLandingLinks={showLandingLinks} />
+      <Navigation showLandingLinks={showLandingLinks} />
 
       {/* Enhanced Page Header */}
       {title && (
@@ -70,23 +64,6 @@ export default function MarketingLayout({
           <div className="marketing-orb marketing-orb--blue absolute -right-32 bottom-0 h-80 w-80" />
 
           <div className="relative z-10 mx-auto max-w-4xl px-4">
-            {eyebrow && (
-              <motion.span
-                initial={{ opacity: 0, scale: 0.85, y: 10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 200,
-                  damping: 15,
-                  delay: 0.15,
-                }}
-                className="marketing-hero__eyebrow"
-              >
-                <span className="marketing-hero__eyebrow-chrome" aria-hidden="true" />
-                <span className="marketing-hero__eyebrow-dot" />
-                <span className="marketing-hero__eyebrow-text">{eyebrow}</span>
-              </motion.span>
-            )}
             <motion.h1
               {...FADE_UP}
               transition={{ duration: 0.6, delay: 0.1 }}

@@ -41,7 +41,6 @@ export default function Blog() {
     <MarketingLayout
       title="Agency Insights"
       subtitle="Thoughts on engineering, design, and digital transformation."
-      eyebrow="Blog"
     >
       {/* Agency Mission Hero */}
       <section className="marketing-section marketing-section--dark blog-release">
@@ -158,7 +157,7 @@ export default function Blog() {
                           </div>
                         </div>
 
-                        <h3 className="mb-3 text-xl font-bold leading-tight text-slate-100 transition-colors group-hover:text-emerald-300">
+                        <h3 className="mb-3 text-xl font-bold leading-tight text-slate-100 transition-colors group-hover:text-indigo-300">
                           {post.title}
                         </h3>
                         <p
@@ -250,7 +249,7 @@ export default function Blog() {
                             {post.date}
                           </span>
                         </div>
-                        <h3 className="mb-2 text-base font-bold leading-snug text-slate-100 transition-colors group-hover:text-emerald-300">
+                        <h3 className="mb-2 text-base font-bold leading-snug text-slate-100 transition-colors group-hover:text-indigo-300">
                           {post.title}
                         </h3>
                         <p
@@ -410,9 +409,9 @@ export default function Blog() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="inline-flex items-center gap-2 rounded-xl px-6 py-4"
                   style={{
-                    background: 'rgba(16, 185, 129, 0.15)',
+                    background: 'rgba(99, 102, 241, 0.15)',
                     color: 'var(--color-primary)',
-                    border: '1px solid rgba(16, 185, 129, 0.2)',
+                    border: '1px solid rgba(99, 102, 241, 0.2)',
                   }}
                 >
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -461,7 +460,7 @@ export default function Blog() {
             style={{ color: 'var(--color-text-muted)' }}
           >
             <a
-              href="https://github.com/cgraph-dev/Qubit Calculus"
+              href="https://github.com/qubit-calculus"
               target="_blank"
               rel="noopener noreferrer"
               className="blog-social-link"

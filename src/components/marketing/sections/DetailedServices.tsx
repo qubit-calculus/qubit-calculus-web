@@ -62,9 +62,9 @@ const staggerItem = {
 
 export const DetailedServices = () => {
   return (
-    <section id="services" className="zoom-section relative py-24 md:py-32 px-6 overflow-hidden bg-[#050508]">
+    <section id="services" className="zoom-section relative py-24 md:py-32 px-6 overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-emerald-500/5 blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-indigo-500/5 blur-[120px] pointer-events-none rounded-full" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
@@ -85,20 +85,20 @@ export const DetailedServices = () => {
             <motion.div 
               key={service.title}
               variants={staggerItem}
-              className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-8 transition-colors duration-500 ${service.border} ${service.span || ''}`}
+              className={`group relative overflow-hidden rounded-2xl border border-black/5 dark:border-white/10 bg-white dark:bg-white/[0.02] p-8 transition-colors duration-500 shadow-sm dark:shadow-none ${service.border} ${service.span || ''}`}
             >
               {/* Hover Gradient Overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
               
               <div className="relative z-10">
-                <div className="mb-6 inline-flex p-4 rounded-xl bg-white/5 border border-white/10 shadow-xl group-hover:scale-110 transition-transform duration-500">
+                <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm dark:shadow-xl group-hover:scale-110 transition-transform duration-500">
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-semibold text-white mb-4 tracking-tight">{service.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-lg">
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 tracking-tight transition-colors duration-500">{service.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg transition-colors duration-500">
                   {service.description}
                 </p>
-                <div className="mt-8 flex items-center text-sm font-medium text-white/70 group-hover:text-white transition-colors cursor-pointer">
+                <div className="mt-8 flex items-center text-sm font-medium text-gray-500 dark:text-white/70 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors cursor-pointer">
                   Explore Capabilities
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />

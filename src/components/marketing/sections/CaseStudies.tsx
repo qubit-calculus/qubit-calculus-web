@@ -36,7 +36,7 @@ const projects = [
 
 export const CaseStudies = () => {
   return (
-    <section id="work" className="zoom-section relative py-24 md:py-32 px-6 bg-gray-50 dark:bg-[#050508] border-t border-black/5 dark:border-white/5 transition-colors duration-500">
+    <section id="work" className="zoom-section relative py-24 md:py-32 px-6 border-t border-black/5 dark:border-white/5 transition-colors duration-500">
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
           title="Proven"

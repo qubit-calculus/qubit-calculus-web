@@ -39,8 +39,8 @@
 .showcase-loading__spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(16, 185, 129, 0.15);
-  border-top-color: #10b981;
+  border: 3px solid rgba(99, 102, 241, 0.15);
+  border-top-color: #6366f1;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -63,9 +63,9 @@
   padding: 0.5rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #10b981;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 9999px;
   margin-bottom: 1rem;
   box-shadow: none;
@@ -100,7 +100,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(59, 130, 246, 0.04) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -111,10 +111,10 @@
 }
 
 .showcase-card:hover {
-  border-color: rgba(16, 185, 129, 0.4);
+  border-color: rgba(99, 102, 241, 0.4);
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 60px rgba(16, 185, 129, 0.12),
+    0 0 60px rgba(99, 102, 241, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -136,8 +136,8 @@
 }
 
 .showcase-card__dot--active {
-  background: #10b981;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+  background: #6366f1;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
 }
 
 .showcase-card__hover-hint {
@@ -149,7 +149,7 @@
 }
 
 .showcase-card:hover .showcase-card__hover-hint {
-  color: #10b981;
+  color: #6366f1;
 }
 
 /* Showcase Card Content */
@@ -238,8 +238,8 @@
 }
 
 .showcase-avatar__label--premium {
-  color: #10b981;
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  color: #6366f1;
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
 }
 
 /* =============================================================================
@@ -268,20 +268,20 @@
 }
 
 .showcase-chat__bubble--premium {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(139, 92, 246, 0.15) 100%);
-  border: 1px solid rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(59, 130, 246, 0.15) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.4);
   color: #fff;
   backdrop-filter: blur(8px);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(16, 185, 129, 0.15),
+    0 0 20px rgba(99, 102, 241, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .showcase-chat__bubble-glow {
   position: absolute;
   inset: -2px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(139, 92, 246, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(59, 130, 246, 0.2) 100%);
   border-radius: inherit;
   z-index: -1;
   filter: blur(8px);
@@ -301,8 +301,8 @@
 }
 
 .showcase-chat__label--premium {
-  color: #8b5cf6;
-  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+  color: #3b82f6;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
 
 /* =============================================================================
@@ -355,12 +355,12 @@
 
 /* Premium Profile */
 .showcase-profile--premium {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(16, 185, 129, 0.1) 100%);
-  border: 1px solid rgba(139, 92, 246, 0.4);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.1) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.4);
   backdrop-filter: blur(8px);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(139, 92, 246, 0.15);
+    0 0 20px rgba(59, 130, 246, 0.15);
   overflow: hidden;
 }
 
@@ -370,7 +370,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(from 0deg, transparent, rgba(139, 92, 246, 0.1), transparent, rgba(16, 185, 129, 0.1), transparent);
+  background: conic-gradient(from 0deg, transparent, rgba(59, 130, 246, 0.1), transparent, rgba(99, 102, 241, 0.1), transparent);
   animation: profile-glow-rotate 6s linear infinite;
   z-index: 0;
 }
@@ -391,7 +391,7 @@
 }
 
 .showcase-profile__name--premium {
-  background: linear-gradient(90deg, #a78bfa 0%, #10b981 100%);
+  background: linear-gradient(90deg, #a78bfa 0%, #6366f1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -418,7 +418,7 @@
 }
 
 .showcase-badge--verified {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
   color: #fff;
   font-size: 0.625rem;
   font-weight: 700;

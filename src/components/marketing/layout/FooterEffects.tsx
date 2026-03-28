@@ -36,8 +36,8 @@ export const FooterCyberGrid = memo(function FooterCyberGrid() {
     if (!ctx) return;
 
     const CELL = 55;
-    const COLOR = '#8b5cf6';
-    const COLOR_ALT = '#10b981';
+    const COLOR = '#3b82f6';
+    const COLOR_ALT = '#6366f1';
 
     let w = 0;
     let h = 0;
@@ -115,7 +115,7 @@ export const FooterCyberGrid = memo(function FooterCyberGrid() {
           inset: 0,
           opacity: 0.03,
           backgroundImage:
-            'linear-gradient(rgba(139,92,246,0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.25) 1px, transparent 1px)',
+            'linear-gradient(rgba(59,130,246,0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.25) 1px, transparent 1px)',
           backgroundSize: '55px 55px',
           pointerEvents: 'none',
         }}
@@ -145,7 +145,7 @@ interface Particle {
   alpha: number;
 }
 
-const COLORS = ['#8b5cf6', '#a78bfa', '#10b981', '#34d399'];
+const COLORS = ['#3b82f6', '#a78bfa', '#6366f1', '#34d399'];
 const PARTICLE_COUNT = 40;
 const CONNECTION_DIST = 110;
 const SPEED = 0.3;

@@ -128,7 +128,7 @@ export function ForumShowcase() {
                         </button>
                         <button
                           onClick={handleSave}
-                          className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 text-sm font-medium text-emerald-400 hover:bg-emerald-500/20"
+                          className="rounded-lg border border-indigo-500/20 bg-indigo-500/10 px-3 py-1.5 text-sm font-medium text-indigo-400 hover:bg-indigo-500/20"
                         >
                           Save Changes
                         </button>

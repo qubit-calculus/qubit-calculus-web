@@ -23,7 +23,7 @@ export function FeaturesSidebar() {
         {features.map((feature, i) => (
           <motion.div
             key={feature.title}
-            className="flex items-start gap-3 rounded-xl border border-gray-800 bg-gray-900/50 p-4 transition-colors hover:border-emerald-500/30"
+            className="flex items-start gap-3 rounded-xl border border-gray-800 bg-gray-900/50 p-4 transition-colors hover:border-indigo-500/30"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -39,7 +39,7 @@ export function FeaturesSidebar() {
       </div>
 
       <motion.div
-        className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-purple-500/10 p-6 text-center"
+        className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-blue-500/10 p-6 text-center"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

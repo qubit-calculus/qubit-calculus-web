@@ -34,7 +34,7 @@ const staggerItem = {
 
 export const Testimonials = () => {
   return (
-    <section className="zoom-section relative py-24 md:py-32 px-6 bg-[#fafafa] dark:bg-[#0a0a0f] transition-colors duration-500 overflow-hidden">
+    <section className="zoom-section relative py-24 md:py-32 px-6 transition-colors duration-500 overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 dark:bg-blue-500/5 blur-[150px] pointer-events-none rounded-full transition-colors duration-500" />
 

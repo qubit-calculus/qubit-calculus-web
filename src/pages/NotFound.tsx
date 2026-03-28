@@ -18,7 +18,6 @@ export default function NotFound() {
     <MarketingLayout
       title="Page Not Found"
       subtitle="The page you're looking for doesn't exist or has been moved."
-      eyebrow="404"
     >
       <SEO
         title="Page Not Found"
@@ -33,7 +32,7 @@ export default function NotFound() {
                 fontSize: '8rem',
                 fontWeight: 800,
                 lineHeight: 1,
-                background: 'linear-gradient(135deg, #10b981, #6366f1)',
+                background: 'linear-gradient(135deg, #6366f1, #3b82f6)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 marginBottom: '1.5rem',

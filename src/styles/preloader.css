@@ -53,8 +53,8 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(16, 185, 129, 0.3) 1px, transparent 1px);
+    linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: terrainGridScroll 10s linear infinite;
   mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
@@ -79,8 +79,8 @@
   height: 60%;
   background: linear-gradient(
     to top,
-    rgba(16, 185, 129, 0.25) 0%,
-    rgba(139, 92, 246, 0.15) 30%,
+    rgba(99, 102, 241, 0.25) 0%,
+    rgba(59, 130, 246, 0.15) 30%,
     transparent 100%
   );
   filter: blur(20px);
@@ -140,15 +140,15 @@
   background: linear-gradient(
     to top,
     transparent,
-    rgba(16, 185, 129, 0.8),
-    rgba(139, 92, 246, 0.6),
+    rgba(99, 102, 241, 0.8),
+    rgba(59, 130, 246, 0.6),
     transparent
   );
   border-radius: 2px;
   animation: energyRise var(--speed) ease-in-out infinite;
   animation-delay: calc(var(--i) * 0.15s);
   filter: blur(0.5px);
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
 }
 
 .preloader__energy::after {
@@ -159,9 +159,9 @@
   transform: translateX(-50%);
   width: 4px;
   height: 4px;
-  background: #10b981;
+  background: #6366f1;
   border-radius: 50%;
-  box-shadow: 0 0 8px #10b981, 0 0 16px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 8px #6366f1, 0 0 16px rgba(99, 102, 241, 0.5);
 }
 
 @keyframes energyRise {
@@ -188,8 +188,8 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   animation: gridPulse 4s ease-in-out infinite;
 }
@@ -219,7 +219,7 @@
 .preloader__orb--1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.5) 0%, rgba(16, 185, 129, 0.2) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, rgba(99, 102, 241, 0.2) 40%, transparent 70%);
   top: -15%;
   left: -15%;
   animation-delay: 0s;
@@ -228,7 +228,7 @@
 .preloader__orb--2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.45) 0%, rgba(155, 126, 245, 0.25) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, rgba(155, 126, 245, 0.25) 40%, transparent 70%);
   bottom: -10%;
   right: -10%;
   animation-delay: -2s;
@@ -237,7 +237,7 @@
 .preloader__orb--3 {
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(139, 92, 246, 0.2) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(59, 130, 246, 0.2) 40%, transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -293,8 +293,8 @@
   transform: translate(-50%, -50%);
   background: radial-gradient(
     ellipse at center,
-    rgba(16, 185, 129, 0.35) 0%,
-    rgba(139, 92, 246, 0.2) 30%,
+    rgba(99, 102, 241, 0.35) 0%,
+    rgba(59, 130, 246, 0.2) 30%,
     transparent 60%
   );
   filter: blur(50px);
@@ -336,11 +336,11 @@
   justify-content: center;
   background: linear-gradient(
     135deg, 
-    #10b981 0%, 
-    #34d399 25%, 
-    #8b5cf6 50%, 
+    #6366f1 0%, 
+    #818cf8 25%, 
+    #3b82f6 50%, 
     #a78bfa 75%, 
-    #10b981 100%
+    #6366f1 100%
   );
   background-size: 200% 200%;
   -webkit-background-clip: text;
@@ -349,7 +349,7 @@
   /* Single smooth gradient animation */
   animation: letterGradientSmooth 4s ease-in-out infinite;
   animation-delay: calc(var(--letter-index) * 0.15s);
-  filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.3));
+  filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
   /* Initial entrance animation */
   opacity: 0;
   transform: translateY(30px);
@@ -376,8 +376,8 @@
 /* Hover effect - disabled during preloader to prevent glitches */
 .preloader.is-done .preloader__letter:hover {
   filter: 
-    drop-shadow(0 10px 30px rgba(16, 185, 129, 0.5))
-    drop-shadow(0 0 40px rgba(139, 92, 246, 0.4));
+    drop-shadow(0 10px 30px rgba(99, 102, 241, 0.5))
+    drop-shadow(0 0 40px rgba(59, 130, 246, 0.4));
 }
 
 /* Smooth gradient animation */
@@ -393,7 +393,7 @@
 /* Scramble effect - subtle glow pulse during character cycling, NO transform */
 .preloader__letter.is-scrambling {
   animation: letterGradientSmooth 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.5));
+  filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.5));
 }
 
 /* Reveal animation - color flash when letter resolves, no transform */
@@ -403,16 +403,16 @@
 
 @keyframes revealLetter {
   0% { 
-    filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.9)) brightness(1.3);
+    filter: drop-shadow(0 0 35px rgba(59, 130, 246, 0.9)) brightness(1.3);
   }
   100% { 
-    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.3)) brightness(1);
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3)) brightness(1);
   }
 }
 
 /* Glow pulse when all letters are revealed */
 .preloader__brand.is-complete .preloader__letter {
-  filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.5)) drop-shadow(0 0 50px rgba(139, 92, 246, 0.3));
+  filter: drop-shadow(0 0 25px rgba(99, 102, 241, 0.5)) drop-shadow(0 0 50px rgba(59, 130, 246, 0.3));
 }
 
 /* Removed old glitchy effects - keeping clean professional look */
@@ -429,14 +429,14 @@
   position: absolute;
   width: 6px;
   height: 6px;
-  background: linear-gradient(135deg, #10b981, #8b5cf6);
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
   border-radius: 50%;
   animation: particleFloat 3s ease-in-out infinite, particleOrbit 6s linear infinite;
   animation-delay: calc(var(--i) * 0.3s);
   box-shadow: 
-    0 0 10px rgba(16, 185, 129, 0.7), 
-    0 0 20px rgba(139, 92, 246, 0.4),
-    0 0 40px rgba(16, 185, 129, 0.25);
+    0 0 10px rgba(99, 102, 241, 0.7), 
+    0 0 20px rgba(59, 130, 246, 0.4),
+    0 0 40px rgba(99, 102, 241, 0.25);
 }
 
 /* Vary particle sizes for depth */
@@ -449,7 +449,7 @@
 .preloader__particle:nth-child(3n) {
   width: 8px;
   height: 8px;
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  background: linear-gradient(135deg, #3b82f6, #7c3aed);
 }
 
 .preloader__particle:nth-child(1) { top: 20%; left: 10%; transform: translateZ(-20px); }
@@ -501,13 +501,13 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #10b981, #8b5cf6, #10b981, transparent);
+  background: linear-gradient(90deg, transparent, #6366f1, #3b82f6, #6366f1, transparent);
   background-size: 200% 100%;
   border-radius: 2px;
   box-shadow: 
-    0 0 20px rgba(16, 185, 129, 0.5), 
-    0 0 40px rgba(139, 92, 246, 0.3),
-    0 0 60px rgba(16, 185, 129, 0.2);
+    0 0 20px rgba(99, 102, 241, 0.5), 
+    0 0 40px rgba(59, 130, 246, 0.3),
+    0 0 60px rgba(99, 102, 241, 0.2);
   animation: underlineSweep 2s ease-in-out infinite;
 }
 
@@ -564,16 +564,16 @@
   width: 0%;
   background: linear-gradient(
     90deg, 
-    #059669 0%, 
-    #10b981 30%, 
-    #8b5cf6 70%,
+    #4f46e5 0%, 
+    #6366f1 30%, 
+    #3b82f6 70%,
     #a78bfa 100%
   );
   border-radius: inherit;
   position: relative;
   box-shadow: 
-    0 0 20px rgba(16, 185, 129, 0.5),
-    0 0 40px rgba(139, 92, 246, 0.3);
+    0 0 20px rgba(99, 102, 241, 0.5),
+    0 0 40px rgba(59, 130, 246, 0.3);
   transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -585,12 +585,12 @@
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
-  background: #10b981;
+  background: #6366f1;
   border-radius: 50%;
   box-shadow: 
-    0 0 10px #10b981,
-    0 0 20px #8b5cf6,
-    0 0 30px rgba(16, 185, 129, 0.5);
+    0 0 10px #6366f1,
+    0 0 20px #3b82f6,
+    0 0 30px rgba(99, 102, 241, 0.5);
   animation: dotPulse 1s ease-in-out infinite;
 }
 
@@ -612,10 +612,10 @@
 }
 
 .preloader__percent {
-  color: #10b981;
+  color: #6366f1;
   font-weight: 600;
   min-width: 3.5em;
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
 }
 
 .preloader__dot {
@@ -754,7 +754,7 @@
   position: absolute;
   width: 40px;
   height: 40px;
-  border: 2px solid rgba(16, 185, 129, 0.3);
+  border: 2px solid rgba(99, 102, 241, 0.3);
 }
 
 .preloader__corner--tl {

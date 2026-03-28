@@ -1,8 +1,8 @@
 /**
  * CTA Section
  *
- * Final call-to-action encouraging visitors to start their project.
- * Dual CTAs for different buyer intent levels with trust signals.
+ * Final call-to-action with animated gradient buttons,
+ * shimmer effects, and premium glassmorphic styling.
  */
 
 import { motion, Variants } from 'framer-motion';
@@ -36,9 +36,12 @@ interface CTAProps {
 
 export function CTA({ prefersReduced = false }: CTAProps) {
   return (
-    <section className="cta zoom-section relative py-24 md:py-32 bg-gray-50 dark:bg-[#050508] transition-colors duration-500 overflow-hidden">
+    <section className="cta zoom-section relative py-24 md:py-32 transition-colors duration-500 overflow-hidden">
+      {/* Ambient glow behind CTA */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-indigo-500/10 dark:bg-indigo-500/8 blur-[140px] rounded-full pointer-events-none" />
+
       <motion.div
-        className="cta__content"
+        className="cta__content relative z-10"
         variants={prefersReduced ? undefined : staggerContainer}
         initial={prefersReduced ? undefined : 'hidden'}
         whileInView={prefersReduced ? undefined : 'visible'}
@@ -60,21 +63,41 @@ export function CTA({ prefersReduced = false }: CTAProps) {
           </p>
         </motion.div>
 
-        <motion.div variants={staggerItem} className="cta__buttons flex flex-col sm:flex-row items-center justify-center gap-4">
+        <motion.div variants={staggerItem} className="cta__buttons flex flex-col sm:flex-row items-center justify-center gap-5">
+          {/* Primary — Gradient border + dark glass interior (matches hero) */}
           <a
             href="/contact"
-            className="group relative inline-flex items-center gap-2 rounded-full bg-indigo-600 px-10 py-4 text-lg font-bold text-white shadow-[0_0_30px_-5px_rgba(99,102,241,0.4)] transition-all duration-300 hover:bg-indigo-500 hover:shadow-[0_0_40px_-5px_rgba(99,102,241,0.6)] active:scale-95"
+            className="group relative inline-flex items-center gap-2.5 rounded-full px-10 py-4 text-lg font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
           >
-            Book Free Consultation
-            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
+            {/* Animated gradient border ring */}
+            <span className="absolute inset-0 rounded-full p-[1.5px] bg-gradient-to-r from-indigo-500 via-blue-400 to-indigo-500 bg-[length:300%_300%] animate-[cta-flow_4s_ease_infinite]">
+              <span className="block h-full w-full rounded-full bg-white/95 dark:bg-[#0c0c18]/80 backdrop-blur-2xl transition-colors duration-500" />
+            </span>
+            {/* Gradient fill on hover */}
+            <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/20 group-hover:via-blue-500/15 group-hover:to-indigo-500/20 transition-all duration-500" />
+            {/* Glow */}
+            <span className="absolute -inset-1 rounded-full bg-indigo-500/0 group-hover:bg-indigo-500/20 blur-xl transition-all duration-500 -z-10" />
+            <span className="relative z-10 flex items-center gap-2.5 text-indigo-600 dark:text-white transition-colors duration-500">
+              Book Free Consultation
+              <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
           </a>
+
+          {/* Secondary — Ghost border (matches hero secondary) */}
           <a
             href="mailto:hello@qubitcalculus.com"
-            className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 bg-black/5 dark:bg-white/5 px-10 py-4 text-lg font-medium text-gray-700 dark:text-white/80 backdrop-blur-sm transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/20 dark:hover:border-white/30 hover:text-black dark:hover:text-white active:scale-95"
+            className="group relative inline-flex items-center gap-2 rounded-full px-10 py-4 text-lg font-medium overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
           >
-            hello@qubitcalculus.com
+            <span className="absolute inset-0 rounded-full border border-gray-300 dark:border-white/20 group-hover:border-indigo-300 dark:group-hover:border-white/40 transition-colors duration-300" />
+            <span className="absolute inset-0 rounded-full bg-transparent group-hover:bg-indigo-50 dark:group-hover:bg-white/5 transition-colors duration-300" />
+            <span className="relative z-10 text-gray-700 dark:text-white/80 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors duration-300 flex items-center gap-2">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              hello@qubitcalculus.com
+            </span>
           </a>
         </motion.div>
 
@@ -100,6 +123,14 @@ export function CTA({ prefersReduced = false }: CTAProps) {
           </span>
         </motion.div>
       </motion.div>
+
+      <style>{`
+        @keyframes cta-flow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
     </section>
   );
 }

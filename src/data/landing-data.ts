@@ -123,7 +123,6 @@ export const footerLinks = {
   resources: [
     { label: 'Blog', to: '/blog' },
     { label: 'Careers', to: '/careers' },
-    { label: 'Open Source', href: 'https://github.com/qubitcalculus' },
   ],
   company: [
     { label: 'About Us', to: '/about' },

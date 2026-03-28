@@ -10,7 +10,7 @@ const industries = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
       </svg>
     ),
-    color: 'emerald',
+    color: 'indigo',
   },
   {
     name: 'Healthcare',
@@ -65,12 +65,11 @@ const industries = [
 ];
 
 const colorClasses: Record<string, { text: string; border: string; bg: string }> = {
-  emerald: { text: 'text-indigo-400', border: 'group-hover:border-indigo-400/40', bg: 'from-indigo-400/20' },
-  rose: { text: 'text-blue-500', border: 'group-hover:border-blue-500/40', bg: 'from-blue-500/20' },
-  blue: { text: 'text-indigo-500', border: 'group-hover:border-indigo-500/40', bg: 'from-indigo-500/20' },
-  orange: { text: 'text-cyan-500', border: 'group-hover:border-cyan-500/40', bg: 'from-cyan-500/20' },
-  purple: { text: 'text-blue-400', border: 'group-hover:border-blue-400/40', bg: 'from-blue-400/20' },
-  cyan: { text: 'text-indigo-600', border: 'group-hover:border-indigo-600/40', bg: 'from-indigo-600/20' },
+  indigo: { text: 'text-indigo-400', border: 'group-hover:border-indigo-400/40', bg: 'from-indigo-400/20' },
+  rose: { text: 'text-rose-400', border: 'group-hover:border-rose-400/40', bg: 'from-rose-400/20' },
+  blue: { text: 'text-blue-400', border: 'group-hover:border-blue-400/40', bg: 'from-blue-400/20' },
+  orange: { text: 'text-amber-400', border: 'group-hover:border-amber-400/40', bg: 'from-amber-400/20' },
+  cyan: { text: 'text-cyan-400', border: 'group-hover:border-cyan-400/40', bg: 'from-cyan-400/20' },
 };
 
 const staggerContainer = {
@@ -85,7 +84,7 @@ const staggerItem = {
 
 export const Industries = () => {
   return (
-    <section className="zoom-section relative py-24 md:py-32 px-6 bg-white dark:bg-[#050508] border-t border-black/5 dark:border-white/5 overflow-hidden transition-colors duration-500">
+    <section className="zoom-section relative py-24 md:py-32 px-6 border-t border-black/5 dark:border-white/5 overflow-hidden transition-colors duration-500">
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
           title="Industries We"

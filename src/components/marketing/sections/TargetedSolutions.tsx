@@ -40,11 +40,9 @@ export function TargetedSolutions() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-16 md:mb-24 flex justify-between items-end gap-8">
           <SectionHeader
-            badge="Solutions"
             title="Engineered for your"
             titleAccent="exact stage."
             description="Whether you're a funded startup needing a bulletproof MVP, or an enterprise modernizing legacy tech, we deliver elite engineering at Vercel-like velocities."
-            badgeVariant="indigo"
           />
           <div className="hidden md:block shrink-0 pb-4">
             <a href="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-sm font-medium text-gray-700 dark:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-colors">

@@ -39,7 +39,7 @@ const StatItem = ({ label, value, suffix = '', delay = 0 }: { label: string, val
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.6, delay }}
-      className="flex flex-col items-center justify-center p-8 border-r border-white/10 last:border-0 last:border-b-0 border-b md:border-b-0"
+      className="flex flex-col items-center justify-center p-8 border-r border-black/5 dark:border-white/10 last:border-0 last:border-b-0 border-b md:border-b-0 transition-colors duration-500"
     >
       <div className="flex items-baseline mb-2">
         <span className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-gray-900 to-gray-600 dark:from-white dark:to-white/60 tracking-tighter tabular-nums transition-colors duration-500">
@@ -56,7 +56,7 @@ export const StatsBanner = () => {
   const noiseSvg = "data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E";
   
   return (
-    <section className="zoom-section relative py-16 border-y border-black/5 dark:border-white/10 bg-[#fafafa] dark:bg-[#0a0a0f] overflow-hidden transition-colors duration-500">
+    <section className="zoom-section relative py-16 border-y border-black/5 dark:border-white/10 overflow-hidden transition-colors duration-500">
       {/* Visual noise background overlay */}
       <div className="absolute inset-0 opacity-[0.015] mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url("${noiseSvg}")` }}></div>
       

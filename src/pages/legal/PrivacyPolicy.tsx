@@ -96,7 +96,6 @@ export default function PrivacyPolicy() {
     <MarketingLayout
       title="Privacy Policy"
       subtitle="Last updated: October 2024"
-      eyebrow="Transparency"
     >
       <section className="marketing-section marketing-section--alt">
         <div className="mx-auto max-w-4xl px-4">

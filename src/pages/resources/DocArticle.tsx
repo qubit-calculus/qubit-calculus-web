@@ -29,7 +29,6 @@ export default function DocArticle() {
       <MarketingLayout
         title="Article Not Found"
         subtitle="The documentation article you're looking for doesn't exist."
-        eyebrow="404"
       >
         <section className="marketing-section marketing-section--alt">
           <div className="mx-auto max-w-4xl px-4 text-center">
@@ -50,7 +49,7 @@ export default function DocArticle() {
   const nextArticle = nextSlug ? docArticles[nextSlug] : null;
 
   return (
-    <MarketingLayout title={article.title} subtitle={`${article.category}`} eyebrow="Documentation">
+    <MarketingLayout title={article.title} subtitle={`${article.category}`}>
       <SEO
         title={`${article.title} — Docs`}
         description={`${article.category} documentation.`}
@@ -66,7 +65,7 @@ export default function DocArticle() {
             className="mb-8 flex items-center gap-2 text-sm"
             style={{ color: 'var(--color-text-muted)' }}
           >
-            <Link to="/docs" className="transition-colors hover:text-emerald-400">
+            <Link to="/docs" className="transition-colors hover:text-indigo-400">
               Documentation
             </Link>
             <span>›</span>
@@ -127,12 +126,12 @@ export default function DocArticle() {
             {prevArticle && prevSlug ? (
               <Link
                 to={`/docs/${prevSlug}`}
-                className="marketing-card group p-4 transition-colors hover:border-emerald-500/30"
+                className="marketing-card group p-4 transition-colors hover:border-indigo-500/30"
               >
                 <span className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
                   ← Previous
                 </span>
-                <h4 className="mt-1 text-sm font-semibold text-slate-100 group-hover:text-emerald-300">
+                <h4 className="mt-1 text-sm font-semibold text-slate-100 group-hover:text-indigo-300">
                   {prevArticle.title}
                 </h4>
               </Link>
@@ -142,12 +141,12 @@ export default function DocArticle() {
             {nextArticle && nextSlug ? (
               <Link
                 to={`/docs/${nextSlug}`}
-                className="marketing-card group p-4 text-right transition-colors hover:border-emerald-500/30"
+                className="marketing-card group p-4 text-right transition-colors hover:border-indigo-500/30"
               >
                 <span className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
                   Next →
                 </span>
-                <h4 className="mt-1 text-sm font-semibold text-slate-100 group-hover:text-emerald-300">
+                <h4 className="mt-1 text-sm font-semibold text-slate-100 group-hover:text-indigo-300">
                   {nextArticle.title}
                 </h4>
               </Link>
@@ -160,7 +159,7 @@ export default function DocArticle() {
           <motion.div {...FADE_IN} transition={{ delay: 0.4 }} className="mt-8 text-center">
             <Link
               to="/docs"
-              className="inline-flex items-center gap-2 text-sm transition-colors hover:text-emerald-400"
+              className="inline-flex items-center gap-2 text-sm transition-colors hover:text-indigo-400"
               style={{ color: 'var(--color-text-muted)' }}
             >
               ← Back to all documentation

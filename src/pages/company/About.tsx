@@ -23,7 +23,6 @@ export default function About() {
     <MarketingLayout
       title="About Qubit Calculus"
       subtitle="A pragmatic software agency helping startups ship fast and old companies modernize their tech era."
-      eyebrow="Our Story"
     >
       {/* Mission Section */}
       <section className="marketing-section marketing-section--alt">

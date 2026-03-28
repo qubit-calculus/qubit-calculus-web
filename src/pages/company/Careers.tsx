@@ -86,7 +86,6 @@ export default function Careers() {
     <MarketingLayout
       title="Join Our Team"
       subtitle="Build the next generation of digital products with a team of elite engineers and designers."
-      eyebrow="Careers"
     >
       {/* Values Section */}
       <section className="marketing-section marketing-section--alt">
@@ -173,7 +172,7 @@ export default function Careers() {
                   <div>
                     <h3 className="text-xl font-bold" style={{ color: 'var(--color-text-heading)' }}>{position.title}</h3>
                     <div className="mt-2 flex flex-wrap gap-2">
-                      <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs text-emerald-400 border border-emerald-500/20">
+                      <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-xs text-indigo-400 border border-indigo-500/20">
                         {position.department}
                       </span>
                       <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300 border border-white/10">
@@ -199,7 +198,7 @@ export default function Careers() {
                   <ul className="grid gap-2 sm:grid-cols-2">
                     {position.requirements.map((req, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
-                        <span className="text-emerald-400">▹</span> {req}
+                        <span className="text-indigo-400">▹</span> {req}
                       </li>
                     ))}
                   </ul>
@@ -210,7 +209,7 @@ export default function Careers() {
           
           <motion.div {...REVEAL_UP} className="mt-12 text-center">
             <p style={{ color: 'var(--color-text-muted)' }}>
-              Don't see a role that fits? Send us an open application at <a href="mailto:hello@qubitcalculus.com" className="text-emerald-400 hover:underline">hello@qubitcalculus.com</a>
+              Don't see a role that fits? Send us an open application at <a href="mailto:hello@qubitcalculus.com" className="text-indigo-400 hover:underline">hello@qubitcalculus.com</a>
             </p>
           </motion.div>
         </div>

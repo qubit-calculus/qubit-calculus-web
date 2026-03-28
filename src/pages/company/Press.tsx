@@ -70,7 +70,6 @@ export default function Press() {
     <MarketingLayout
       title="Press & Media"
       subtitle="Resources and news for media partners and journalists."
-      eyebrow="Media Kit"
     >
       {/* Press Kit Download */}
       <section className="marketing-section marketing-section--alt">
@@ -125,7 +124,7 @@ export default function Press() {
                 </div>
                 <h3 className="mb-1 font-semibold text-slate-100">{asset.name}</h3>
                 <p className="mb-3 text-sm text-slate-400">{asset.description}</p>
-                <span className="text-xs font-mono text-emerald-400">
+                <span className="text-xs font-mono text-indigo-400">
                   {asset.formats}
                 </span>
               </motion.div>
@@ -179,14 +178,14 @@ export default function Press() {
                 className="marketing-card group block cursor-pointer"
                 style={{ padding: '1.5rem' }}
               >
-                <span className="text-sm text-emerald-400">
+                <span className="text-sm text-indigo-400">
                   {release.date}
                 </span>
-                <h3 className="mt-2 text-lg font-semibold text-slate-100 group-hover:text-emerald-300">
+                <h3 className="mt-2 text-lg font-semibold text-slate-100 group-hover:text-indigo-300">
                   {release.title}
                 </h3>
                 <p className="mt-2 text-slate-400">{release.summary}</p>
-                <span className="mt-3 inline-block text-sm text-emerald-400">
+                <span className="mt-3 inline-block text-sm text-indigo-400">
                   Read more →
                 </span>
               </motion.div>

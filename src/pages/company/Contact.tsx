@@ -75,7 +75,6 @@ export default function Contact() {
     <MarketingLayout
       title="Let's Build Something Great"
       subtitle="Whether you're starting from scratch or modernizing a legacy platform, we're here to help you navigate the technological era."
-      eyebrow="Contact Us"
     >
       <section className="marketing-section marketing-section--alt">
         <div className="marketing-section__container">

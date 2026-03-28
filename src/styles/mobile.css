@@ -145,7 +145,7 @@
     -webkit-backdrop-filter: blur(14px) saturate(120%);
     box-shadow:
       0 10px 34px rgba(0, 0, 0, 0.34),
-      0 0 18px rgba(16, 185, 129, 0.05);
+      0 0 18px rgba(99, 102, 241, 0.05);
   }
 
   .section-header {
@@ -211,7 +211,7 @@
 
 .mobile-menu-toggle:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(99, 102, 241, 0.3);
 }
 
 .hamburger-line {
@@ -335,9 +335,9 @@
 
 .mobile-menu__link:hover,
 .mobile-menu__link:active {
-  background: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.3);
-  color: #10b981;
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #6366f1;
   transform: translateX(4px);
 }
 
@@ -383,16 +383,16 @@
   font-weight: 600;
   color: #030712;
   text-decoration: none;
-  background: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
   border: none;
   border-radius: 12px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
 }
 
 .mobile-menu__signup:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 30px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 6px 30px rgba(99, 102, 241, 0.4);
 }
 
 /* ==========================================================================

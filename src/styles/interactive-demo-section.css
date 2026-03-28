@@ -92,9 +92,9 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(16, 185, 129, 0.6) 25%,
-    rgba(139, 92, 246, 0.6) 50%,
-    rgba(16, 185, 129, 0.6) 75%,
+    rgba(99, 102, 241, 0.6) 25%,
+    rgba(59, 130, 246, 0.6) 50%,
+    rgba(99, 102, 241, 0.6) 75%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -112,7 +112,7 @@
   position: absolute;
   inset: 0;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(139, 92, 246, 0.12));
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(59, 130, 246, 0.12));
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;
@@ -125,7 +125,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #10b981 40%, #8b5cf6 60%, transparent);
+  background: linear-gradient(90deg, transparent, #6366f1 40%, #3b82f6 60%, transparent);
   transform: scaleX(0);
   transition: transform 0.35s ease;
   pointer-events: none;
@@ -154,10 +154,10 @@
 }
 
 .demo-tab-affordance:focus-visible {
-  outline: 2px solid rgba(16, 185, 129, 0.95);
+  outline: 2px solid rgba(99, 102, 241, 0.95);
   outline-offset: 2px;
-  border-color: rgba(16, 185, 129, 0.75);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+  border-color: rgba(99, 102, 241, 0.75);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
 }
 
 .demo-tab-affordance.is-active,

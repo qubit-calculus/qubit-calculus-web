@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 export interface LandingButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost';
@@ -14,7 +14,7 @@ export interface LandingButtonProps extends React.ButtonHTMLAttributes<HTMLButto
  * LandingButton - Qubit Calculus Primitive
  *
  * A high-fidelity button component with:
- * - Enhanced magnetic pull on hover
+ * - Magnetic pull on hover
  * - Glassmorphic / Shimmer effects
  * - Premium depth and glow
  */
@@ -28,88 +28,104 @@ export function LandingButton({
   ...props
 }: LandingButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  
+  // Magnetic Motion
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const springConfig = { damping: 20, stiffness: 200, mass: 0.1 };
+  const springX = useSpring(x, springConfig);
+  const springY = useSpring(y, springConfig);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const { clientX, clientY } = e;
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-    const x = (clientX - (left + width / 2)) * 0.35; // Increased magnetic strength
-    const y = (clientY - (top + height / 2)) * 0.35;
-    setPosition({ x, y });
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+    
+    // Increased magnetic strength (0.4 multiplier)
+    const distanceX = (clientX - centerX) * 0.4;
+    const distanceY = (clientY - centerY) * 0.4;
+    
+    x.set(distanceX);
+    y.set(distanceY);
   };
 
   const handleMouseLeave = () => {
-    setPosition({ x: 0, y: 0 });
+    x.set(0);
+    y.set(0);
+    setIsHovered(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
   };
 
   const baseStyles =
-    'relative inline-flex items-center justify-center font-bold tracking-tight transition-all duration-300 ease-out active:scale-95 disabled:opacity-50 disabled:pointer-events-none group isolate overflow-hidden';
+    'relative inline-flex items-center justify-center font-bold tracking-tight transition-all duration-500 ease-out active:scale-95 disabled:opacity-50 disabled:pointer-events-none group isolate overflow-hidden outline-none';
 
   const sizeStyles = {
-    sm: 'px-5 py-2 text-sm rounded-full',
-    md: 'px-9 py-3.5 text-base rounded-full',
-    lg: 'px-12 py-5 text-lg rounded-full',
+    sm: 'px-5 py-2 text-xs rounded-full uppercase tracking-widest',
+    md: 'px-9 py-3.5 text-sm rounded-full uppercase tracking-widest',
+    lg: 'px-12 py-5 text-base rounded-full uppercase tracking-widest',
   };
 
   const variantStyles = {
     primary:
-      'text-white bg-indigo-600 hover:bg-indigo-500 shadow-[0_10px_30px_-10px_rgba(79,70,229,0.5)] border border-indigo-400/30',
+      'text-white bg-indigo-600 hover:bg-indigo-500 shadow-[0_10px_30px_-10px_rgba(99,102,241,0.5)] border border-indigo-400/40',
     secondary:
       'text-white bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 shadow-2xl',
     ghost: 
-      'text-gray-400 hover:text-white hover:bg-white/5',
+      'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10',
   };
 
   const Content = (
     <>
+      {/* Outer Border Glow - on hover */}
+      <div className={`absolute inset-0 -z-10 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100 blur-md ${
+        variant === 'primary' ? 'bg-indigo-500/30' : 'bg-white/10'
+      }`} />
+
       {/* Gloss Effect */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-white/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute inset-x-0 top-0 h-1/2 -z-10 bg-gradient-to-b from-white/10 to-transparent opacity-50" />
       
-      {/* Shimmer / Scanline effect */}
-      <div className="absolute inset-0 -z-10 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 transition-transform duration-1000 group-hover:translate-x-[100%]" />
 
       {/* Button Text */}
-      <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:scale-105">
+      <span className="relative z-10 flex items-center gap-2 transition-transform duration-500 group-hover:scale-110">
         {children}
         {icon && (
-          <span className="transition-all duration-300 group-hover:translate-x-1 capitalize">
+          <span className="transition-all duration-500 group-hover:translate-x-1 flex items-center">
             {icon}
           </span>
         )}
       </span>
 
-      {/* Internal Radial Glow */}
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_var(--x)_var(--y),rgba(255,255,255,0.15)_0%,transparent_80%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
-           style={{ '--x': '50%', '--y': '50%' } as React.CSSProperties} />
+      {/* Premium Inner Border */}
+      <div className="absolute inset-0 rounded-full border border-white/10 group-hover:border-white/20 transition-colors pointer-events-none" />
     </>
   );
 
-  const motionProps = {
+  const commonProps = {
     onMouseMove: handleMouseMove,
+    onMouseEnter: handleMouseEnter,
     onMouseLeave: handleMouseLeave,
-    animate: { x: position.x, y: position.y },
-    transition: { type: 'spring', stiffness: 200, damping: 20, mass: 0.1 },
+    style: { x: springX, y: springY },
+    className: `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`,
+    ...props
   };
 
   if (href) {
     return (
-      <motion.a
-        href={href}
-        className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`}
-        {...(motionProps as any)}
-      >
+      <motion.a href={href} {...(commonProps as any)}>
         {Content}
       </motion.a>
     );
   }
 
   return (
-    <motion.button
-      ref={buttonRef}
-      className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`}
-      {...(motionProps as any)}
-      {...(props as any)}
-    >
+    <motion.button ref={buttonRef} {...(commonProps as any)}>
       {Content}
     </motion.button>
   );

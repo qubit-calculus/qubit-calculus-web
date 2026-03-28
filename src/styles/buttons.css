@@ -58,7 +58,7 @@
 }
 
 .btn-swap:hover {
-  background: rgba(16, 185, 129, 0.15);
+  background: rgba(99, 102, 241, 0.15);
   border-color: var(--color-accent);
   color: var(--color-accent);
   box-shadow: none;
@@ -70,7 +70,7 @@
 }
 
 .btn-swap--primary {
-  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #3b82f6 100%);
   background-size: 200% 100%;
   border: none;
   color: #030712;
@@ -91,37 +91,6 @@
   50% { background-position: 100% 50%; }
 }
 
-/* Shimmer effect on primary button */
-.btn-swap--primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  animation: btn-shimmer 4s ease-in-out infinite;
-}
-
-@keyframes btn-shimmer {
-  0% {
-    left: -100%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  40%, 100% {
-    left: 150%;
-    opacity: 0;
-  }
-}
 
 /* Outer glow ring on hover */
 .btn-swap--primary::after {
@@ -129,7 +98,7 @@
   position: absolute;
   inset: -3px;
   border-radius: inherit;
-  background: linear-gradient(90deg, #10b981, #8b5cf6, #10b981);
+  background: linear-gradient(90deg, #6366f1, #3b82f6, #6366f1);
   background-size: 300% 100%;
   z-index: -1;
   opacity: 0;
@@ -148,7 +117,7 @@
 }
 
 .btn-swap--primary:hover {
-  background: linear-gradient(135deg, #059669 0%, #8b5cf6 50%, #7c3aed 100%);
+  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 50%, #7c3aed 100%);
   background-size: 200% 100%;
   color: #FFFFFF;
   box-shadow: none;
@@ -190,9 +159,9 @@
   padding: 1px;
   background: linear-gradient(
     90deg,
-    rgba(16, 185, 129, 0.5) 0%,
-    rgba(139, 92, 246, 0.5) 50%,
-    rgba(16, 185, 129, 0.5) 100%
+    rgba(99, 102, 241, 0.5) 0%,
+    rgba(59, 130, 246, 0.5) 50%,
+    rgba(99, 102, 241, 0.5) 100%
   );
   background-size: 200% 100%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -211,7 +180,7 @@
 }
 
 .btn-signin:hover {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(99, 102, 241, 0.1);
   border-color: transparent;
   box-shadow: none;
   transform: translateY(-2px);
@@ -227,28 +196,6 @@
   display: none;
 }
 
-/* Shimmer on hover */
-.btn-signin::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.15),
-    transparent
-  );
-  transform: skewX(-20deg);
-  transition: left 0.6s ease;
-  pointer-events: none;
-}
-
-.btn-signin:hover::after {
-  left: 150%;
-}
 
 /* Content container */
 .btn-signin__content {

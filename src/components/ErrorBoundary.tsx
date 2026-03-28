@@ -61,7 +61,7 @@ export default class ErrorBoundary extends Component<Props, State> {
               style={{
                 fontSize: '4rem',
                 fontWeight: 700,
-                background: 'linear-gradient(135deg, #10b981, #6366f1)',
+                background: 'linear-gradient(135deg, #6366f1, #6366f1)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 marginBottom: '1rem',
@@ -82,7 +82,7 @@ export default class ErrorBoundary extends Component<Props, State> {
                 padding: '0.75rem 2rem',
                 borderRadius: '0.5rem',
                 border: 'none',
-                background: 'linear-gradient(135deg, #10b981, #059669)',
+                background: 'linear-gradient(135deg, #6366f1, #4f46e5)',
                 color: '#fff',
                 fontWeight: 600,
                 fontSize: '0.95rem',

@@ -15,14 +15,14 @@
    ========================================================================== */
 
 .section-header__badge {
-  --badge-color-1: #10b981;
-  --badge-color-2: #8b5cf6;
-  --badge-glow-1: rgba(16, 185, 129, 0.25);
-  --badge-glow-2: rgba(139, 92, 246, 0.21);
-  --badge-border-1: rgba(16, 185, 129, 0.78);
-  --badge-border-2: rgba(139, 92, 246, 0.68);
-  --badge-bg-1: rgba(16, 185, 129, 0.08);
-  --badge-bg-2: rgba(139, 92, 246, 0.08);
+  --badge-color-1: #6366f1;
+  --badge-color-2: #3b82f6;
+  --badge-glow-1: rgba(99, 102, 241, 0.25);
+  --badge-glow-2: rgba(59, 130, 246, 0.21);
+  --badge-border-1: rgba(99, 102, 241, 0.78);
+  --badge-border-2: rgba(59, 130, 246, 0.68);
+  --badge-bg-1: rgba(99, 102, 241, 0.08);
+  --badge-bg-2: rgba(59, 130, 246, 0.08);
 
   display: inline-flex;
   align-items: center;
@@ -178,18 +178,18 @@
 .section-header__gradient {
   background: linear-gradient(
     90deg,
-    #10b981 0%,
-    #34d399 25%,
-    #6ee7b7 50%,
-    #34d399 75%,
-    #10b981 100%
+    #6366f1 0%,
+    #818cf8 25%,
+    #818cf8 50%,
+    #818cf8 75%,
+    #6366f1 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: section-gradient-flow 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4));
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
 }
 
 @keyframes section-gradient-flow {

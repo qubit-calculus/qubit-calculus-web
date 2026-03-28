@@ -50,7 +50,6 @@ export default function Documentation() {
     <MarketingLayout
       title="Documentation"
       subtitle="Architecture, API references, security docs, and developer guides — pulled straight from our internal docs."
-      eyebrow="Developer Docs"
     >
       {/* Quick Nav */}
       <section
@@ -143,11 +142,11 @@ export default function Documentation() {
         <div className="mx-auto max-w-3xl px-4">
           <motion.div
             {...FADE_IN}
-            className="flex items-center gap-3 rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-5 py-3"
+            className="flex items-center gap-3 rounded-lg border border-indigo-500/20 bg-indigo-500/5 px-5 py-3"
           >
             <div
               className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
-              style={{ background: 'rgba(16, 185, 129, 0.15)' }}
+              style={{ background: 'rgba(99, 102, 241, 0.15)' }}
             >
               <NeonIcon symbol="📝" size={16} title="Documentation note" />
             </div>
@@ -250,7 +249,7 @@ export default function Documentation() {
                       onClick={() =>
                         setExpandedCategory(expandedCategory === category.id ? null : category.id)
                       }
-                      className="mt-4 flex items-center gap-1 text-sm font-medium transition-colors hover:text-emerald-300"
+                      className="mt-4 flex items-center gap-1 text-sm font-medium transition-colors hover:text-indigo-300"
                       style={{ color: 'var(--color-primary)' }}
                     >
                       {expandedCategory === category.id
@@ -288,7 +287,7 @@ export default function Documentation() {
                 className="flex items-center gap-3 px-5 py-3"
                 style={{
                   background:
-                    'linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(139, 92, 246, 0.12))',
+                    'linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(59, 130, 246, 0.12))',
                 }}
               >
                 <span className="font-mono text-sm font-bold text-slate-100">
@@ -296,7 +295,7 @@ export default function Documentation() {
                 </span>
                 <span
                   className="rounded-full px-2 py-0.5 text-xs font-medium"
-                  style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#34d399' }}
+                  style={{ background: 'rgba(99, 102, 241, 0.15)', color: '#34d399' }}
                 >
                   REST + WebSocket
                 </span>
@@ -380,7 +379,7 @@ export default function Documentation() {
                 style={{
                   color: 'var(--color-primary)',
                   background:
-                    'linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(248, 113, 113, 0.05))',
+                    'linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(248, 113, 113, 0.05))',
                 }}
               >
                 <span>Component</span>
@@ -405,7 +404,7 @@ export default function Documentation() {
                       <span
                         className="inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold"
                         style={{
-                          background: 'rgba(16, 185, 129, 0.1)',
+                          background: 'rgba(99, 102, 241, 0.1)',
                           color: 'var(--color-primary)',
                         }}
                       >
@@ -512,7 +511,7 @@ export default function Documentation() {
                     style={{
                       background:
                         adr.status === 'Completed'
-                          ? 'rgba(16, 185, 129, 0.12)'
+                          ? 'rgba(99, 102, 241, 0.12)'
                           : 'rgba(99, 102, 241, 0.12)',
                       color: adr.status === 'Completed' ? '#34d399' : '#818cf8',
                     }}
@@ -629,7 +628,7 @@ export default function Documentation() {
             style={{
               padding: '3rem',
               background:
-                'linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(139, 92, 246, 0.08))',
+                'linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(59, 130, 246, 0.08))',
             }}
           >
             <div
@@ -645,7 +644,7 @@ export default function Documentation() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="https://github.com/cgraph-dev/Qubit Calculus"
+                  href="https://github.com/qubit-calculus"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="marketing-btn marketing-btn--primary"

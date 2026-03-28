@@ -19,17 +19,17 @@
 .title-fx--electric {
   background-image: linear-gradient(
     90deg,
-    #10b981 0%,
+    #6366f1 0%,
     #22d3ee 25%,
     #a5f3fc 50%,
     #22d3ee 75%,
-    #10b981 100%
+    #6366f1 100%
   );
   background-size: 200% 100%;
   animation: fx-electric-shimmer 2s ease-in-out infinite;
   animation: fx-electric-shimmer 2s ease-in-out infinite;
   /* filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.5))
-          drop-shadow(0 0 20px rgba(16, 185, 129, 0.3)); */
+          drop-shadow(0 0 20px rgba(99, 102, 241, 0.3)); */
 }
 
 .title-fx--electric::after {
@@ -153,7 +153,7 @@
   background-size: 200% 200%;
   animation: fx-shadow-shift 4s ease-in-out infinite;
   animation: fx-shadow-shift 4s ease-in-out infinite;
-  /* filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.5))
+  /* filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.5))
           drop-shadow(0 4px 20px rgba(124, 58, 237, 0.4)); */
 }
 
@@ -166,7 +166,7 @@
   height: 20px;
   background: radial-gradient(
     ellipse at center,
-    rgba(139, 92, 246, 0.35),
+    rgba(59, 130, 246, 0.35),
     transparent 70%
   );
   filter: blur(10px);

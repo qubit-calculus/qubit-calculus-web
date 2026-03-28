@@ -1,43 +1,32 @@
 /**
  * Hero Component
  *
- * Professional hero section following modern SaaS patterns (Linear, Vercel, Notion).
- * Features:
- * - Animated gradient mesh background with floating glow orbs
- * - Subtle dot grid overlay
- * - Staggered Framer Motion entrance animations
- * - Product preview mockup
- * - prefers-reduced-motion respected
- *
- * @since v2.2.0
+ * Premium hero section with Spline 3D background.
+ * Clean gradient-border CTA buttons. Indigo-blue brand palette.
  */
 
-import { memo, useState, useEffect, useRef, useCallback } from 'react';
+import { memo, useState, useEffect, Suspense, lazy } from 'react';
 import { motion, useReducedMotion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+const Spline = lazy(() => import('@splinetool/react-spline'));
+import ErrorBoundary from '../../ErrorBoundary';
 import { GradientText } from '../ui/GradientText';
-import { useCircuitCanvas } from './use-circuit-canvas';
 import './Hero.css';
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-    },
+    filter: 'blur(0px)',
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
   },
 };
 
@@ -50,78 +39,7 @@ const subtitles = [
 const Hero = memo(function Hero(): React.JSX.Element {
   const prefersReduced = useReducedMotion();
   const [subtitleIndex, setSubtitleIndex] = useState(0);
-  const heroRef = useRef<HTMLElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const mousePosRef = useRef({ x: 0.5, y: 0.5 });
-  const isVisibleRef = useRef(true);
-  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
-  const isTouchDevice = typeof window !== 'undefined' && 'ontouchstart' in window;
-
-  // Interactive mouse tracking for parallax background layers (skipped on touch)
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
-      if (prefersReduced || isTouchDevice) return;
-      const rect = e.currentTarget.getBoundingClientRect();
-      const pos = {
-        x: (e.clientX - rect.left) / rect.width,
-        y: (e.clientY - rect.top) / rect.height,
-      };
-      setMousePos(pos);
-      mousePosRef.current = pos;
-    },
-    [prefersReduced, isTouchDevice]
-  );
-
-  // Scroll-linked parallax — bg drifts slower, content fades out
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  });
-
-  // Circuit network canvas animation (logo-style effects)
-  useCircuitCanvas(canvasRef, mousePosRef, prefersReduced, isVisibleRef);
-
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 0.75], [0, -50]);
-
-  // Pause video + canvas when hero is off-screen (IntersectionObserver)
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const visible = entry?.isIntersecting ?? false;
-        isVisibleRef.current = visible;
-        const video = videoRef.current;
-        if (!video || prefersReduced) return;
-        if (visible && !document.hidden) video.play().catch(() => {});
-        else video.pause();
-      },
-      { threshold: 0.05 }
-    );
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, [prefersReduced]);
-
-  // Pause video when tab hidden or reduced motion preferred
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (prefersReduced) {
-      video.pause();
-      return;
-    }
-    const onVisibility = (): void => {
-      if (document.hidden || !isVisibleRef.current) video.pause();
-      else video.play().catch(() => {});
-    };
-    document.addEventListener('visibilitychange', onVisibility);
-    return () => document.removeEventListener('visibilitychange', onVisibility);
-  }, [prefersReduced]);
-
-  // Cycle subtitles every 4s
+  const [splineLoaded, setSplineLoaded] = useState(false);
   useEffect(() => {
     if (prefersReduced) return;
     const interval = setInterval(() => {
@@ -130,94 +48,90 @@ const Hero = memo(function Hero(): React.JSX.Element {
     return () => clearInterval(interval);
   }, [prefersReduced]);
 
+  // Timeout: if Spline hasn't loaded in 15s, hide the loading overlay anyway
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!splineLoaded) setSplineLoaded(true);
+    }, 15000);
+    return () => clearTimeout(timeout);
+  }, [splineLoaded]);
+
   const { scrollY } = useScroll();
   const scrollOpacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
     <section
-      ref={heroRef}
-      className="hero-pro"
+      className="hero-pro relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       aria-label="Qubit Calculus — Precision Software, Elegantly Solved"
-      onMouseMove={handleMouseMove}
     >
-      {/* Background layers — interactive parallax */}
-      <motion.div
-        className="hero-pro__bg"
-        aria-hidden="true"
-        style={prefersReduced ? undefined : { y: bgY }}
-      >
-        {/* Video background — looping ambient footage */}
-        <video
-          ref={videoRef}
-          className="hero-pro__video-bg dark:opacity-100 opacity-5 transition-opacity duration-1000"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster="/videos/hero-poster.webp"
-          aria-hidden="true"
-          {...({ fetchpriority: 'high' } as any)}
+      {/* Spline 3D Background — dark mode only */}
+      <div className="hidden dark:block absolute inset-0 z-0" style={{ width: '100%', height: '100%' }}>
+        {!prefersReduced ? (
+          <Suspense fallback={<div className="w-full h-full bg-[#030712]" />}>
+            <ErrorBoundary fallback={<div className="w-full h-full bg-[#030712]" />}>
+              <Spline
+                scene="https://prod.spline.design/q8dNmgcPXGW7qt05/scene.splinecode"
+                style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
+                onLoad={() => setSplineLoaded(true)}
+              />
+            </ErrorBoundary>
+          </Suspense>
+        ) : (
+          <div className="w-full h-full bg-[#030712]" />
+        )}
+
+        {/* Loading fallback — fades out when Spline loads */}
+        <motion.div
+          className="absolute inset-0 bg-[#030712] pointer-events-none"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: splineLoaded ? 0 : 1 }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
+          style={{ zIndex: splineLoaded ? -1 : 1 }}
         >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        </video>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)] animate-pulse" />
+        </motion.div>
 
-        {/* Mouse-following radial glow */}
-        <div
-          className="hero-pro__cursor-glow"
-          style={
-            prefersReduced
-              ? { display: 'none' }
-              : {
-                  background: `radial-gradient(600px circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(16, 185, 129, 0.12), rgba(139, 92, 246, 0.06) 40%, transparent 70%)`,
-                }
-          }
-        />
+        {/* Subtle vignette for text readability — NOT covering the center */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/70 via-transparent to-[#030712]/30 pointer-events-none" style={{ zIndex: 2 }} />
+      </div>
 
-        {/* Interactive circuit network canvas */}
-        <canvas ref={canvasRef} className="hero-pro__circuit-canvas" aria-hidden="true" />
-      </motion.div>
+      {/* Light mode fallback */}
+      <div className="dark:hidden absolute inset-0 z-0">
+        <div className="w-full h-full bg-[#f9fafb]" />
+        <div className="hero-pro__mesh absolute inset-[-50%]" />
+        <div className="hero-pro__orb hero-pro__orb--indigo" />
+        <div className="hero-pro__orb hero-pro__orb--blue" />
+        <div className="hero-pro__orb hero-pro__orb--cyan" />
+      </div>
 
-      {/* Bottom fade — outside parallax container so it stays pinned */}
-      <div className="hero-pro__fade" aria-hidden="true" />
-
-      {/* Content — fades out on scroll */}
+      {/* Content */}
       <motion.div
-        className="hero-pro__content"
+        className="hero-pro__content relative z-10"
         variants={prefersReduced ? undefined : containerVariants}
         initial={prefersReduced ? 'visible' : 'hidden'}
         animate="visible"
-        style={prefersReduced ? undefined : { opacity: contentOpacity, y: contentY }}
       >
-        {/* Eyebrow */}
-        <motion.div variants={itemVariants} className="hero-pro__eyebrow-wrap">
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 dark:border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400 backdrop-blur-sm transition-colors duration-500">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
-            Software Development Agency
-          </span>
-        </motion.div>
-
         {/* Title */}
-        <motion.h1 variants={itemVariants} className="hero-pro__title">
-          <span className="hero-pro__title-line">We Build Software</span>
+        <motion.h1 variants={itemVariants} className="hero-pro__title text-center text-5xl md:text-7xl font-extrabold">
+          <span className="hero-pro__title-line block text-gray-900 dark:text-white transition-colors duration-500">We Build Software</span>
           <GradientText
             variant="indigo-blue"
             animated
             as="span"
-            className="hero-pro__title-accent"
+            className="hero-pro__title-accent mt-2 block"
           >
             That Drives Growth
           </GradientText>
         </motion.h1>
 
         {/* Cycling Subtitle */}
-        <motion.div variants={itemVariants} className="hero-pro__subtitle-wrap">
+        <motion.div variants={itemVariants} className="hero-pro__subtitle-wrap mt-8 text-center max-w-2xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.p
               key={subtitleIndex}
-              className="hero-pro__subtitle"
+              className="hero-pro__subtitle text-lg md:text-xl text-gray-600 dark:text-slate-300 transition-colors duration-500"
               initial={prefersReduced ? {} : { opacity: 0, y: 12, filter: 'blur(4px)' }}
-              animate={{ opacity: 0.7, y: 0, filter: 'blur(0px)' }}
+              animate={{ opacity: 0.85, y: 0, filter: 'blur(0px)' }}
               exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
               transition={{ duration: 0.5 }}
             >
@@ -226,51 +140,77 @@ const Hero = memo(function Hero(): React.JSX.Element {
           </AnimatePresence>
         </motion.div>
 
-        {/* Dual CTAs */}
+        {/* CTA Buttons */}
         <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Primary — Gradient border + frosted glass fill */}
           <a
             href="/contact"
-            className="group relative inline-flex items-center gap-2 rounded-full bg-indigo-600 px-8 py-4 text-base font-bold text-white shadow-[0_0_30px_-5px_rgba(99,102,241,0.4)] transition-all duration-300 hover:bg-indigo-500 hover:shadow-[0_0_40px_-5px_rgba(99,102,241,0.6)] active:scale-95"
+            className="hero-cta-primary group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-indigo-600 dark:text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
           >
-            Get a Free Estimate in 48h
-            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
+            {/* Animated gradient border ring */}
+            <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
+              <span className="block h-full w-full rounded-full bg-white/90 dark:bg-[#0c0c18]/80 backdrop-blur-2xl transition-colors duration-500" />
+            </span>
+            {/* Gradient fill on hover */}
+            <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/30 group-hover:via-blue-500/20 group-hover:to-indigo-500/30 transition-all duration-500" />
+            {/* Glow */}
+            <span className="absolute -inset-1 rounded-full bg-indigo-500/0 group-hover:bg-indigo-500/20 blur-xl transition-all duration-500 -z-10" />
+            <span className="relative z-10 flex items-center gap-2.5">
+              Get a Free Estimate
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
           </a>
+
+          {/* Secondary — Ghost with subtle border */}
           <a
             href="#work"
-            className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 bg-black/5 dark:bg-white/5 px-8 py-4 text-base font-medium text-gray-700 dark:text-white/80 backdrop-blur-sm transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/20 dark:hover:border-white/30 hover:text-black dark:hover:text-white active:scale-95"
+            className="hero-cta-secondary group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-medium overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
           >
-            View Our Work
+            <span className="absolute inset-0 rounded-full border border-gray-300 dark:border-white/20 group-hover:border-indigo-300 dark:group-hover:border-white/40 transition-colors duration-300" />
+            <span className="absolute inset-0 rounded-full bg-transparent group-hover:bg-indigo-50 dark:group-hover:bg-white/5 transition-colors duration-300" />
+            <span className="relative z-10 text-gray-700 dark:text-white/80 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors duration-300">
+              View Our Work
+            </span>
           </a>
         </motion.div>
-
-        {/* Industry verticals + social proof */}
-        <motion.div variants={itemVariants} className="mt-12 flex flex-col items-center gap-3">
-          <p className="text-sm text-gray-500">
-            Trusted by teams in{' '}
-            <span className="text-gray-800 dark:text-gray-400 font-medium">Fintech</span>,{' '}
-            <span className="text-gray-800 dark:text-gray-400 font-medium">Healthcare</span>,{' '}
-            <span className="text-gray-800 dark:text-gray-400 font-medium">Web3</span>, and{' '}
-            <span className="text-gray-800 dark:text-gray-400 font-medium">Enterprise SaaS</span>
-          </p>
-        </motion.div>
       </motion.div>
 
-      {/* Scroll indicator — click scrolls to features */}
+      {/* Scroll indicator */}
       <motion.div
-        className="hero-pro__scroll"
+        className="hero-pro__scroll absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
         aria-hidden="true"
         style={{ opacity: scrollOpacity }}
-        onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => {
+          const el = document.getElementById('features');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }}
       >
-        <div className="hero-pro__scroll-arrows">
-          <span />
-          <span />
-          <span />
+        <div className="flex flex-col items-center gap-2 cursor-pointer">
+          <span className="text-xs uppercase tracking-[0.2em] text-gray-400 dark:text-slate-500">Scroll to explore</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="w-5 h-8 border-2 border-gray-300 dark:border-white/20 rounded-full flex justify-center p-1"
+          >
+            <div className="w-1 h-1 bg-indigo-500 rounded-full" />
+          </motion.div>
         </div>
-        <span className="hero-pro__scroll-text">Scroll to explore</span>
       </motion.div>
+
+      <style>{`
+        .hero-cta-border {
+          background: linear-gradient(135deg, #6366f1, #3b82f6, #6366f1, #818cf8);
+          background-size: 300% 300%;
+          animation: hero-border-rotate 4s ease infinite;
+        }
+        @keyframes hero-border-rotate {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
     </section>
   );
 });

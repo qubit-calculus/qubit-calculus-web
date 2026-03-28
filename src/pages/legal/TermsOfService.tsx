@@ -72,7 +72,6 @@ export default function TermsOfService() {
     <MarketingLayout
       title="Terms of Service"
       subtitle="Last updated: October 2024"
-      eyebrow="Legal"
     >
       <section className="marketing-section marketing-section--alt">
         <div className="mx-auto max-w-4xl px-4">
