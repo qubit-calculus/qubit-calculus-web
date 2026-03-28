@@ -223,9 +223,14 @@
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (min-width: 769px) {
+  .hero-pro__eyebrow {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 
 .hero-pro__eyebrow:hover {
@@ -420,19 +425,21 @@
     display: block;
     inset: -62%;
     opacity: 0.42;
-    animation-duration: 42s;
+    animation: none;
   }
 
   .hero-pro__orb--indigo {
     width: 360px;
     height: 360px;
     opacity: 0.58;
+    animation: none;
   }
 
   .hero-pro__orb--blue {
     width: 300px;
     height: 300px;
     opacity: 0.52;
+    animation: none;
   }
 
   .hero-pro__orb--cyan {
@@ -442,6 +449,7 @@
     bottom: 8%;
     left: 42%;
     opacity: 0.4;
+    animation: none;
   }
 
   /* Video background — no change needed on mobile */
@@ -489,6 +497,11 @@
   .hero-pro__title-line,
   .hero-pro__title-accent {
     font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .hero-pro__title-accent {
+    animation: none;
+    background-size: 100% 100%;
   }
 
   .hero-pro__subtitle {

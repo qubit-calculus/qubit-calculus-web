@@ -20,11 +20,10 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
   },
 };
@@ -99,9 +98,9 @@ const Hero = memo(function Hero(): React.JSX.Element {
             <motion.p
               key={subtitleIndex}
               className="hero-pro__subtitle text-lg md:text-xl text-gray-600 dark:text-slate-300 transition-colors duration-500"
-              initial={prefersReduced ? {} : { opacity: 0, y: 12, filter: 'blur(4px)' }}
-              animate={{ opacity: 0.85, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
+              initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
+              animate={{ opacity: 0.85, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.5 }}
             >
               {subtitles[subtitleIndex]}
@@ -118,7 +117,7 @@ const Hero = memo(function Hero(): React.JSX.Element {
           >
             {/* Animated gradient border ring */}
             <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
-              <span className="block h-full w-full rounded-full bg-white/90 dark:bg-[#0c0c18]/80 backdrop-blur-2xl transition-colors duration-500" />
+              <span className="block h-full w-full rounded-full bg-white/90 dark:bg-[#0c0c18]/80 md:backdrop-blur-2xl transition-colors duration-500" />
             </span>
             {/* Gradient fill on hover */}
             <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/30 group-hover:via-blue-500/20 group-hover:to-indigo-500/30 transition-all duration-500" />

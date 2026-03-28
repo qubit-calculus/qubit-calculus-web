@@ -1,4 +1,4 @@
-import React, { useState, useEffect, CSSProperties } from 'react'
+import React, { useState, useEffect, useRef, CSSProperties } from 'react'
 
 export interface BackgroundSceneProps {
   /** Number of animated light beams */
@@ -10,12 +10,16 @@ const BACKGROUND_BEAM_COUNT = 60
 const BackgroundScene: React.FC<BackgroundSceneProps> = ({
   beamCount = BACKGROUND_BEAM_COUNT,
 }) => {
+  const isMobile = useRef(
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+  );
+  const effectiveBeamCount = isMobile.current ? Math.min(beamCount, 20) : beamCount;
   const [beams, setBeams] = useState<
     Array<{ id: number; style: CSSProperties }>
   >([])
 
   useEffect(() => {
-    const generated = Array.from({ length: beamCount }).map((_, i) => {
+    const generated = Array.from({ length: effectiveBeamCount }).map((_, i) => {
       const riseDur = Math.random() * 2 + 4    // 4–6s rise
       const fadeDur = riseDur                  // sync fade
       const dropDur = Math.random() * 3 + 3    // 3–6s drop
@@ -31,7 +35,7 @@ const BackgroundScene: React.FC<BackgroundSceneProps> = ({
       }
     })
     setBeams(generated)
-  }, [beamCount])
+  }, [effectiveBeamCount])
 
   return (
     <div className="scene" role="img" aria-label="Animated digital data background">

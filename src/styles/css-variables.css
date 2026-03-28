@@ -40,7 +40,8 @@ html.site-ready {
 .features,
 .security-vault,
 .value-section,
-.cta {
+.cta,
+.zoom-section {
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
 }

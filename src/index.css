@@ -213,19 +213,23 @@ code, pre, kbd, samp {
     0 0 120px 60px var(--glow-color-2),
     0 0 200px 100px rgba(99, 102, 241, 0.2);
   animation: floorGlow 3s ease-in-out infinite;
+  will-change: transform, opacity;
+  contain: layout style;
 }
 
 .main-column {
   position: absolute;
   bottom: -5%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(0);
   width: 600px;
   height: 60%;
   background: radial-gradient(ellipse at center bottom, var(--light-color) 0%, var(--glow-color-1) 20%, transparent 70%);
   filter: blur(50px);
   opacity: 0.6;
   animation: mainGlow 2s ease-in-out infinite;
+  will-change: opacity;
+  contain: layout style;
 }
 
 .light-stream-container {
@@ -242,6 +246,8 @@ code, pre, kbd, samp {
   height: 100%;
   background: linear-gradient(to top, var(--glow-color-1), var(--glow-color-2), transparent);
   animation: rise 4.5s linear infinite, fade 4.5s linear infinite;
+  will-change: transform, opacity;
+  contain: layout style;
 }
 
 /* 3D perspective grid terrain */
@@ -255,11 +261,13 @@ code, pre, kbd, samp {
     linear-gradient(var(--glow-color-2) 1px, transparent 1px),
     linear-gradient(90deg, var(--glow-color-2) 1px, transparent 1px);
   background-size: 60px 40px;
-  transform: perspective(200px) rotateX(60deg);
+  transform: perspective(200px) rotateX(60deg) translateZ(0);
   transform-origin: bottom center;
   mask-image: linear-gradient(to top, white 0%, white 40%, transparent 100%);
   -webkit-mask-image: linear-gradient(to top, white 0%, white 40%, transparent 100%);
   animation: moveGrid 20s linear infinite;
+  will-change: background-position;
+  contain: layout style;
 }
 
 /* Grid overlay */
@@ -311,12 +319,10 @@ code, pre, kbd, samp {
 
 @keyframes mainGlow {
   from {
-    opacity: 0.6;
-    filter: blur(25px);
+    opacity: 0.5;
   }
   to {
-    opacity: 0.8;
-    filter: blur(15px);
+    opacity: 0.75;
   }
 }
 
@@ -326,5 +332,30 @@ code, pre, kbd, samp {
   }
   to {
     background-position: -80px -40px;
+  }
+}
+
+/* ── Mobile performance: reduce GPU load ── */
+@media (max-width: 768px) {
+  .grid-terrain {
+    animation: none;
+    background-size: 80px 50px;
+  }
+
+  .scene::after {
+    animation: none;
+  }
+
+  .main-column {
+    width: 400px;
+    filter: blur(40px);
+    animation: none;
+    opacity: 0.6;
+  }
+
+  .floor {
+    box-shadow:
+      0 0 20px 10px var(--glow-color-1),
+      0 0 60px 30px var(--glow-color-2);
   }
 }

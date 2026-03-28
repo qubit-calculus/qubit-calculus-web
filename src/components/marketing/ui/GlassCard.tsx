@@ -46,11 +46,13 @@ export function GlassCard({
       className={`group relative overflow-hidden rounded-xl border border-black/5 dark:border-white/5 bg-white/60 dark:bg-black/40 backdrop-blur-xl transition-colors duration-500 ${className}`}
       onMouseMove={handleMouseMove}
     >
-      {/* Spotlight overlay — hidden on touch devices via CSS */}
-      <motion.div
-        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100 max-md:hidden"
-        style={{ background: bg }}
-      />
+      {/* Spotlight overlay — not rendered on touch devices */}
+      {!isMobile.current && (
+        <motion.div
+          className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+          style={{ background: bg }}
+        />
+      )}
 
       {/* Content wrapper */}
       <div className="relative z-10 h-full">{children}</div>
