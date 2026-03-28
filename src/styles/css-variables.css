@@ -1,21 +1,8 @@
-/* CGraph Landing Demo - GAMELAND Style */
-/* Google Fonts loaded via <link> in index.html for non-blocking fetch */
-
-/* ==========================================================================
-   CUSTOM FONTS - Loaded from index.css (single source of truth)
-   ========================================================================== */
-
-/* Site ready class applied after preloader */
 html.site-ready {
   scroll-behavior: smooth;
-  scroll-padding-top: 20vh; /* Center sections in viewport */
+  scroll-padding-top: 20vh;
 }
 
-/* ==========================================================================
-   PERFORMANCE OPTIMIZATIONS
-   ========================================================================== */
-
-/* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -27,14 +14,12 @@ html.site-ready {
   }
 }
 
-/* GPU acceleration for animated elements */
 .gpu-accelerated {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
 
-/* Off-screen rendering optimization — skip paint for sections below the fold */
 .showcase-section,
 .interactive-demo-section,
 .features,
@@ -54,9 +39,6 @@ html.site-ready {
   contain: layout paint;
 }
 
-/* ==========================================================================
-   ZOOM SECTION - Clean parallax-style scroll animation
-   ========================================================================== */
 .zoom-section {
   will-change: transform, opacity;
   transform-origin: center center;
@@ -67,65 +49,56 @@ html.site-ready {
 }
 
 .demo-landing {
-  /* Primary colors - Quantum Engineering Theme */
-  --color-primary: #6366f1;       /* Indigo-500 */
-  --color-primary-dark: #4f46e5;  /* Indigo-600 */
-  --color-primary-light: #818cf8; /* Indigo-400 */
-  
-  --color-secondary: #3b82f6;       /* Blue-500 */
-  --color-secondary-dark: #2563eb;  /* Blue-600 */
-  --color-secondary-light: #60a5fa; /* Blue-400 */
-  
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #818cf8;
+
+  --color-secondary: #3b82f6;
+  --color-secondary-dark: #2563eb;
+  --color-secondary-light: #60a5fa;
+
   --color-accent: #6366f1;
   --color-accent-alt: #3b82f6;
-  
-  /* Backgrounds - Deep Space Glass */
-  --color-dark: #020617;          /* Slate-950 */
-  --color-dark-alt: #0f172a;      /* Slate-900 */
-  --color-dark-tertiary: #1e293b; /* Slate-800 */
+
+  --color-dark: #020617;
+  --color-dark-alt: #0f172a;
+  --color-dark-tertiary: #1e293b;
   --color-glass: rgba(3, 7, 18, 0.6);
   --color-glass-border: rgba(255, 255, 255, 0.08);
-  
+
   --color-light: #FFFFFF;
   --color-gray: #9ca3af;
   --color-gray-dark: #6b7280;
-  
-  /* Semantic text colors — use these instead of raw white/gray */
-  --color-text-heading: #F1F5F9;   /* slate-100 — near-white for headings */
-  --color-text-body: #E2E8F0;      /* slate-200 — off-white for body text */
-  --color-text-muted: #94A3B8;     /* slate-400 — secondary/descriptions */
-  --color-text-subtle: #64748B;    /* slate-500 — metadata/timestamps */
-  
-  /* Font stacks */
+
+  --color-text-heading: #F1F5F9;
+  --color-text-body: #E2E8F0;
+  --color-text-muted: #94A3B8;
+  --color-text-subtle: #64748B;
+
   --font-heading: 'Geist', 'Inter', system-ui, sans-serif;
   --font-body: 'Geist', 'Inter', system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'IBM Plex Mono', ui-monospace, monospace;
   --font-display: 'Tektur', 'Orbitron', system-ui, sans-serif;
-  
-  /* Letter-spacing tokens */
+
   --tracking-heading: -0.02em;
   --tracking-tight: -0.03em;
   --tracking-wide: 0.06em;
-  
-  /* Heading glow tokens */
+
   --glow-heading-subtle: 0 0 40px rgba(100, 255, 180, 0.12);
   --glow-heading-strong: 0 0 60px rgba(100, 255, 180, 0.2);
-  
-  /* Status colors */
+
   --color-indigo: #6366f1;
   --color-error: #ef4444;
   --color-warning: #f59e0b;
-  
-  /* Gradients - Unified Brand Gradient */
+
   --gradient-primary: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
   --gradient-button: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
   --gradient-hero: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%);
   --gradient-glow: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 70%);
-  
-  /* Glow effects */
+
   --glow-indigo: 0 0 20px rgba(99, 102, 241, 0.5);
   --glow-purple: 0 0 20px rgba(59, 130, 246, 0.5);
-  
+
   font-family: var(--font-body);
   background: transparent;
   color: var(--color-text-body);
@@ -134,7 +107,6 @@ html.site-ready {
   position: relative;
 }
 
-/* Animated ambient background */
 .demo-landing::before {
   content: '';
   position: fixed;
@@ -142,7 +114,7 @@ html.site-ready {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse 60% 40% at 80% 60%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
     radial-gradient(ellipse 50% 30% at 50% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
@@ -158,7 +130,7 @@ html.site-ready {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(ellipse 70% 60% at 70% 30%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
     radial-gradient(ellipse 40% 50% at 30% 70%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
   pointer-events: none;
@@ -192,12 +164,6 @@ html.site-ready {
   }
 }
 
-/* Subtle badge pulse animation for section badges */
-@keyframes badge-subtle-pulse {
-  0%, 100% { box-shadow: none; }
-  50% { box-shadow: none; }
-}
-
 .demo-landing .font-display {
   font-family: var(--font-display);
 }
@@ -206,7 +172,6 @@ html.site-ready {
   font-family: var(--font-mono);
 }
 
-/* Custom premium font classes */
 .demo-landing .font-robert {
   font-family: 'Robert', 'Inter', system-ui, sans-serif;
 }

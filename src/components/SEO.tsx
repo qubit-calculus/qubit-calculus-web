@@ -1,38 +1,18 @@
-/**
- * SEO Component — Centralized per-page meta tag management
- *
- * Provides consistent Open Graph, Twitter Card, standard meta tags,
- * and JSON-LD structured data across all pages.
- * Built on react-helmet-async for SSR compatibility.
- */
-
 import { Helmet } from 'react-helmet-async';
 import { LANDING_URL } from '@/constants';
 
 interface SEOProps {
-  /** Page title — appended with " | Qubit Calculus" suffix */
   title?: string;
-  /** Meta description (max ~160 chars recommended) */
   description?: string;
-  /** Canonical path, e.g. "/about" (domain is prepended automatically) */
   path?: string;
-  /** og:type — defaults to "website" */
   type?: string;
-  /** og:image URL — defaults to the site-wide OG image */
   image?: string;
-  /** og:image alt text */
   imageAlt?: string;
-  /** Prevents indexing when true */
   noindex?: boolean;
-  /** Additional structured data (JSON-LD) — can be a single object or array */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
-  /** Page-specific keywords (appended to defaults) */
   keywords?: string;
-  /** Article publish date (for blog posts) */
   publishedTime?: string;
-  /** Article modified date */
   modifiedTime?: string;
-  /** Article author */
   author?: string;
 }
 
@@ -66,16 +46,12 @@ export default function SEO({
     ? `${keywords}, ${DEFAULTS.keywords}`
     : DEFAULTS.keywords;
 
-  // Normalize jsonLd to array
   const jsonLdItems = jsonLd
-    ? Array.isArray(jsonLd)
-      ? jsonLd
-      : [jsonLd]
+    ? Array.isArray(jsonLd) ? jsonLd : [jsonLd]
     : [];
 
   return (
     <Helmet>
-      {/* Primary */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={fullKeywords} />
@@ -86,7 +62,6 @@ export default function SEO({
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       )}
 
-      {/* Open Graph */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={fullTitle} />
@@ -98,12 +73,10 @@ export default function SEO({
       <meta property="og:site_name" content="Qubit Calculus" />
       <meta property="og:locale" content="en_US" />
 
-      {/* Article-specific OG tags */}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
       {author && <meta property="article:author" content={author} />}
 
-      {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@qubitcalculus" />
       <meta name="twitter:creator" content="@qubitcalculus" />
@@ -112,7 +85,6 @@ export default function SEO({
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={imageAlt} />
 
-      {/* JSON-LD Structured Data */}
       {jsonLdItems.map((item, i) => (
         <script key={i} type="application/ld+json">
           {JSON.stringify(item)}
@@ -122,9 +94,6 @@ export default function SEO({
   );
 }
 
-// ─── Reusable JSON-LD Schema Builders ───────────────────────────────────────
-
-/** BreadcrumbList schema for any page */
 export function breadcrumbJsonLd(items: { name: string; path: string }[]): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
@@ -138,7 +107,6 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]): Recor
   };
 }
 
-/** Service schema */
 export function serviceJsonLd(service: {
   name: string;
   description: string;
@@ -160,7 +128,6 @@ export function serviceJsonLd(service: {
   };
 }
 
-/** FAQPage schema — generates Google rich results */
 export function faqJsonLd(
   faqs: { question: string; answer: string }[]
 ): Record<string, unknown> {
@@ -178,7 +145,6 @@ export function faqJsonLd(
   };
 }
 
-/** BlogPosting / Article schema */
 export function articleJsonLd(article: {
   title: string;
   description: string;

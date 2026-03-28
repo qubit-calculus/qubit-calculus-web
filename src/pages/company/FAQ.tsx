@@ -1,9 +1,3 @@
-/**
- * FAQ Page — Qubit Calculus
- *
- * Frequently asked questions about working with the agency.
- */
-
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -114,7 +108,7 @@ function FAQAccordion({ faq, index }: { faq: FAQItem; index: number }) {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="px-5 pb-5 pt-0">
+            <div className="px-5 pb-5">
               <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{faq.answer}</p>
             </div>
           </motion.div>
@@ -145,26 +139,24 @@ export default function FAQ() {
       />
       <section className="relative py-20 px-6">
         <div className="max-w-3xl mx-auto">
-          {faqCategories.map((category) => {
-            const categoryFaqs = faqs.filter((f) => f.category === category);
-            return (
-              <div key={category} className="mb-12 last:mb-0">
-                <motion.div {...REVEAL_UP} className="mb-6">
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white">{category}</h2>
-                  <div className="h-px w-16 bg-gradient-to-r from-indigo-500 to-blue-500 mt-2" />
-                </motion.div>
-                <div className="space-y-3">
-                  {categoryFaqs.map((faq, index) => (
+          {faqCategories.map((category) => (
+            <div key={category} className="mb-12 last:mb-0">
+              <motion.div {...REVEAL_UP} className="mb-6">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white">{category}</h2>
+                <div className="h-px w-16 bg-gradient-to-r from-indigo-500 to-blue-500 mt-2" />
+              </motion.div>
+              <div className="space-y-3">
+                {faqs
+                  .filter((f) => f.category === category)
+                  .map((faq, index) => (
                     <FAQAccordion key={faq.question} faq={faq} index={index} />
                   ))}
-                </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Still Have Questions CTA */}
       <section className="relative py-16 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <motion.div

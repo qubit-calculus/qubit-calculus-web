@@ -1,9 +1,3 @@
-/**
- * Service tier data for the landing page.
- *
- * Defines the agency's engagement models with transparent starting prices.
- */
-
 export interface PricingTier {
   readonly name: string;
   readonly price: string;
@@ -72,5 +66,4 @@ export const pricingTiers: readonly PricingTier[] = [
       '1-year maintenance plan',
     ],
   },
-] as const;
-
+];

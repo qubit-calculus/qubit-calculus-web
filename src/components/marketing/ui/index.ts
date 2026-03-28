@@ -1,4 +1,3 @@
-// UI Primitives - Barrel Export
 export { LandingButton } from './LandingButton';
 export type { LandingButtonProps } from './LandingButton';
 

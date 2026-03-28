@@ -1,21 +1,13 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef, type ReactNode, type MouseEvent } from 'react';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 
 export interface GlassCardProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   enableTilt?: boolean;
   spotlightColor?: string;
 }
 
-/**
- * GlassCard - Qubit Calculus Primitive
- *
- * A premium container component featuring:
- * - "Deep Glass" background (black/40 + blur)
- * - Mouse-following spotlight border (desktop only)
- * - Optional 3D tilt effect on hover
- */
 export function GlassCard({
   children,
   className = '',
@@ -28,7 +20,7 @@ export function GlassCard({
     typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches
   );
 
-  const handleMouseMove = useCallback(({ currentTarget, clientX, clientY }: React.MouseEvent) => {
+  const handleMouseMove = useCallback(({ currentTarget, clientX, clientY }: MouseEvent) => {
     if (isMobile.current) return;
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
@@ -41,20 +33,17 @@ export function GlassCard({
     transparent 80%
   )`;
 
-  const Content = (
+  const card = (
     <div
       className={`group relative overflow-hidden rounded-xl border border-black/5 dark:border-white/5 bg-white/60 dark:bg-black/40 backdrop-blur-xl transition-colors duration-500 ${className}`}
       onMouseMove={handleMouseMove}
     >
-      {/* Spotlight overlay — not rendered on touch devices */}
       {!isMobile.current && (
         <motion.div
           className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
           style={{ background: bg }}
         />
       )}
-
-      {/* Content wrapper */}
       <div className="relative z-10 h-full">{children}</div>
     </div>
   );
@@ -66,10 +55,10 @@ export function GlassCard({
         transition={{ duration: 0.4, type: 'spring' }}
         className="h-full"
       >
-        {Content}
+        {card}
       </motion.div>
     );
   }
 
-  return Content;
+  return card;
 }

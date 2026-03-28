@@ -1,11 +1,4 @@
-/**
- * Hero Component
- *
- * Premium hero section with aurora beam background.
- * Clean gradient-border CTA buttons. Indigo-blue brand palette.
- */
-
-import { memo, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, useReducedMotion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import BackgroundScene from '../../ui/aurora-section-hero';
 import { GradientText } from '../ui/GradientText';
@@ -34,7 +27,7 @@ const subtitles = [
   'From MVP to enterprise scale — shipped in weeks, not months.',
 ] as const;
 
-const Hero = memo(function Hero(): React.JSX.Element {
+function Hero() {
   const prefersReduced = useReducedMotion();
   const [subtitleIndex, setSubtitleIndex] = useState(0);
 
@@ -54,7 +47,6 @@ const Hero = memo(function Hero(): React.JSX.Element {
       className="hero-pro relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       aria-label="Qubit Calculus — Precision Software, Elegantly Solved"
     >
-      {/* Aurora beam background — dark mode */}
       <div className="hidden dark:block absolute inset-0 z-0">
         {!prefersReduced ? (
           <BackgroundScene beamCount={60} />
@@ -63,7 +55,6 @@ const Hero = memo(function Hero(): React.JSX.Element {
         )}
       </div>
 
-      {/* Light mode fallback */}
       <div className="dark:hidden absolute inset-0 z-0">
         <div className="w-full h-full bg-[#f9fafb]" />
         <div className="hero-pro__mesh absolute inset-[-50%]" />
@@ -72,14 +63,12 @@ const Hero = memo(function Hero(): React.JSX.Element {
         <div className="hero-pro__orb hero-pro__orb--cyan" />
       </div>
 
-      {/* Content */}
       <motion.div
         className="hero-pro__content relative z-10"
         variants={prefersReduced ? undefined : containerVariants}
         initial={prefersReduced ? 'visible' : 'hidden'}
         animate="visible"
       >
-        {/* Title */}
         <motion.h1 variants={itemVariants} className="hero-pro__title text-center text-5xl md:text-7xl font-extrabold">
           <span className="hero-pro__title-line block text-gray-900 dark:text-white transition-colors duration-500">We Build Software</span>
           <GradientText
@@ -92,7 +81,6 @@ const Hero = memo(function Hero(): React.JSX.Element {
           </GradientText>
         </motion.h1>
 
-        {/* Cycling Subtitle */}
         <motion.div variants={itemVariants} className="hero-pro__subtitle-wrap mt-8 text-center max-w-2xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.p
@@ -108,20 +96,15 @@ const Hero = memo(function Hero(): React.JSX.Element {
           </AnimatePresence>
         </motion.div>
 
-        {/* CTA Buttons */}
         <motion.div variants={itemVariants} className="mt-10 max-md:mt-5 flex flex-col sm:flex-row items-center justify-center gap-4 max-md:gap-3">
-          {/* Primary — Gradient border + frosted glass fill */}
           <a
             href="/contact"
             className="hero-cta-primary group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-indigo-600 dark:text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
           >
-            {/* Animated gradient border ring */}
             <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
               <span className="block h-full w-full rounded-full bg-white/90 dark:bg-[#0c0c18]/80 md:backdrop-blur-2xl transition-colors duration-500" />
             </span>
-            {/* Gradient fill on hover */}
             <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/30 group-hover:via-blue-500/20 group-hover:to-indigo-500/30 transition-all duration-500" />
-            {/* Glow */}
             <span className="absolute -inset-1 rounded-full bg-indigo-500/0 group-hover:bg-indigo-500/20 blur-xl transition-all duration-500 -z-10" />
             <span className="relative z-10 flex items-center gap-2.5">
               Get a Free Estimate
@@ -131,7 +114,6 @@ const Hero = memo(function Hero(): React.JSX.Element {
             </span>
           </a>
 
-          {/* Secondary — Ghost with subtle border */}
           <a
             href="#work"
             className="hero-cta-secondary group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-medium overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
@@ -145,7 +127,6 @@ const Hero = memo(function Hero(): React.JSX.Element {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div
         className="hero-pro__scroll absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
         aria-hidden="true"
@@ -166,10 +147,8 @@ const Hero = memo(function Hero(): React.JSX.Element {
           </motion.div>
         </div>
       </motion.div>
-
-      {/* hero-cta-border animation is in marketing-pages.css */}
     </section>
   );
-});
+}
 
 export default Hero;
