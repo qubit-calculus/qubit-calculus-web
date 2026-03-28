@@ -115,16 +115,15 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
             ? 'top-4 w-[95%] max-w-5xl rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-[#0a0a0f]/60 backdrop-blur-2xl shadow-lg dark:shadow-[0_8px_32px_rgba(0,0,0,0.8)] px-6 py-2.5'
             : 'top-6 w-[92%] max-w-6xl rounded-2xl border border-transparent bg-transparent px-4 py-4'
         } ${
-          /* Mobile: always pill style */
-          'max-md:top-3 max-md:w-auto max-md:max-w-none max-md:left-auto max-md:right-3 max-md:rounded-full max-md:px-2 max-md:py-1.5 max-md:gap-1'
+          /* Mobile: always pill style, centered */
+          'max-md:top-3 max-md:w-[90%] max-md:max-w-sm max-md:rounded-full max-md:px-3 max-md:py-1.5 max-md:gap-1'
         } ${
           scrolled
             ? 'max-md:bg-white/80 max-md:dark:bg-[#0a0a0f]/70 max-md:backdrop-blur-2xl max-md:border-black/10 max-md:dark:border-white/10 max-md:shadow-lg'
             : 'max-md:bg-white/60 max-md:dark:bg-[#0a0a0f]/40 max-md:backdrop-blur-xl max-md:border-black/5 max-md:dark:border-white/5'
         }`}
-        style={{ transform: 'translateX(-50%)' }}
         initial={false}
-        animate={{ y: hidden ? -80 : 0, opacity: hidden ? 0 : 1 }}
+        animate={{ x: '-50%', y: hidden ? -80 : 0, opacity: hidden ? 0 : 1 }}
         transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
       >
         {/* Logo Section — hidden on mobile when not scrolled, just show icon */}

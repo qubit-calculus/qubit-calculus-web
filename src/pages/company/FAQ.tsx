@@ -41,7 +41,7 @@ const faqs: FAQItem[] = [
   {
     category: 'Pricing & Contracts',
     question: 'How much does a project cost?',
-    answer: 'MVPs typically range from $15K-$40K depending on complexity. Enterprise projects are $40K-$150K+. We provide fixed-price quotes for defined scopes, or hourly rates for ongoing engagements. No hidden fees — the price we quote is the price you pay.',
+    answer: 'MVPs typically range from $500-$2.5K depending on complexity. Enterprise projects are $2.5K-$15K+. We provide fixed-price quotes for defined scopes, or hourly rates for ongoing engagements. No hidden fees — the price we quote is the price you pay.',
   },
   {
     category: 'Pricing & Contracts',

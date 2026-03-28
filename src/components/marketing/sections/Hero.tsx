@@ -1,14 +1,13 @@
 /**
  * Hero Component
  *
- * Premium hero section with Spline 3D background.
+ * Premium hero section with aurora beam background.
  * Clean gradient-border CTA buttons. Indigo-blue brand palette.
  */
 
-import { memo, useState, useEffect, Suspense, lazy } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { motion, useReducedMotion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-const Spline = lazy(() => import('@splinetool/react-spline'));
-import ErrorBoundary from '../../ErrorBoundary';
+import BackgroundScene from '../../ui/aurora-section-hero';
 import { GradientText } from '../ui/GradientText';
 import './Hero.css';
 
@@ -39,7 +38,7 @@ const subtitles = [
 const Hero = memo(function Hero(): React.JSX.Element {
   const prefersReduced = useReducedMotion();
   const [subtitleIndex, setSubtitleIndex] = useState(0);
-  const [splineLoaded, setSplineLoaded] = useState(false);
+
   useEffect(() => {
     if (prefersReduced) return;
     const interval = setInterval(() => {
@@ -47,14 +46,6 @@ const Hero = memo(function Hero(): React.JSX.Element {
     }, 6000);
     return () => clearInterval(interval);
   }, [prefersReduced]);
-
-  // Timeout: if Spline hasn't loaded in 15s, hide the loading overlay anyway
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!splineLoaded) setSplineLoaded(true);
-    }, 15000);
-    return () => clearTimeout(timeout);
-  }, [splineLoaded]);
 
   const { scrollY } = useScroll();
   const scrollOpacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -64,35 +55,13 @@ const Hero = memo(function Hero(): React.JSX.Element {
       className="hero-pro relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       aria-label="Qubit Calculus — Precision Software, Elegantly Solved"
     >
-      {/* Spline 3D Background — dark mode only */}
-      <div className="hidden dark:block absolute inset-0 z-0" style={{ width: '100%', height: '100%' }}>
+      {/* Aurora beam background — dark mode */}
+      <div className="hidden dark:block absolute inset-0 z-0">
         {!prefersReduced ? (
-          <Suspense fallback={<div className="w-full h-full bg-[#030712]" />}>
-            <ErrorBoundary fallback={<div className="w-full h-full bg-[#030712]" />}>
-              <Spline
-                scene="https://prod.spline.design/q8dNmgcPXGW7qt05/scene.splinecode"
-                style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
-                onLoad={() => setSplineLoaded(true)}
-              />
-            </ErrorBoundary>
-          </Suspense>
+          <BackgroundScene beamCount={60} />
         ) : (
           <div className="w-full h-full bg-[#030712]" />
         )}
-
-        {/* Loading fallback — fades out when Spline loads */}
-        <motion.div
-          className="absolute inset-0 bg-[#030712] pointer-events-none"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: splineLoaded ? 0 : 1 }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
-          style={{ zIndex: splineLoaded ? -1 : 1 }}
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)] animate-pulse" />
-        </motion.div>
-
-        {/* Subtle vignette for text readability — NOT covering the center */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/70 via-transparent to-[#030712]/30 pointer-events-none" style={{ zIndex: 2 }} />
       </div>
 
       {/* Light mode fallback */}

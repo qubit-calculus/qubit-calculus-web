@@ -18,7 +18,7 @@ export interface PricingTier {
 export const pricingTiers: readonly PricingTier[] = [
   {
     name: 'MVPs & Startups',
-    price: 'From $2.5K',
+    price: 'From $500',
     period: 'per project',
     description: 'Perfect for landing pages, MVPs, and small business websites.',
     cta: 'Get Started',
@@ -36,7 +36,7 @@ export const pricingTiers: readonly PricingTier[] = [
   },
   {
     name: 'Digital Transformation',
-    price: 'From $7.5K',
+    price: 'From $2.5K',
     period: 'per project',
     description: 'For businesses ready to modernize or build complex apps.',
     cta: 'Scale Now',
