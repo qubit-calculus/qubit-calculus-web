@@ -113,28 +113,30 @@ export const securityFeatures: readonly SecurityFeatureData[] = [
 ];
 
 /** Footer navigation links */
-export const footerLinks = {
+export const footerLinks: Record<string, readonly FooterLinkData[]> = {
   product: [
-    { label: 'Services', to: '/#services' },
+    { label: 'Services', to: '/services' },
     { label: 'Work', to: '/#work' },
     { label: 'Pricing', to: '/#pricing' },
-    { label: 'Tech Stack', to: '/#security' },
+    { label: 'Tech Stack', to: '/stack' },
   ],
   resources: [
     { label: 'Blog', to: '/blog' },
+    { label: 'Tech Stack', to: '/stack' },
     { label: 'Careers', to: '/careers' },
   ],
   company: [
     { label: 'About Us', to: '/about' },
+    { label: 'Case Studies', to: '/work' },
     { label: 'Contact', to: '/contact' },
-    { label: 'Project Planner', to: '/contact' },
+    { label: 'FAQ', to: '/faq' },
   ],
   legal: [
     { label: 'Privacy Policy', to: '/privacy' },
     { label: 'Terms of Service', to: '/terms' },
     { label: 'Cookie Policy', to: '/cookies' },
   ],
-} as const;
+};
 
 /** "Why Qubit Calculus?" value propositions */
 export const valueProps: readonly ValuePropData[] = [

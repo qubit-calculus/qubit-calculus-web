@@ -45,8 +45,10 @@ export default function Navigation({ showLandingLinks = false }: NavigationProps
     { name: 'About', to: '/about' },
   ] : [
     { name: 'Home', to: '/' },
+    { name: 'Services', to: '/services' },
+    { name: 'Stack', to: '/stack' },
+    { name: 'Blog', to: '/blog' },
     { name: 'About', to: '/about' },
-    { name: 'Contact', to: '/contact' },
   ];
 
   return (

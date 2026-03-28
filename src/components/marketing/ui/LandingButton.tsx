@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 export interface LandingButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -37,8 +37,6 @@ export function LandingButton({
   const springX = useSpring(x, springConfig);
   const springY = useSpring(y, springConfig);
 
-  const [isHovered, setIsHovered] = useState(false);
-
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const { clientX, clientY } = e;
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -56,11 +54,6 @@ export function LandingButton({
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
-    setIsHovered(false);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
   };
 
   const baseStyles =
@@ -109,7 +102,6 @@ export function LandingButton({
 
   const commonProps = {
     onMouseMove: handleMouseMove,
-    onMouseEnter: handleMouseEnter,
     onMouseLeave: handleMouseLeave,
     style: { x: springX, y: springY },
     className: `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`,

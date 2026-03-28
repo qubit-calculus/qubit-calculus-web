@@ -28,6 +28,13 @@ const Careers = lazy(() => import('./pages/company/Careers'));
 const Contact = lazy(() => import('./pages/company/Contact'));
 const Press = lazy(() => import('./pages/company/Press'));
 
+// Services & Resources Pages
+const Services = lazy(() => import('./pages/services/Services'));
+const Stack = lazy(() => import('./pages/services/Stack'));
+const Blog = lazy(() => import('./pages/resources/Blog'));
+const CaseStudies = lazy(() => import('./pages/company/CaseStudies'));
+const FAQ = lazy(() => import('./pages/company/FAQ'));
+
 // Loading fallback
 function PageLoader() {
   return (
@@ -62,9 +69,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path="/contact" element={<Contact />} />
               <Route path="/press" element={<Press />} />
 
-              {/* Static Pages - redirect to sections */}
-              <Route path="/services" element={<Navigate to="/#features" replace />} />
-              <Route path="/stack" element={<Navigate to="/#security" replace />} />
+              {/* Services & Resources */}
+              <Route path="/services" element={<Services />} />
+              <Route path="/stack" element={<Stack />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/work" element={<CaseStudies />} />
+              <Route path="/faq" element={<FAQ />} />
               <Route path="/pricing" element={<Navigate to="/#pricing" replace />} />
 
               {/* Catch-all — branded 404 */}

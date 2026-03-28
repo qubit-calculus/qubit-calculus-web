@@ -51,7 +51,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-100/80 dark:bg-[#0F0F11]/10 relative h-fit rounded-3xl overflow-hidden m-4 md:m-8 border border-black/5 dark:border-white/5 transition-colors duration-500">
+    <footer className="bg-white dark:bg-[#0F0F11]/10 relative h-fit rounded-3xl overflow-hidden m-4 md:m-8 border border-gray-200/60 dark:border-white/5 transition-colors duration-500 shadow-sm dark:shadow-none">
       <div className="max-w-7xl mx-auto p-8 md:p-14 z-40 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8 lg:gap-10 pb-10">
           {/* Brand + Contact section (compact) */}

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import '../../effects/TitleEffects.css';
 
-export type GradientVariant = 'indigo-blue' | 'fire' | 'ice' | 'cosmic';
+export type GradientVariant = 'indigo-blue' | 'fire' | 'ice' | 'cosmic' | 'emerald-purple';
 
 const GRADIENT_PRESETS: Record<GradientVariant, string> = {
   'indigo-blue':
@@ -11,6 +11,8 @@ const GRADIENT_PRESETS: Record<GradientVariant, string> = {
   ice: 'linear-gradient(90deg, #22d3ee 0%, #67e8f9 20%, #a855f7 40%, #f0abfc 60%, #67e8f9 80%, #22d3ee 100%)',
   cosmic:
     'linear-gradient(90deg, #8b5cf6 0%, #c084fc 15%, #ec4899 30%, #f59e0b 50%, #ec4899 70%, #c084fc 85%, #8b5cf6 100%)',
+  'emerald-purple':
+    'linear-gradient(90deg, #10b981 0%, #34d399 20%, #a78bfa 40%, #8b5cf6 60%, #34d399 80%, #10b981 100%)',
 };
 
 export interface GradientTextProps {
