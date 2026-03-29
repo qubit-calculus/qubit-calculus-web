@@ -205,6 +205,7 @@ export const HowWeWork = () => {
       ref={sectionRef}
       id="process"
       className="relative py-24 md:py-36 px-6 transition-colors duration-500 overflow-hidden"
+      style={{ position: 'relative' }}
     >
       {/* Parallax ambient glow */}
       <motion.div

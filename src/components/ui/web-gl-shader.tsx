@@ -120,8 +120,12 @@ export function WebGLShader() {
     }
 
     initScene()
-    animate()
     window.addEventListener("resize", handleResize)
+    // Delay first frame until canvas has layout dimensions
+    requestAnimationFrame(() => {
+      handleResize()
+      animate()
+    })
 
     return () => {
       if (refs.animationId) cancelAnimationFrame(refs.animationId)
