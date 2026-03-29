@@ -71,6 +71,24 @@ const faqs: FAQItem[] = [
 
 const faqCategories = [...new Set(faqs.map((f) => f.category))];
 
+const categoryIcons: Record<string, React.ReactNode> = {
+  'Working With Us': (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  ),
+  'Pricing & Contracts': (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </svg>
+  ),
+  'Technical': (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+    </svg>
+  ),
+};
+
 function FAQAccordion({ faq, index }: { faq: FAQItem; index: number }) {
   const [open, setOpen] = useState(false);
 
@@ -139,10 +157,26 @@ export default function FAQ() {
       />
       <section className="relative py-20 px-6">
         <div className="max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {faqCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => document.getElementById(`faq-${category}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border border-gray-200/30 dark:border-white/10 bg-white/40 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:border-indigo-300 dark:hover:border-indigo-500/30 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all"
+              >
+                <span className="text-indigo-500">{categoryIcons[category]}</span>
+                {category}
+              </button>
+            ))}
+          </div>
+
           {faqCategories.map((category) => (
-            <div key={category} className="mb-12 last:mb-0">
+            <div key={category} id={`faq-${category}`} className="mb-12 last:mb-0 scroll-mt-32">
               <motion.div {...REVEAL_UP} className="mb-6">
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white">{category}</h2>
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                  <span className="text-indigo-500">{categoryIcons[category]}</span>
+                  {category}
+                </h2>
                 <div className="h-px w-16 bg-gradient-to-r from-indigo-500 to-blue-500 mt-2" />
               </motion.div>
               <div className="space-y-3">
@@ -170,19 +204,27 @@ export default function FAQ() {
           >
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Still have questions?</h2>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-              We're happy to jump on a quick call and answer anything not covered here.
+              We're happy to help. Reach out and we'll get back to you within 24 hours.
             </p>
-            <Link
-              to="/contact"
-              className="group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-indigo-600 dark:text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
-            >
-              <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
-                <span className="block h-full w-full rounded-full bg-white/90 dark:bg-[#0c0c18]/80 backdrop-blur-2xl transition-colors duration-500" />
-              </span>
-              <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/30 group-hover:via-blue-500/20 group-hover:to-indigo-500/30 transition-all duration-500" />
-              <span className="absolute -inset-1 rounded-full bg-indigo-500/0 group-hover:bg-indigo-500/20 blur-xl transition-all duration-500 -z-10" />
-              <span className="relative z-10">Contact Us</span>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                to="/contact"
+                className="group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-indigo-600 dark:text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+              >
+                <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
+                  <span className="block h-full w-full rounded-full bg-white/90 dark:bg-[#0c0c18]/80 backdrop-blur-2xl transition-colors duration-500" />
+                </span>
+                <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/30 group-hover:via-blue-500/20 group-hover:to-indigo-500/30 transition-all duration-500" />
+                <span className="absolute -inset-1 rounded-full bg-indigo-500/0 group-hover:bg-indigo-500/20 blur-xl transition-all duration-500 -z-10" />
+                <span className="relative z-10">Contact Us</span>
+              </Link>
+              <a
+                href="mailto:hello@qubitcalculus.com"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium text-gray-700 dark:text-white/80 border border-gray-300 dark:border-white/20 hover:border-indigo-300 dark:hover:border-white/40 hover:bg-indigo-50 dark:hover:bg-white/5 transition-all duration-300"
+              >
+                Book a Call
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
