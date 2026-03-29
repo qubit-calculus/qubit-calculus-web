@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, useReducedMotion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { WebGLShader } from '../../ui/web-gl-shader';
+
+const WebGLShader = lazy(() => import('../../ui/web-gl-shader').then(m => ({ default: m.WebGLShader })));
 import './Hero.css';
 
 const containerVariants = {
@@ -48,7 +49,9 @@ function Hero() {
     >
       <div className="hidden dark:block absolute inset-0 z-0">
         {!prefersReduced ? (
-          <WebGLShader />
+          <Suspense fallback={<div className="w-full h-full bg-[#030712]" />}>
+            <WebGLShader />
+          </Suspense>
         ) : (
           <div className="w-full h-full bg-[#030712]" />
         )}
@@ -89,15 +92,7 @@ function Hero() {
             </AnimatePresence>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mt-8 flex items-center justify-center gap-1">
-            <span className="relative flex h-3 w-3 items-center justify-center">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-            </span>
-            <p className="text-xs text-green-500">Available for New Projects</p>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/contact"
               className="hero-cta-primary group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
