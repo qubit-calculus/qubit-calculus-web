@@ -105,16 +105,21 @@ export function WebGLShader() {
     const animate = () => {
       refs.animationId = requestAnimationFrame(animate)
       if (!visible) return
-      if (refs.uniforms) refs.uniforms.time.value += 0.01
+      if (refs.uniforms) refs.uniforms.time.value += 0.005
       if (refs.renderer && refs.scene && refs.camera) {
         refs.renderer.render(refs.scene, refs.camera)
       }
     }
 
+    let currentW = 0
+    let currentH = 0
     const handleResize = () => {
       if (!refs.renderer || !refs.uniforms) return
       const w = canvas.clientWidth
       const h = canvas.clientHeight
+      if (w === currentW && h === currentH) return
+      currentW = w
+      currentH = h
       refs.renderer.setSize(w, h, false)
       refs.uniforms.resolution.value = [w * dpr, h * dpr]
     }
@@ -126,7 +131,7 @@ export function WebGLShader() {
 
     initScene()
     refs.animationId = requestAnimationFrame(animate)
-    window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", handleResize, { passive: true })
 
     return () => {
       if (refs.animationId) cancelAnimationFrame(refs.animationId)
@@ -144,7 +149,7 @@ export function WebGLShader() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute top-0 left-0 w-full h-full block"
+      className="absolute top-0 left-0 w-full h-full block pointer-events-none"
     />
   )
 }
