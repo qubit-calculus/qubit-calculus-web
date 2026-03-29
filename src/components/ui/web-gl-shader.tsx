@@ -53,7 +53,14 @@ export function WebGLShader() {
         float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
         float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
 
-        gl_FragColor = vec4(r, g, b, 1.0);
+        // Remap to indigo-blue palette
+        vec3 indigo = vec3(0.388, 0.4, 0.945);   // #6366f1
+        vec3 blue   = vec3(0.231, 0.51, 0.965);   // #3b82f6
+        vec3 cyan   = vec3(0.024, 0.714, 0.831);   // #06b6d4
+
+        vec3 color = indigo * r + blue * g + cyan * b;
+
+        gl_FragColor = vec4(color, 1.0);
       }
     `
 
