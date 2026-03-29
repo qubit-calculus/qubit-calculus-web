@@ -83,7 +83,19 @@ export default function TermsOfService() {
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.125rem', lineHeight: 1.7 }}>
               These Terms of Service govern the relationship between Qubit Calculus and our clients. We strive for professional excellence and transparency in all our engagements.
             </p>
+            <p className="mt-2 text-sm" style={{ color: 'var(--color-text-muted)' }}>
+              <strong>Effective Date:</strong> October 1, 2024 &nbsp;·&nbsp; <strong>Last Updated:</strong> October 2024
+            </p>
           </motion.div>
+
+          <motion.nav {...FADE_UP} transition={{ duration: 0.5, delay: 0.1 }} className="marketing-card mb-12">
+            <h3 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--color-text-heading)' }}>Table of Contents</h3>
+            <ul className="space-y-2">
+              {sections.map((s) => (
+                <li key={s.id}><a href={`#${s.id}`} className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors">{s.title}</a></li>
+              ))}
+            </ul>
+          </motion.nav>
 
           {sections.map((section) => (
             <motion.section

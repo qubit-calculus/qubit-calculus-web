@@ -155,9 +155,11 @@ export default function Blog() {
                             ))}
                           </div>
 
-                          {/* Author + Read time */}
                           <div className="flex items-center justify-between pt-4 border-t border-gray-200/30 dark:border-white/5">
-                            <span className="text-xs font-medium text-gray-600 dark:text-gray-400">{post.author}</span>
+                            <div className="flex items-center gap-2">
+                              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center text-[10px] font-bold text-white">{post.author.charAt(0)}</div>
+                              <span className="text-xs font-medium text-gray-600 dark:text-gray-400">{post.author}</span>
+                            </div>
                             <span className="text-xs text-gray-400 dark:text-gray-500">{post.readTime}</span>
                           </div>
                         </div>
@@ -302,6 +304,17 @@ export default function Blog() {
               </p>
             </div>
           </motion.div>
+        </div>
+      </section>
+      {/* Popular Topics */}
+      <section className="relative pb-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4">Popular Topics</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {['React', 'AI', 'TypeScript', 'Performance', 'Web3', 'Architecture', 'DevOps', 'Design Systems'].map((topic) => (
+              <span key={topic} className="px-4 py-2 text-sm rounded-full border border-gray-200/30 dark:border-white/10 text-gray-600 dark:text-gray-400 bg-white/40 dark:bg-white/5 hover:border-indigo-300 dark:hover:border-indigo-500/30 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all cursor-pointer">{topic}</span>
+            ))}
+          </div>
         </div>
       </section>
     </MarketingLayout>

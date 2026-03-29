@@ -99,15 +99,25 @@ export default function PrivacyPolicy() {
     >
       <section className="marketing-section marketing-section--alt">
         <div className="mx-auto max-w-4xl px-4">
-          <motion.div
-            {...FADE_UP}
-            transition={{ duration: 0.5 }}
-            className="marketing-card mb-12"
-          >
+          <motion.div {...FADE_UP} transition={{ duration: 0.5 }} className="marketing-card mb-12">
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.125rem', lineHeight: 1.7 }}>
-              At Qubit Calculus, we take your privacy seriously. This policy outlines how we handle your personal information when you interact with our agency website and services. We are committed to being transparent about our data practices and ensuring your information is protected.
+              At Qubit Calculus, we take your privacy seriously. This policy outlines how we handle your personal information when you interact with our agency website and services.
+            </p>
+            <p className="mt-2 text-sm" style={{ color: 'var(--color-text-muted)' }}>
+              <strong>Effective Date:</strong> October 1, 2024 &nbsp;·&nbsp; <strong>Last Updated:</strong> October 2024
             </p>
           </motion.div>
+
+          <motion.nav {...FADE_UP} transition={{ duration: 0.5, delay: 0.1 }} className="marketing-card mb-12">
+            <h3 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--color-text-heading)' }}>Table of Contents</h3>
+            <ul className="space-y-2">
+              {sections.map((section) => (
+                <li key={section.id}>
+                  <a href={`#${section.id}`} className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors">{section.title}</a>
+                </li>
+              ))}
+            </ul>
+          </motion.nav>
 
           {sections.map((section) => (
             <motion.section
