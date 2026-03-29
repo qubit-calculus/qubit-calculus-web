@@ -47,7 +47,7 @@ function Hero() {
       className="hero-pro relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       aria-label="Qubit Calculus — Precision Software, Elegantly Solved"
     >
-      <div className="hidden dark:block absolute inset-0 z-0">
+      <div className="hidden dark:block absolute inset-0 z-0 pointer-events-none">
         {!prefersReduced ? (
           <Suspense fallback={<div className="w-full h-full bg-[#030712]" />}>
             <WebGLShader />
@@ -57,7 +57,7 @@ function Hero() {
         )}
       </div>
 
-      <div className="dark:hidden absolute inset-0 z-0">
+      <div className="dark:hidden absolute inset-0 z-0 pointer-events-none">
         <div className="w-full h-full bg-[#f9fafb]" />
         <div className="hero-pro__mesh absolute inset-[-50%]" />
         <div className="hero-pro__orb hero-pro__orb--indigo" />
