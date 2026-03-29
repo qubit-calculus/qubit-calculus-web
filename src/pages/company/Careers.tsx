@@ -156,7 +156,7 @@ export default function Careers() {
               <p className="marketing-section__desc">A simple, respectful process — no whiteboard hazing.</p>
             </motion.div>
           </div>
-          <div className="marketing-grid" style={{ maxWidth: '56rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {[
               { step: '01', title: 'Apply Online', desc: 'Submit your resume and portfolio. We review every application within 48 hours.' },
               { step: '02', title: 'Technical Chat', desc: 'A relaxed 45-min conversation about your experience, not a trick question marathon.' },

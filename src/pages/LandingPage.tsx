@@ -145,39 +145,39 @@ export default function LandingPage() {
       <main id="main-content">
         <Hero />
 
-        <Suspense fallback={<div className="min-h-[200px]" />}>
+        <Suspense fallback={null}>
           <StatsBanner />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Suspense fallback={null}>
           <TargetedSolutions />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Suspense fallback={null}>
           <Industries />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[200px]" />}>
+        <Suspense fallback={null}>
           <TechStack />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Suspense fallback={null}>
           <HowWeWork />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[600px]" />}>
+        <Suspense fallback={null}>
           <CaseStudies />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Suspense fallback={null}>
           <Testimonials />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Suspense fallback={null}>
           <PricingSection />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[200px]" />}>
+        <Suspense fallback={null}>
           <CTA prefersReduced={!!prefersReduced} />
         </Suspense>
       </main>

@@ -366,34 +366,32 @@
   }
 
   .hero-pro__mesh {
-    display: block;
-    inset: -62%;
-    opacity: 0.42;
+    display: none;
+  }
+
+  .hero-pro__orb {
     animation: none;
+    filter: none;
   }
 
   .hero-pro__orb--indigo {
     width: 360px;
     height: 360px;
     opacity: 0.58;
-    animation: none;
   }
 
   .hero-pro__orb--blue {
     width: 300px;
     height: 300px;
     opacity: 0.52;
-    animation: none;
   }
 
   .hero-pro__orb--cyan {
-    display: block;
     width: 220px;
     height: 220px;
     bottom: 8%;
     left: 42%;
     opacity: 0.4;
-    animation: none;
   }
 
   .hero-pro__cursor-glow {
