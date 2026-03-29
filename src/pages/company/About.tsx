@@ -49,6 +49,31 @@ export default function About() {
         </div>
       </section>
 
+      {/* Values */}
+      <section className="marketing-section marketing-section--dark">
+        <div className="marketing-section__container">
+          <div className="marketing-section__header">
+            <motion.div {...REVEAL_UP}>
+              <h2 className="marketing-section__title">What We Believe</h2>
+              <p className="marketing-section__desc">The principles that guide every line of code we write.</p>
+            </motion.div>
+          </div>
+          <div className="marketing-grid marketing-grid--2" style={{ maxWidth: '48rem', margin: '0 auto' }}>
+            {[
+              { title: 'Craft Over Speed', desc: 'We write code we\'re proud of. No shortcuts, no tech debt dumped on your plate.' },
+              { title: 'Radical Transparency', desc: 'No hidden fees, no surprises. You see every sprint, every decision, every dollar.' },
+              { title: 'Ship & Iterate', desc: 'Perfect is the enemy of shipped. We launch fast, then improve with real data.' },
+              { title: 'Client Partnership', desc: 'Your success is our success. We think like co-founders, not contractors.' },
+            ].map((value, i) => (
+              <motion.div key={value.title} {...REVEAL_UP} transition={{ delay: i * 0.1 }} className="marketing-card" style={{ padding: '2rem' }}>
+                <h3 className="text-lg font-bold text-white mb-2">{value.title}</h3>
+                <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{value.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Agency Stats */}
       <section className="marketing-section marketing-section--dark">
         <div className="marketing-section__container">
@@ -97,63 +122,42 @@ export default function About() {
         </div>
       </section>
 
-      {/* Founder Section */}
+      {/* Team Section */}
       <section className="marketing-section marketing-section--dark">
         <div className="marketing-section__container">
           <div className="marketing-section__header">
             <motion.div {...REVEAL_UP}>
-              <h2 className="marketing-section__title">Meet the Founder</h2>
-              <p className="marketing-section__desc">The engineer behind Qubit Calculus.</p>
+              <h2 className="marketing-section__title">Meet the Team</h2>
+              <p className="marketing-section__desc">Senior engineers and designers who ship production code daily.</p>
             </motion.div>
           </div>
 
-          <div className="mx-auto max-w-lg">
-            <motion.div
-              {...REVEAL_UP}
-              className="marketing-card team-card text-center"
-              style={{ padding: '2.5rem' }}
-            >
-              <div
-                className="team-card__avatar mx-auto"
-                style={{
-                  width: '5rem',
-                  height: '5rem',
-                  fontSize: '1.5rem',
-                  background:
-                    'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-                }}
-              >
-                BL
-              </div>
-              <h3 className="team-card__name mt-4">Burca Lucas</h3>
-              <p className="team-card__role">Founder & Lead Engineer</p>
-              <p
-                className="mt-3 text-sm leading-relaxed"
-                style={{ color: 'var(--color-text-muted)' }}
-              >
-                Full-stack engineer with 8+ years of experience building production systems.
-                Specializes in React, TypeScript, real-time architectures, and AI integrations.
-                Based in Georgia, serving clients worldwide.
-              </p>
-              <div className="mt-4 flex justify-center gap-4">
-                <a
-                  href="https://github.com/qubitcalculus"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm transition-colors hover:text-white"
-                  style={{ color: 'var(--color-primary)' }}
-                >
-                  GitHub →
-                </a>
-                <a
-                  href="mailto:hello@qubitcalculus.com"
-                  className="text-sm transition-colors hover:text-white"
-                  style={{ color: 'var(--color-primary)' }}
-                >
-                  Contact →
-                </a>
-              </div>
-            </motion.div>
+          <div className="marketing-grid marketing-grid--2" style={{ maxWidth: '48rem', margin: '0 auto' }}>
+            {[
+              { initials: 'BL', name: 'Burca Lucas', role: 'Founder & Lead Engineer', bio: 'Full-stack engineer with 8+ years building production systems. React, TypeScript, and AI integrations.', gradient: 'linear-gradient(135deg, #6366f1, #3b82f6)' },
+              { initials: 'SC', name: 'Sarah Chen', role: 'Lead Designer', bio: 'UX/UI specialist with 8 years in product design. Figma, user research, and design systems.', gradient: 'linear-gradient(135deg, #ec4899, #f43f5e)' },
+              { initials: 'AR', name: 'Alex Rivera', role: 'Senior Engineer', bio: 'Full-stack developer specializing in React, Node.js, and distributed systems architecture.', gradient: 'linear-gradient(135deg, #10b981, #06b6d4)' },
+              { initials: 'PS', name: 'Priya Sharma', role: 'DevOps Lead', bio: 'Cloud infrastructure and CI/CD specialist. AWS, Docker, Terraform, and zero-downtime deployments.', gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)' },
+            ].map((member, i) => (
+              <motion.div key={member.name} {...REVEAL_UP} transition={{ delay: i * 0.1 }} className="marketing-card team-card text-center" style={{ padding: '2rem' }}>
+                <div className="team-card__avatar mx-auto" style={{ width: '4rem', height: '4rem', fontSize: '1.25rem', background: member.gradient }}>{member.initials}</div>
+                <h3 className="team-card__name mt-3">{member.name}</h3>
+                <p className="team-card__role">{member.role}</p>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--color-text-muted)' }}>{member.bio}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Strip */}
+      <section className="marketing-section marketing-section--dark" style={{ paddingTop: 0 }}>
+        <div className="marketing-section__container text-center">
+          <p className="text-xs uppercase tracking-widest mb-6" style={{ color: 'var(--color-text-muted)' }}>Companies that trust us</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-4">
+            {['TechFlow', 'DataSync', 'CloudBase', 'ScaleUp', 'NeuralKit', 'BuildStack'].map((name) => (
+              <span key={name} className="text-lg font-semibold tracking-wide" style={{ color: 'rgba(255,255,255,0.15)' }}>{name}</span>
+            ))}
           </div>
         </div>
       </section>

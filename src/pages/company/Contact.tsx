@@ -50,6 +50,8 @@ export default function Contact() {
     name: '',
     email: '',
     project: 'mvp',
+    budget: '',
+    timeline: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -64,7 +66,7 @@ export default function Contact() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', project: 'mvp', message: '' });
+      setFormData({ name: '', email: '', project: 'mvp', budget: '', timeline: '', message: '' });
     } catch (err) {
       setSubmitStatus('error');
     } finally {
@@ -173,6 +175,40 @@ export default function Contact() {
                       <option value="uiux">UI/UX Design Only</option>
                       <option value="other">Other Inquiry</option>
                     </select>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="budget" className="block text-sm font-bold text-gray-400 mb-2 uppercase tracking-widest">Budget Range</label>
+                      <select
+                        id="budget"
+                        value={formData.budget}
+                        onChange={(e) => setFormData({...formData, budget: e.target.value})}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all appearance-none"
+                      >
+                        <option value="">Select budget</option>
+                        <option value="under-1k">Under $1K</option>
+                        <option value="1k-5k">$1K – $5K</option>
+                        <option value="5k-15k">$5K – $15K</option>
+                        <option value="15k+">$15K+</option>
+                        <option value="unsure">Not sure yet</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="timeline" className="block text-sm font-bold text-gray-400 mb-2 uppercase tracking-widest">Timeline</label>
+                      <select
+                        id="timeline"
+                        value={formData.timeline}
+                        onChange={(e) => setFormData({...formData, timeline: e.target.value})}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all appearance-none"
+                      >
+                        <option value="">Select timeline</option>
+                        <option value="asap">ASAP</option>
+                        <option value="1-2weeks">1–2 weeks</option>
+                        <option value="1-3months">1–3 months</option>
+                        <option value="3months+">3+ months</option>
+                        <option value="flexible">Flexible</option>
+                      </select>
+                    </div>
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-bold text-gray-400 mb-2 uppercase tracking-widest">About the project</label>

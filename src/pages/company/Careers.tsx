@@ -10,26 +10,12 @@ import { REVEAL_UP } from '../../lib/motion-presets';
 import SEO, { breadcrumbJsonLd } from '@/components/SEO';
 
 const benefits = [
-  {
-    icon: '🌍',
-    title: 'Remote-First',
-    description: 'Work from anywhere in the world. We value results over time zones.',
-  },
-  {
-    icon: '⚡',
-    title: 'High Impact',
-    description: 'Build core products for exciting startups and transforming industries.',
-  },
-  {
-    icon: '🎨',
-    title: 'Creative Freedom',
-    description: 'We encourage experimentation and using the latest tech stacks.',
-  },
-  {
-    icon: '🚀',
-    title: 'Growth Budget',
-    description: 'Continuous learning is part of our DNA. We fund your professional growth.',
-  },
+  { icon: '🌍', title: 'Remote-First', description: 'Work from anywhere in the world. We value results over time zones.' },
+  { icon: '⚡', title: 'High Impact', description: 'Build core products for exciting startups and transforming industries.' },
+  { icon: '🎨', title: 'Creative Freedom', description: 'We encourage experimentation and using the latest tech stacks.' },
+  { icon: '🚀', title: 'Growth Budget', description: '$2,000/year for courses, conferences, books, and certifications.' },
+  { icon: '🕐', title: 'Flexible Hours', description: 'Work when you\'re most productive. We measure output, not hours.' },
+  { icon: '💰', title: 'Competitive Pay', description: 'Top-of-market rates. We pay for skill, not geography.' },
 ];
 
 const positions = [
@@ -156,6 +142,43 @@ export default function Careers() {
                 <h3 className="marketing-card__title">{benefit.title}</h3>
                 <p className="marketing-card__desc">{benefit.description}</p>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How to Apply */}
+      <section className="marketing-section marketing-section--alt">
+        <div className="marketing-section__container">
+          <div className="marketing-section__header">
+            <motion.div {...REVEAL_UP}>
+              <h2 className="marketing-section__title">How to Apply</h2>
+              <p className="marketing-section__desc">A simple, respectful process — no whiteboard hazing.</p>
+            </motion.div>
+          </div>
+          <div className="marketing-grid" style={{ maxWidth: '56rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            {[
+              { step: '01', title: 'Apply Online', desc: 'Submit your resume and portfolio. We review every application within 48 hours.' },
+              { step: '02', title: 'Technical Chat', desc: 'A relaxed 45-min conversation about your experience, not a trick question marathon.' },
+              { step: '03', title: 'Welcome Aboard', desc: 'Receive your offer, pick your equipment, and meet the team on day one.' },
+            ].map((item, i) => (
+              <motion.div key={item.step} {...REVEAL_UP} transition={{ delay: i * 0.1 }} className="text-center">
+                <div className="text-3xl font-bold mb-3" style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{item.step}</div>
+                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack */}
+      <section className="marketing-section marketing-section--dark" style={{ paddingTop: 0 }}>
+        <div className="marketing-section__container text-center">
+          <p className="text-xs uppercase tracking-widest mb-6" style={{ color: 'var(--color-text-muted)' }}>Technologies you'll work with</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {['React', 'TypeScript', 'Next.js', 'Node.js', 'PostgreSQL', 'Redis', 'AWS', 'Docker', 'Python', 'Figma'].map((tech) => (
+              <span key={tech} className="px-4 py-2 text-sm rounded-full border border-white/10 text-gray-300 bg-white/5">{tech}</span>
             ))}
           </div>
         </div>

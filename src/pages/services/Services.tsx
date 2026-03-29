@@ -240,6 +240,66 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Process */}
+      <section className="relative py-20 px-6 border-t border-black/5 dark:border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <motion.div {...REVEAL_UP} className="text-center mb-16">
+            <SectionHeader title="Our" titleAccent="Process" description="A proven methodology that keeps projects on time, on budget, and on point." align="center" />
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              { step: '01', title: 'Discovery', desc: 'We analyze your business needs, define scope, and map out the technical architecture.' },
+              { step: '02', title: 'Design', desc: 'UX/UI wireframes and interactive prototypes validated before writing code.' },
+              { step: '03', title: 'Development', desc: 'Agile sprints with weekly demos. You see progress every 5 business days.' },
+              { step: '04', title: 'Launch & Support', desc: 'Deployment, monitoring, and ongoing maintenance to keep things running.' },
+            ].map((item, i) => (
+              <motion.div key={item.step} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="text-center md:text-left">
+                <div className="text-4xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent mb-3">{item.step}</div>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Strip */}
+      <section className="relative py-12 px-6 border-t border-black/5 dark:border-white/5">
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-8">Trusted by innovative teams</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
+            {['TechFlow', 'DataSync', 'CloudBase', 'ScaleUp', 'NeuralKit', 'BuildStack'].map((name) => (
+              <span key={name} className="text-lg font-semibold text-gray-300 dark:text-gray-600 tracking-wide">{name}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="relative py-20 px-6 border-t border-black/5 dark:border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <motion.div {...REVEAL_UP} className="text-center mb-12">
+            <SectionHeader title="Industries We" titleAccent="Serve" description="Deep domain expertise across high-growth sectors." align="center" />
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { title: 'FinTech', desc: 'Payment systems, trading platforms, and compliance tools.', icon: '💳' },
+              { title: 'HealthTech', desc: 'Patient portals, telehealth, and EHR integrations.', icon: '🏥' },
+              { title: 'E-commerce', desc: 'Storefronts, inventory systems, and checkout optimization.', icon: '🛒' },
+              { title: 'SaaS', desc: 'Multi-tenant platforms, dashboards, and analytics tools.', icon: '☁️' },
+            ].map((industry, i) => (
+              <motion.div key={industry.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                <GlassCard className="h-full p-5 text-center">
+                  <div className="text-2xl mb-3">{industry.icon}</div>
+                  <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">{industry.title}</h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{industry.desc}</p>
+                </GlassCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Engagement Models */}
       <section className="relative py-20 px-6">
         <div className="max-w-5xl mx-auto">
