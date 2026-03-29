@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useReducedMotion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { WebGLShader } from '../../ui/web-gl-shader';
-import { GradientText } from '../ui/GradientText';
 import './Hero.css';
 
 const containerVariants = {
@@ -64,67 +63,70 @@ function Hero() {
       </div>
 
       <motion.div
-        className="hero-pro__content relative z-10"
+        className="hero-pro__content relative z-10 w-full max-w-3xl mx-auto px-4"
         variants={prefersReduced ? undefined : containerVariants}
         initial={prefersReduced ? 'visible' : 'hidden'}
         animate="visible"
       >
-        <motion.h1 variants={itemVariants} className="hero-pro__title text-center text-5xl md:text-7xl font-extrabold">
-          <span className="hero-pro__title-line block text-gray-900 dark:text-white transition-colors duration-500">We Build Software</span>
-          <GradientText
-            variant="indigo-blue"
-            animated
-            as="span"
-            className="hero-pro__title-accent mt-2 block"
-          >
-            That Drives Growth
-          </GradientText>
-        </motion.h1>
+        <div className="relative border border-white/10 dark:border-white/10 p-8 md:p-12 overflow-hidden">
+          <motion.h1 variants={itemVariants} className="text-center">
+            <span className="block text-white font-extrabold tracking-tighter text-5xl md:text-[clamp(3rem,8vw,5.5rem)] leading-[1.05]">We Build Software</span>
+            <span className="block text-white font-extrabold tracking-tighter text-5xl md:text-[clamp(3rem,8vw,5.5rem)] leading-[1.05]">That Drives Growth</span>
+          </motion.h1>
 
-        <motion.div variants={itemVariants} className="hero-pro__subtitle-wrap mt-8 text-center max-w-2xl mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={subtitleIndex}
-              className="hero-pro__subtitle text-lg md:text-xl text-gray-600 dark:text-slate-300 transition-colors duration-500"
-              initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
-              animate={{ opacity: 0.85, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.5 }}
+          <motion.div variants={itemVariants} className="mt-6 text-center max-w-2xl mx-auto">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={subtitleIndex}
+                className="text-sm md:text-base text-white/60"
+                initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.5 }}
+              >
+                {subtitles[subtitleIndex]}
+              </motion.p>
+            </AnimatePresence>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="mt-8 flex items-center justify-center gap-1">
+            <span className="relative flex h-3 w-3 items-center justify-center">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+            </span>
+            <p className="text-xs text-green-500">Available for New Projects</p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="/contact"
+              className="hero-cta-primary group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
             >
-              {subtitles[subtitleIndex]}
-            </motion.p>
-          </AnimatePresence>
-        </motion.div>
+              <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
+                <span className="block h-full w-full rounded-full bg-black/60 md:backdrop-blur-2xl transition-colors duration-500" />
+              </span>
+              <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/30 group-hover:via-blue-500/20 group-hover:to-indigo-500/30 transition-all duration-500" />
+              <span className="absolute -inset-1 rounded-full bg-indigo-500/0 group-hover:bg-indigo-500/20 blur-xl transition-all duration-500 -z-10" />
+              <span className="relative z-10 flex items-center gap-2.5">
+                Get a Free Estimate
+                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+            </a>
 
-        <motion.div variants={itemVariants} className="mt-10 max-md:mt-5 flex flex-col sm:flex-row items-center justify-center gap-4 max-md:gap-3">
-          <a
-            href="/contact"
-            className="hero-cta-primary group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-indigo-600 dark:text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
-          >
-            <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
-              <span className="block h-full w-full rounded-full bg-white/90 dark:bg-[#0c0c18]/80 md:backdrop-blur-2xl transition-colors duration-500" />
-            </span>
-            <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/30 group-hover:via-blue-500/20 group-hover:to-indigo-500/30 transition-all duration-500" />
-            <span className="absolute -inset-1 rounded-full bg-indigo-500/0 group-hover:bg-indigo-500/20 blur-xl transition-all duration-500 -z-10" />
-            <span className="relative z-10 flex items-center gap-2.5">
-              Get a Free Estimate
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </span>
-          </a>
-
-          <a
-            href="#work"
-            className="hero-cta-secondary group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-medium overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
-          >
-            <span className="absolute inset-0 rounded-full border border-gray-300 dark:border-white/20 group-hover:border-indigo-300 dark:group-hover:border-white/40 transition-colors duration-300" />
-            <span className="absolute inset-0 rounded-full bg-transparent group-hover:bg-indigo-50 dark:group-hover:bg-white/5 transition-colors duration-300" />
-            <span className="relative z-10 text-gray-700 dark:text-white/80 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors duration-300">
-              View Our Work
-            </span>
-          </a>
-        </motion.div>
+            <a
+              href="#work"
+              className="hero-cta-secondary group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-medium overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+            >
+              <span className="absolute inset-0 rounded-full border border-white/20 group-hover:border-white/40 transition-colors duration-300" />
+              <span className="absolute inset-0 rounded-full bg-transparent group-hover:bg-white/5 transition-colors duration-300" />
+              <span className="relative z-10 text-white/80 group-hover:text-white transition-colors duration-300">
+                View Our Work
+              </span>
+            </a>
+          </motion.div>
+        </div>
       </motion.div>
 
       <motion.div
