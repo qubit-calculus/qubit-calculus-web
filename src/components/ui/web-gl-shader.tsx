@@ -99,8 +99,6 @@ export function WebGLShader() {
 
       refs.mesh = new THREE.Mesh(geometry, material)
       refs.scene.add(refs.mesh)
-
-      handleResize()
     }
 
     const animate = () => {

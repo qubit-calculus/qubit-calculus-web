@@ -71,17 +71,17 @@ function Hero() {
         initial={prefersReduced ? 'visible' : 'hidden'}
         animate="visible"
       >
-        <div className="relative border border-white/10 dark:border-white/10 p-8 md:p-12 overflow-hidden">
+        <div className="relative border border-gray-200/30 dark:border-white/10 p-8 md:p-12 overflow-hidden">
           <motion.h1 variants={itemVariants} className="text-center">
-            <span className="block text-white font-extrabold tracking-tighter text-5xl md:text-[clamp(3rem,8vw,5.5rem)] leading-[1.05]">We Build Software</span>
-            <span className="block text-white font-extrabold tracking-tighter text-5xl md:text-[clamp(3rem,8vw,5.5rem)] leading-[1.05]">That Drives Growth</span>
+            <span className="block text-gray-900 dark:text-white font-extrabold tracking-tighter text-5xl md:text-[clamp(3rem,8vw,5.5rem)] leading-[1.05]">We Build Software</span>
+            <span className="block text-gray-900 dark:text-white font-extrabold tracking-tighter text-5xl md:text-[clamp(3rem,8vw,5.5rem)] leading-[1.05]">That Drives Growth</span>
           </motion.h1>
 
           <motion.div variants={itemVariants} className="mt-6 text-center max-w-2xl mx-auto">
             <AnimatePresence mode="wait">
               <motion.p
                 key={subtitleIndex}
-                className="text-sm md:text-base text-white/60"
+                className="text-sm md:text-base text-gray-600 dark:text-white/60"
                 initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
@@ -95,10 +95,10 @@ function Hero() {
           <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/contact"
-              className="hero-cta-primary group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+              className="hero-cta-primary group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-indigo-600 dark:text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
             >
               <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
-                <span className="block h-full w-full rounded-full bg-black/60 md:backdrop-blur-2xl transition-colors duration-500" />
+                <span className="block h-full w-full rounded-full bg-white/90 dark:bg-black/60 md:backdrop-blur-2xl transition-colors duration-500" />
               </span>
               <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/30 group-hover:via-blue-500/20 group-hover:to-indigo-500/30 transition-all duration-500" />
               <span className="absolute -inset-1 rounded-full bg-indigo-500/0 group-hover:bg-indigo-500/20 blur-xl transition-all duration-500 -z-10" />
@@ -114,9 +114,9 @@ function Hero() {
               href="#work"
               className="hero-cta-secondary group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-medium overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
             >
-              <span className="absolute inset-0 rounded-full border border-white/20 group-hover:border-white/40 transition-colors duration-300" />
-              <span className="absolute inset-0 rounded-full bg-transparent group-hover:bg-white/5 transition-colors duration-300" />
-              <span className="relative z-10 text-white/80 group-hover:text-white transition-colors duration-300">
+              <span className="absolute inset-0 rounded-full border border-gray-300 dark:border-white/20 group-hover:border-indigo-300 dark:group-hover:border-white/40 transition-colors duration-300" />
+              <span className="absolute inset-0 rounded-full bg-transparent group-hover:bg-indigo-50 dark:group-hover:bg-white/5 transition-colors duration-300" />
+              <span className="relative z-10 text-gray-700 dark:text-white/80 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors duration-300">
                 View Our Work
               </span>
             </a>

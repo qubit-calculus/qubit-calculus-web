@@ -35,6 +35,7 @@ const recentErrors = new Set<string>();
 
 function shouldReport(message: string): boolean {
   if (errorCount >= MAX_ERRORS_PER_SESSION) return false;
+  if (message.includes('ResizeObserver loop')) return false;
   if (recentErrors.has(message)) return false;
   recentErrors.add(message);
   errorCount++;
