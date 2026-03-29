@@ -4,6 +4,7 @@
  * Showcases selected projects with results, tech stack, and testimonials.
  */
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MarketingLayout } from '@/components/marketing';
@@ -93,7 +94,12 @@ const testimonials = [
   },
 ];
 
+const industries = ['All', ...new Set(caseStudies.map((s) => s.category))];
+
 export default function CaseStudies() {
+  const [filter, setFilter] = useState('All');
+  const filtered = filter === 'All' ? caseStudies : caseStudies.filter((s) => s.category === filter);
+
   return (
     <MarketingLayout
       title="Our Work"
@@ -109,10 +115,27 @@ export default function CaseStudies() {
           { name: 'Case Studies', path: '/work' },
         ])}
       />
+      {/* Stats Strip */}
+      <section className="relative py-12 px-6 border-b border-black/5 dark:border-white/5">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { value: '50+', label: 'Projects Delivered' },
+            { value: '98%', label: 'Client Satisfaction' },
+            { value: '$20M+', label: 'Revenue Impact' },
+            { value: '4.9/5', label: 'Average Rating' },
+          ].map((stat, i) => (
+            <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">{stat.value}</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Case Studies Grid */}
       <section className="relative py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <motion.div {...REVEAL_UP} className="text-center mb-16">
+          <motion.div {...REVEAL_UP} className="text-center mb-8">
             <SectionHeader
               title="Featured"
               titleAccent="Projects"
@@ -121,8 +144,24 @@ export default function CaseStudies() {
             />
           </motion.div>
 
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {industries.map((industry) => (
+              <button
+                key={industry}
+                onClick={() => setFilter(industry)}
+                className={`text-sm px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+                  filter === industry
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25'
+                    : 'bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 border border-gray-200/50 dark:border-white/5 hover:bg-gray-200 dark:hover:bg-white/10'
+                }`}
+              >
+                {industry}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {caseStudies.map((study, index) => (
+            {filtered.map((study, index) => (
               <motion.div
                 key={study.title}
                 initial={{ opacity: 0, y: 30 }}
