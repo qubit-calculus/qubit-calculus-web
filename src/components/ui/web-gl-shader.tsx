@@ -100,23 +100,17 @@ export function WebGLShader() {
       handleResize()
     }
 
-    // Throttle to ~30fps on mobile, 60fps on desktop
-    const interval = isMobile ? 33 : 16
-    let lastFrame = 0
+    let visible = true
 
-    const animate = (now: number) => {
+    const animate = () => {
       refs.animationId = requestAnimationFrame(animate)
-      if (now - lastFrame < interval) return
-      lastFrame = now
-
+      if (!visible) return
       if (refs.uniforms) refs.uniforms.time.value += 0.01
       if (refs.renderer && refs.scene && refs.camera) {
         refs.renderer.render(refs.scene, refs.camera)
       }
     }
 
-    // Debounce resize to avoid layout thrashing
-    let resizeTimer: ReturnType<typeof setTimeout>
     const handleResize = () => {
       if (!refs.renderer || !refs.uniforms) return
       const w = canvas.clientWidth
@@ -124,44 +118,19 @@ export function WebGLShader() {
       refs.renderer.setSize(w, h, false)
       refs.uniforms.resolution.value = [w * dpr, h * dpr]
     }
-    const onResize = () => {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(handleResize, 150)
-    }
 
-    // Pause when hero scrolls out of view
-    let visible = true
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting
-      if (visible && !refs.animationId) {
-        refs.animationId = requestAnimationFrame(animate)
-      }
     }, { threshold: 0 })
     observer.observe(canvas)
 
-    const gatedAnimate = (now: number) => {
-      if (!visible) {
-        refs.animationId = null
-        return
-      }
-      refs.animationId = requestAnimationFrame(gatedAnimate)
-      if (now - lastFrame < interval) return
-      lastFrame = now
-
-      if (refs.uniforms) refs.uniforms.time.value += 0.01
-      if (refs.renderer && refs.scene && refs.camera) {
-        refs.renderer.render(refs.scene, refs.camera)
-      }
-    }
-
     initScene()
-    refs.animationId = requestAnimationFrame(gatedAnimate)
-    window.addEventListener("resize", onResize)
+    refs.animationId = requestAnimationFrame(animate)
+    window.addEventListener("resize", handleResize)
 
     return () => {
       if (refs.animationId) cancelAnimationFrame(refs.animationId)
-      clearTimeout(resizeTimer)
-      window.removeEventListener("resize", onResize)
+      window.removeEventListener("resize", handleResize)
       observer.disconnect()
       if (refs.mesh) {
         refs.scene?.remove(refs.mesh)
