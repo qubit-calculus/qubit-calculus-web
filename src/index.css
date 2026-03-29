@@ -202,7 +202,6 @@ code, pre, kbd, samp {
     0 0 120px 60px var(--glow-color-2),
     0 0 200px 100px rgba(99, 102, 241, 0.2);
   animation: floorGlow 3s ease-in-out infinite;
-  will-change: transform, opacity;
   contain: layout style;
 }
 
@@ -217,7 +216,6 @@ code, pre, kbd, samp {
   filter: blur(50px);
   opacity: 0.6;
   animation: mainGlow 2s ease-in-out infinite;
-  will-change: opacity;
   contain: layout style;
 }
 
@@ -235,7 +233,6 @@ code, pre, kbd, samp {
   height: 100%;
   background: linear-gradient(to top, var(--glow-color-1), var(--glow-color-2), transparent);
   animation: rise 4.5s linear infinite, fade 4.5s linear infinite;
-  will-change: transform, opacity;
   contain: layout style;
 }
 
@@ -254,7 +251,6 @@ code, pre, kbd, samp {
   mask-image: linear-gradient(to top, white 0%, white 40%, transparent 100%);
   -webkit-mask-image: linear-gradient(to top, white 0%, white 40%, transparent 100%);
   animation: moveGrid 20s linear infinite;
-  will-change: background-position;
   contain: layout style;
 }
 

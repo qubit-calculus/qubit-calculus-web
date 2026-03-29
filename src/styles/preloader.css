@@ -33,7 +33,6 @@
   opacity: 0;
   /* Isolate from letter animations to prevent glitching */
   isolation: isolate;
-  will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -59,8 +58,6 @@
   animation: terrainGridScroll 10s linear infinite;
   mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
   -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
-  /* GPU acceleration for smooth animation */
-  will-change: background-position;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -212,7 +209,6 @@
   border-radius: 50%;
   filter: blur(40px);
   animation: orbFloat 8s ease-in-out infinite;
-  will-change: transform, opacity;
   contain: strict;
 }
 

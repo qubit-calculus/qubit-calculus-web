@@ -40,7 +40,6 @@ html.site-ready {
 }
 
 .zoom-section {
-  will-change: transform, opacity;
   transform-origin: center center;
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;

@@ -310,9 +310,7 @@
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  /* GPU acceleration */
   transform: translateZ(0);
-  will-change: transform;
 }
 
 .hero__bg-aurora::before {

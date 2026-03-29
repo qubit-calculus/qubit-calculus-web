@@ -70,7 +70,7 @@ export function WebGLShader() {
       refs.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1)
 
       refs.uniforms = {
-        resolution: { value: [window.innerWidth, window.innerHeight] },
+        resolution: { value: [0, 0] },
         time: { value: 0.0 },
         xScale: { value: 1.0 },
         yScale: { value: 0.65 },
@@ -113,10 +113,10 @@ export function WebGLShader() {
 
     const handleResize = () => {
       if (!refs.renderer || !refs.uniforms) return
-      const width = window.innerWidth
-      const height = window.innerHeight
+      const width = canvas.clientWidth
+      const height = canvas.clientHeight
       refs.renderer.setSize(width, height, false)
-      refs.uniforms.resolution.value = [width, height]
+      refs.uniforms.resolution.value = [width * window.devicePixelRatio, height * window.devicePixelRatio]
     }
 
     initScene()

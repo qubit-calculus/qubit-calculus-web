@@ -188,10 +188,7 @@
   border-radius: 50%;
   filter: blur(100px);
   opacity: 0.4;
-  /* GPU acceleration */
-  will-change: transform;
   transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 .marketing-bg-orb--1 {
@@ -475,7 +472,6 @@
   position: relative;
   overflow: hidden;
   /* Performance optimizations */
-  will-change: transform, box-shadow;
   contain: layout style;
   transform: translateZ(0) perspective(1000px);
   backface-visibility: hidden;

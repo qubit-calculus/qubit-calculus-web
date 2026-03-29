@@ -168,24 +168,11 @@
       }
     </script>
 
-    <!-- Preload critical fonts -->
-    <link
-      rel="preload"
-      href="/fonts/zentry-regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-      fetchpriority="high"
-    />
-    <link rel="preload" href="/fonts/general.woff2" as="font" type="font/woff2" crossorigin />
-    <link
-      rel="preload"
-      href="/fonts/robert-regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="preload" href="/fonts/robert-medium.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Preload hero font only; prefetch the rest -->
+    <link rel="preload" href="/fonts/zentry-regular.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+    <link rel="prefetch" href="/fonts/general.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="prefetch" href="/fonts/robert-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="prefetch" href="/fonts/robert-medium.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Google Fonts (non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

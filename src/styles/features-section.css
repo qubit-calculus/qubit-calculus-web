@@ -151,7 +151,6 @@
     drop-shadow(0 0 10px rgba(99, 102, 241, 0.55))
     drop-shadow(0 0 18px rgba(59, 130, 246, 0.28));
   transform-origin: center;
-  will-change: transform, filter;
   animation:
     feature-icon-float 3.2s ease-in-out infinite,
     feature-icon-glow 2.5s ease-in-out infinite;
