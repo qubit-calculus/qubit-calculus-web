@@ -64,7 +64,7 @@ export function WebGLShader() {
         vec3 blue   = vec3(0.231, 0.51, 0.965);
         vec3 cyan   = vec3(0.024, 0.714, 0.831);
 
-        gl_FragColor = vec4(indigo * r + blue * g + cyan * b, 1.0);
+        gl_FragColor = vec4((indigo * r + blue * g + cyan * b) * 0.9, 1.0);
       }
     `
 
@@ -80,8 +80,8 @@ export function WebGLShader() {
         resolution: { value: [0, 0] },
         time: { value: 0.0 },
         xScale: { value: 1.0 },
-        yScale: { value: 0.5 },
-        distortion: { value: 0.05 },
+        yScale: { value: 0.65 },
+        distortion: { value: 0.07 },
       }
 
       const geo = new THREE.BufferGeometry()
