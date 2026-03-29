@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useReducedMotion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import BackgroundScene from '../../ui/aurora-section-hero';
+import { WebGLShader } from '../../ui/web-gl-shader';
 import { GradientText } from '../ui/GradientText';
 import './Hero.css';
 
@@ -49,7 +49,7 @@ function Hero() {
     >
       <div className="hidden dark:block absolute inset-0 z-0">
         {!prefersReduced ? (
-          <BackgroundScene beamCount={60} />
+          <WebGLShader />
         ) : (
           <div className="w-full h-full bg-[#030712]" />
         )}
