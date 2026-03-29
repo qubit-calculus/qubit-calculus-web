@@ -36,7 +36,7 @@ const solutions = [
 
 export function TargetedSolutions() {
   return (
-    <section className="zoom-section relative py-24 md:py-32 px-6 overflow-hidden">
+    <section id="services" className="zoom-section relative py-24 md:py-32 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-16 md:mb-24 flex justify-between items-end gap-8">
           <SectionHeader

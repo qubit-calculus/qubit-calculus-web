@@ -49,7 +49,7 @@ export default function CookiePolicy() {
   return (
     <MarketingLayout
       title="Cookie Policy"
-      subtitle="Last updated: October 2024"
+      subtitle="Last updated: March 2026"
     >
       <section className="marketing-section marketing-section--alt">
         <div className="mx-auto max-w-4xl px-4">
@@ -62,7 +62,7 @@ export default function CookiePolicy() {
               Our website uses cookies to provide a better experience and maintain site performance. We prioritize your privacy and do not use cookies for invasive tracking or advertising.
             </p>
             <p className="mt-2 text-sm" style={{ color: 'var(--color-text-muted)' }}>
-              <strong>Effective Date:</strong> October 1, 2024 &nbsp;·&nbsp; <strong>Last Updated:</strong> October 2024
+              <strong>Effective Date:</strong> March 1, 2026 &nbsp;·&nbsp; <strong>Last Updated:</strong> March 2026
             </p>
           </motion.div>
 

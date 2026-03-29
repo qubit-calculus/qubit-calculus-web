@@ -71,7 +71,7 @@ export default function TermsOfService() {
   return (
     <MarketingLayout
       title="Terms of Service"
-      subtitle="Last updated: October 2024"
+      subtitle="Last updated: March 2026"
     >
       <section className="marketing-section marketing-section--alt">
         <div className="mx-auto max-w-4xl px-4">
@@ -84,7 +84,7 @@ export default function TermsOfService() {
               These Terms of Service govern the relationship between Qubit Calculus and our clients. We strive for professional excellence and transparency in all our engagements.
             </p>
             <p className="mt-2 text-sm" style={{ color: 'var(--color-text-muted)' }}>
-              <strong>Effective Date:</strong> October 1, 2024 &nbsp;·&nbsp; <strong>Last Updated:</strong> October 2024
+              <strong>Effective Date:</strong> March 1, 2026 &nbsp;·&nbsp; <strong>Last Updated:</strong> March 2026
             </p>
           </motion.div>
 

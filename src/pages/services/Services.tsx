@@ -200,21 +200,20 @@ export default function Services() {
                   {/* Icon */}
                   <div className="relative mb-5">
                     <div
-                      className="absolute -inset-2 rounded-2xl opacity-20 blur-xl"
+                      className="absolute -inset-3 rounded-2xl opacity-40 blur-xl"
                       style={{ background: service.glowColor }}
                     />
                     <div
                       className="relative w-12 h-12 rounded-xl flex items-center justify-center border border-white/10 dark:border-white/10"
                       style={{
                         background: `linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))`,
-                        backdropFilter: 'blur(12px)',
                       }}
                     >
                       <div
-                        className="absolute inset-0 rounded-xl opacity-40"
+                        className="absolute inset-0 rounded-xl opacity-60"
                         style={{ background: `linear-gradient(135deg, ${service.glowColor}, transparent 70%)` }}
                       />
-                      <span className="relative z-10 text-white">{service.icon}</span>
+                      <span className="relative z-10" style={{ color: service.glowColor.replace('0.3)', '1)') }}>{service.icon}</span>
                     </div>
                   </div>
 

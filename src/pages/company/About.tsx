@@ -5,6 +5,7 @@
  */
 
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const springs = { bouncy: { type: 'spring' as const, stiffness: 300, damping: 10 } };
 import { MarketingLayout } from '@/components/marketing';
@@ -172,13 +173,24 @@ export default function About() {
               to turn your vision into reality. Let's start with a conversation.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
-                href="/contact"
-                className="marketing-btn marketing-btn--primary"
+              <Link
+                to="/contact"
+                className="group relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-semibold text-indigo-600 dark:text-white overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
               >
-                Start Your Project
-              </a>
-              <a href="mailto:hello@qubitcalculus.com" className="marketing-btn marketing-btn--secondary">
+                <span className="absolute inset-0 rounded-full p-[1.5px] hero-cta-border">
+                  <span className="block h-full w-full rounded-full bg-white/90 dark:bg-[#0c0c18]/80 backdrop-blur-2xl transition-colors duration-500" />
+                </span>
+                <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-indigo-600/0 via-blue-500/0 to-indigo-500/0 group-hover:from-indigo-600/30 group-hover:via-blue-500/20 group-hover:to-indigo-500/30 transition-all duration-500" />
+                <span className="absolute -inset-1 rounded-full bg-indigo-500/0 group-hover:bg-indigo-500/20 blur-xl transition-all duration-500 -z-10" />
+                <span className="relative z-10 flex items-center gap-2.5">
+                  Start Your Project
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                </span>
+              </Link>
+              <a
+                href="mailto:hello@qubitcalculus.com"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium text-gray-700 dark:text-white/80 border border-gray-300 dark:border-white/20 hover:border-indigo-300 dark:hover:border-white/40 hover:bg-indigo-50 dark:hover:bg-white/5 transition-all duration-300"
+              >
                 hello@qubitcalculus.com
               </a>
             </div>
