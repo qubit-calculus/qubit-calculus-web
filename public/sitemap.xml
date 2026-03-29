@@ -2,73 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Pages -->
   <url>
-    <loc>https://qubitcalculus.com/</loc>
+    <loc>https://www.qubitcalculus.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://qubitcalculus.com/services</loc>
+    <loc>https://www.qubitcalculus.com/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qubitcalculus.com/work</loc>
+    <loc>https://www.qubitcalculus.com/work</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qubitcalculus.com/contact</loc>
+    <loc>https://www.qubitcalculus.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Company -->
   <url>
-    <loc>https://qubitcalculus.com/about</loc>
+    <loc>https://www.qubitcalculus.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://qubitcalculus.com/faq</loc>
+    <loc>https://www.qubitcalculus.com/faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://qubitcalculus.com/careers</loc>
+    <loc>https://www.qubitcalculus.com/careers</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qubitcalculus.com/press</loc>
+    <loc>https://www.qubitcalculus.com/press</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Resources -->
   <url>
-    <loc>https://qubitcalculus.com/stack</loc>
+    <loc>https://www.qubitcalculus.com/stack</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://qubitcalculus.com/blog</loc>
+    <loc>https://www.qubitcalculus.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Legal -->
   <url>
-    <loc>https://qubitcalculus.com/privacy</loc>
+    <loc>https://www.qubitcalculus.com/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://qubitcalculus.com/terms</loc>
+    <loc>https://www.qubitcalculus.com/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://qubitcalculus.com/cookies</loc>
+    <loc>https://www.qubitcalculus.com/cookies</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

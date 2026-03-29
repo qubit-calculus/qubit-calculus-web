@@ -9,7 +9,7 @@
 export const WEB_APP_URL = 'https://qubitcalculus.com';
 
 /** Landing site base URL */
-export const LANDING_URL = 'https://qubitcalculus.com';
+export const LANDING_URL = 'https://www.qubitcalculus.com';
 
 /** External links used across the site */
 export const EXTERNAL_LINKS = {

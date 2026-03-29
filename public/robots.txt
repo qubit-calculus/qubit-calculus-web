@@ -1,10 +1,10 @@
-# Qubit Calculus — https://qubitcalculus.com
+# Qubit Calculus — https://www.qubitcalculus.com
 User-agent: *
 Allow: /
 Disallow: /api/
 
 # Sitemaps
-Sitemap: https://qubitcalculus.com/sitemap.xml
+Sitemap: https://www.qubitcalculus.com/sitemap.xml
 
 # Crawl-delay (optional, respected by some bots)
 Crawl-delay: 1
